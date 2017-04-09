@@ -1,28 +1,43 @@
 'use strict';
 
 /*
- * Order ingredients by name
+ * Compare ingredients by name
  */
 function compareIngredientsByName(a, b) {
-	if (a.name > b.name) return 1;
-	if (a.name < b.name) return -1;
-	return 0;
+	return strcmp(a.name, b.name);
 }
 
 /*
- * Order ingredients by effect
+ * Compare ingredients by effect
  */
 function compareIngredientsByEffect(a, b) {
-	if (a.effect > b.effect) return 1;
-	if (a.effect < b.effect) return -1;
-	return 0;
+	return strcmp(a.effect, b.effect);
 }
 
 /*
- * Order ingredients by type
+ * Compare ingredients by type
  */
 function compareIngredientsByType(a, b) {
-	if (a.type > b.type) return 1;
-	if (a.type < b.type) return -1;
-	return 0;
+	return strcmp(a.type, b.type);
+}
+
+/*
+ * strcmp
+ */
+function strcmp(a, b) {
+	return (a > b ? 1 : 
+			a < b ? -1 : 0);
+}
+
+/*
+ * Creates a DOM element with the given attributes
+ */
+function myCreateElement(tag, attr) {
+	var e = document.createElement(tag);
+
+	for (var key in attr) {
+		if (!attr.hasOwnProperty(key)) continue;
+		e[key] = attr[key];
+	}
+	return e;
 }

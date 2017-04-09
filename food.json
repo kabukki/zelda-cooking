@@ -92,7 +92,7 @@
 
 {
 	"name": "Hyrule Bass",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -101,7 +101,7 @@
 },
 {
 	"name": "Sanke Carp",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -120,7 +120,7 @@
 },
 {
 	"name": "Bird Egg",
-	"type": "misc",
+	"type": "egg",
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -138,7 +138,7 @@
 },
 {
 	"name": "Goat Butter",
-	"type": "misc",
+	"type": "butter",
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -147,7 +147,7 @@
 },
 {
 	"name": "Hylian Rice",
-	"type": "misc",
+	"type": "rice",
 	"hearts": [1, 1, 1, 1, 1],
 	"effect": "none",
 	"duration": [60, 90, 120, 150, 180],
@@ -156,7 +156,7 @@
 },
 {
 	"name": "Goron Spice",
-	"type": "misc",
+	"type": "spice",
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -165,7 +165,7 @@
 },
 {
 	"name": "Tabantha Wheat",
-	"type": "misc",
+	"type": "wheat",
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -174,7 +174,7 @@
 },
 {
 	"name": "Fresh Milk",
-	"type": "misc",
+	"type": "milk",
 	"hearts": [0.5, 1, 1.5, 2, 2.5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -183,7 +183,7 @@
 },
 {
 	"name": "Cane Sugar",
-	"type": "misc",
+	"type": "sugar",
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -203,7 +203,7 @@
 
 {
 	"name": "Mighty Porgy",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Mighty",
 	"duration": [50, 100, 150, 200, 250],
@@ -212,7 +212,7 @@
 },
 {
 	"name": "Razorclaw Crab",
-	"type": "seafood",
+	"type": "crab",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Mighty",
 	"duration": [50, 100, 150, 200, 250],
@@ -221,7 +221,7 @@
 },
 {
 	"name": "Mighty Carp",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Mighty",
 	"duration": [50, 100, 150, 200, 250],
@@ -258,7 +258,7 @@
 
 {
 	"name": "Armored Porgy",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Tough",
 	"duration": [50, 100, 150, 200, 250],
@@ -267,7 +267,7 @@
 },
 {
 	"name": "Ironshell Crab",
-	"type": "seafood",
+	"type": "crab",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Tough",
 	"duration": [50, 100, 150, 200, 250],
@@ -276,7 +276,7 @@
 },
 {
 	"name": "Armored Carp",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Tough",
 	"duration": [50, 100, 150, 200, 250],
@@ -332,7 +332,7 @@
 
 {
 	"name": "Staminoka Bass",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Enduring",
 	"duration": [1, 2.2, 3, 3, 3],
@@ -341,7 +341,7 @@
 },
 {
 	"name": "Bright-Eyed Crab",
-	"type": "seafood",
+	"type": "crab",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Enduring",
 	"duration": [0.4, 1, 1.6, 2.2, 2.8],
@@ -350,10 +350,10 @@
 },
 {
 	"name": "Courser Bee Honey",
-	"type": "misc",
+	"type": "honey",
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Enduring",
-	"duration": [0.4, 1, 1.6, 2.2, 2.8],
+	"effect": "Energizing",
+	"duration": [40, 80, 120, 160, 200],
 	"level": [0, 0, 0, 0, 0],
 	"image": "courserbeehoney.png"
 },
@@ -378,7 +378,7 @@
 },
 {
 	"name": "Stealthfin Trout",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Sneaky",
 	"duration": [120, 240, 360, 480, 600],
@@ -479,7 +479,7 @@
 },
 {
 	"name": "Hearty Salmon",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [-1, -1, -1, -1, -1],
 	"effect": "Hearty",
 	"duration": [4, 8, 12, 16, 20],
@@ -506,7 +506,7 @@
 },
 {
 	"name": "Hearty Bass",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [-1, -1, -1, -1, -1],
 	"effect": "Hearty",
 	"duration": [2, 4, 6, 8, 10],
@@ -623,7 +623,7 @@
 },
 {
 	"name": "Chillfin Trout",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "Chilly",
 	"duration": [190, 380, 570, 760, 950],
@@ -660,7 +660,7 @@
 },
 {
 	"name": "Sizzlefin Trout",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "Spicy",
 	"duration": [190, 380, 570, 760, 950],
@@ -697,7 +697,7 @@
 },
 {
 	"name": "Voltfin Trout",
-	"type": "seafood",
+	"type": "fish",
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "Electro",
 	"duration": [190, 380, 570, 760, 950],
