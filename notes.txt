@@ -1,0 +1,36 @@
+4 types d'ingredients :
+- regular food
+- status food (w/ a bonus effect)
+- critters & insects
+- monster parts
+
+3 types de plats :
+- basic: fill hearts
+- elixirs: give buff
+- status dishes: fill hearts & give buff
+
+regular + regular = basic
+critters + monsters = elixir
+regular + status = status dish
+
+food + food = OK
+critters + monster = OK
+Le reste = KO
+  ex: food + critters/monster = KO
+      critters + critters = KO
+
+(
+  Emergency cooking pot: Drop wood + flint, then hit it.
+  Critical success: sound effect. Guaranteed when blood moon or by adding a star fragment
+)
+
+basic dish + status food = status dish
+nuts + elixir = elixir + hearts
+Mais 2 effets ou plus = annule l'effet.
+
+Elixirs:
+- quality of the buff	(low, mid, high) = depends on the critter
+- time it lasts		(..) = depends on the # of monster parts
+
+Effects don't stack
+---------------------------------------------------------------------

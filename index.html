@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+	<head>
+		<title>BOTW Cooking Simulator</title>
+		<link rel='icon' href='/img/food/apple.png'/>
+		<style>
+			body {
+				font-family: 'Arial', sans-serif;
+				background-image:url('/img/bg-black.png');
+			}
+
+			#wrapper {
+				margin: 0 auto;
+				padding: 30px;
+				width: 80%;
+				background-color: #c39b6d;
+				background-image: url('/img/lightpaperfibers.png');
+				border-radius: 25px;
+			}
+			header {
+				color: #f9f3ef;
+				text-align: center;
+				border-bottom: 1px solid #000;
+			}
+			/* SQ */
+			.sq {
+				display: inline-block;
+				width: 5vmax;
+				height: 5vmax;
+				margin: 1px;
+				background: rgba(0, 0, 0, 0.75);
+				border: 5px solid rgba(0, 0, 0, 0.25);
+				border-radius: 2px;
+			}
+			.sq img {
+				width: 5vmax;
+				height: 5vmax;
+			}
+			/* SQ Tooltip */
+			.sqTooltip {
+				visibility: hidden;
+				opacity: 0;
+				position: absolute;
+				background: rgba(0, 0, 0, 0.75);
+				color: #fff;
+				border: 1px solid rgba(255, 255, 255, 0.5);
+				border-radius: 4px;
+				padding: 5px;
+				transition: opacity 0.25s;
+			}
+			.sqTooltipHeader {
+				font-size: 20px;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+				margin-bottom: 5px;
+				font-style: italic;
+			}
+			.sqTooltipContent {
+				font-size: 12px;
+			}
+			.sq:hover .sqTooltip {
+				visibility: visible;
+				opacity: 1;
+			}
+			/* SQ Separator */
+			.sqSeparator {
+				font-size: 2vmax;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+				margin-bottom: 5px;
+				font-style: italic;
+			}
+
+			.cross {
+				border-radius: 50%;
+				background: rgba(255, 0, 0, 0.75);
+			}
+
+			#ingredients {
+				margin: 10px 0;
+			}
+			#dish {
+				margin: 10px 0;
+				padding: 10px;
+				border: 1px black solid;
+				background: #f9f3ef;
+			}
+			#dishImage {
+				float: left;
+			}
+			#dishImage img {
+				width: 50px;
+				height: 50px;
+			}
+			#ctl {
+				margin: 10px 0;
+			}
+			#ingredientList {
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='wrapper'>
+			<header>
+				<h1>Zelda Breath of The Wild Cooking Simulator</h1>	
+			</header>
+
+			<div id='ingredients'>
+				<h2>Queue:</h2>
+				<div class='sq ing'></div>
+				<div class='sq ing'></div>
+				<div class='sq ing'></div>
+				<div class='sq ing'></div>
+				<div class='sq ing'></div>
+				<div id='clearBtn' class='sq cross'>
+					<img src='/img/cross2.png'/>
+					<p class='sqTooltip'>
+						Clear the queue
+					</p>
+				</div>
+			</div>
+
+			<div id='dish'>
+				<div id='dishImage'></div>
+				<h2 id='dishTitle'></h2>
+				<div id='dishHearts'></div>
+				<div id='dishEffect'></div>
+				<div id='dishDuration'></div>
+				<div id='dishLevel'></div>
+			</div>
+			
+			<div id='ctl'>
+				<h2>Ingredients:</h2>
+				Sort by: 
+				<select id='sortSelect'>
+					<option value='name' selected>Name</option>
+					<option value='type'>Type</option>
+					<option value='effect'>Effect</option>
+				</select>
+			</div>
+
+			<div id='ingredientList'>
+			</div>
+		</div>
+
+		<script src='util.js'></script>
+		<script src='cooking.js'></script>
+		<script>
+			// Test area
+			function dumpIngredients() {
+				for (var i = 0; i < items.length; i++) {
+					console.log(items[i].name);
+				}
+			}
+		</script>
+	</body>
+</html>
