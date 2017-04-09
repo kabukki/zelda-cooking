@@ -22,30 +22,38 @@ var effects = {
 	"Fireproof": "fireproof.png"
 };
 var types = {
-	"unknown": 	0b0000000000000000000000,
-	"meat": 	0b0000000000000000000001,
-	"fruit": 	0b0000000000000000000010,
-	"mushroom": 0b0000000000000000000100,
-	"vegetable":0b0000000000000000001000,
-	"seafood": 	0b0000000000000000010000,
-	"crab": 	0b0000000000000000110000, // Crab inherits from seafood
-	"fish": 	0b0000000000000001010000, // Fish inherits from seafood
-	"herb": 	0b0000000000000010000000,
-	"insect": 	0b0000000000000100000000,
-	"fairy": 	0b0000000000001000000000,
-	"monster": 	0b0000000000010000000000,
+	//				 |-------------------S--V----F-|
+	"unknown": 		0b00000000000000000000000000000,
+	"meat": 		0b00000000000000000000000000001,
+	"fruit": 		0b00000000000000000000000000010, // Fruit
+	"apple": 		0b00000000000000000000000000110, // - Apple inherits from fruit
+	"wildberry": 	0b00000000000000000000000001010, // - Wildberry inherits from fruit
+	"pepper": 		0b00000000000000000000000010010, // - Pepper inherits from fruit
+	"mushroom": 	0b00000000000000000000000100000,
+	"vegetable":	0b00000000000000000000001000000, // Vegetable
+	"carrot":		0b00000000000000000000011000000, // - Carrot inherits from vegetable
+	"pumpkin":		0b00000000000000000000101000000, // - Pumpkin inherits from vegetable
+	"seafood": 		0b00000000000000000001000000000, // Seafood
+	"crab": 		0b00000000000000000011000000000, // - Crab inherits from seafood
+	"fish": 		0b00000000000000000101000000000, // - Fish inherits from seafood
+	"snail": 		0b00000000000000001001000000000, // - Snail inherits from seafood
+	"salmon": 		0b00000000000000010001000000000, // - Salmon inherits from seafood
+	"porgy": 		0b00000000000000100001000000000, // - Porgy inherits from seafood
+	"herb": 		0b00000000000001000000000000000,
+	"insect": 		0b00000000000010000000000000000,
+	"fairy": 		0b00000000000100000000000000000,
+	"monster": 		0b00000000001000000000000000000,
 	/* Misc types are actually unique */
-	"nut":		0b0000000000100000000000,
-	"egg": 		0b0000000001000000000000,
-	"rice": 	0b0000000010000000000000,
-	"salt": 	0b0000000100000000000000,
-	"butter": 	0b0000001000000000000000,
-	"sugar": 	0b0000010000000000000000,
-	"wheat": 	0b0000100000000000000000,
-	"milk": 	0b0001000000000000000000,
-	"spice": 	0b0010000000000000000000,
-	"honey": 	0b0100000000000000000000,
-	"misc": 	0b1000000000000000000000 // Legacy code
+	"nut":			0b00000000010000000000000000000,
+	"egg": 			0b00000000100000000000000000000,
+	"rice": 		0b00000001000000000000000000000,
+	"salt": 		0b00000010000000000000000000000,
+	"butter": 		0b00000100000000000000000000000,
+	"sugar": 		0b00001000000000000000000000000,
+	"wheat": 		0b00010000000000000000000000000,
+	"milk": 		0b00100000000000000000000000000,
+	"spice": 		0b01000000000000000000000000000,
+	"honey": 		0b10000000000000000000000000000
 };
 
 var cmpFunctions = {
@@ -55,7 +63,7 @@ var cmpFunctions = {
 	},
 	// Global used to know how to sort items.
 	cmpSelector = "name";
-var debug = false;
+var debug = true;
 
 /* Get the food.json file using the Fetch API */
 if (self.fetch) {
@@ -297,116 +305,272 @@ function getName(dish) {
 	var name = "",
 		type = dish.type;
 
+	debug && console.log(dish);
 	// Prepend by effect
 	if (dish.effect != "none" && dish.effect != "cancelled")
 		name += dish.effect + ' ';
-	// Actual name
-	//- Check for recipes first
-	//-- MEAT
+
+	/*
+	 * FRUIT
+	 */
+	if (type & types["fruit"]) {
 	//--- General
-	if (type & types["meat"] && type & types["milk"] && type & types["salt"] &&
-				(type & types["herb"] || type & types["vegetable"])) {
-		name += "Creamy Meat Soup";
-	} else if (type & types["meat"] && type & types["wheat"] &&
-				type & types["butter"] && type & types["milk"]) {
-		name += "Meat Stew";
-	} else if (type & types["meat"] && type & types["wheat"] &&
-				type & types["butter"] && type & types["salt"]) {
-		name += "Meat Pie";
-	} else if (type & types["meat"] && type & types["rice"] &&
-				type & types["spice"]) {
-		name += "Meat Curry";
-	} else if (type & types["meat"] && type & types["rice"] &&
-				type & types["salt"]) {
-		name += "Meat and Rice Bowl";
-	} else if (type & types["meat"] && type & types["seafood"]) {
-		name += "Meat and seafood fry";
-	} else if (type & types["meat"] && type & types["salt"]) {
-		name += "Salt-Grilled meat";
-	} else if (type & types["meat"] && type & types["honey"]) {
-		name += "Glazed Meat";
-	} else if (type & types["meat"] && type & types["mushroom"]) {
-		name += "Meat and mushroom skewer";
-	} else if (type & types["meat"] && type & types["herb"]) {
-		name += "Steamed Meat";
-	} else if (type & types["meat"] && type & types["spice"]) {
-		name += "Spiced Meat Skewer";
-	} else if (type == types["meat"]) {
-		name += "Meat Skewer";
-	//-- SEAFOOD
-	//--- Fish
-	} else if (type & types["fish"] && type & types["salt"]) {
-		name += "Salt-Grilled Fish";
-	} else if (type & types["fish"] && type & types["mushroom"]) {
-		name += "Fish and mushroom skewer";
-	} else if (type == types["fish"]) {
-		name += "Fish skewer";
-	//--- Crab
-	} else if (type & types["crab"] && type & types["rice"] &&
-				type & types["butter"] && type & types["salt"]) {
-		name += "Crab Risotto";
-	} else if (type & types["crab"] && type & types["rice"] &&
-				type & types["egg"] && type & types["salt"]) {
-		name += "Crab Omelet with Rice";
-	} else if (type & types["crab"] && type & types["salt"]) {
-		name += "Salt-Grilled Crab";
-	} else if (type & types["crab"] && type & types["spice"]) {
-		name += "Crab Stir-Fry";
+		if (type & types["herb"] || type & types["vegetable"]) {
+			name += "Steamed Fruit";
+		} else if (type & types["mushroom"]) {
+			name += "Fruit and Mushroom mix";
+		//--- Apple
+		} else if ((type ^ types["fruit"]) & types["apple"]) {
+			if (type & types["wheat"] && type & types["sugar"] && type & types["butter"]) {
+				name += "Apple Pie";
+			} else if (type & types["honey"]) {
+				name += "Honeyed Apple";
+			} else if (type & types["wheat"] && type & types["sugar"]) {
+				name += "Fruitcake";
+			} else {
+				name += "Simmered Fruit";
+			}
+		// Not an apple
+		} else if (type & types["wheat"] && type & types["sugar"] && type & types["butter"]) {
+			name += "Fruit Pie";
+		} else if (type & types["honey"]) {
+			name += "Honeyed Fruits";
+		//--- Wildberry
+		} else if ((type ^ types["fruit"]) & types["wildberry"]) {
+			if (type & types["milk"] && type & types["sugar"] && type & types["wheat"] && type & types["egg"]) {
+				name += "Wildberry Crepe";
+			} else if (type & types["wheat"] && type & types["sugar"]) {
+				name += "Fruitcake";
+			} else {
+				name += "Simmered Fruit";
+			}
+		//--- Spicy Pepper
+		} else if ((type ^ types["fruit"]) & types["pepper"]) {
+			if (type & types["meat"]) {
+				name += "Pepper Steak";
+			} else if (type & types["seafood"]) {
+				name += "Pepper Seafood";
+			} else {
+				name += "Sauteed Peppers";
+			}
+		//--- Still fruit but neither apple nor wildberry
+		} else {
+			name += "Simmered fruit";
+		}
+
+	/*
+	 * SEAFOOD
+	 */
+	} else if (type & types["seafood"]) {
+	//--- General: Recipes that do not need a particular type of seafood to be made
+		if (type & types["milk"] && type & types["salt"] &&
+			(type & types["herb"] || type & types["vegetable"])) {
+			name += "Creamy Seafood Soup";
+		} else if (type & types["wheat"] && type & types["butter"] && type & types["salt"]) {
+			name += "Fish Pie";
+		} else if (type & types["meat"]) {
+			name += "Meat and seafood fry";
+		} else if (type & types["herb"] || type & types["vegetable"]) {
+			name += "Steamed Fish";
+		} else if (type & types["honey"]) {
+			name += "Glazed Seafood";
+		//--- Porgy
+		} else if ((type ^ types["seafood"]) & types["porgy"]) {
+			if (type & types["snail"] && type & types["rice"] && type & types["butter"] && type & types["salt"]) { // To check
+				name += "Seafood Paella";
+			} else if (type & types["rice"] && type & types["spice"]) {
+				name += "Seafood Curry";
+			} else if (type & types["rice"] && type & types["salt"]) {
+				name += "Seafood Fried Rice";
+			} else if (type & types["butter"] && type & types["wheat"]) {
+				name += "Porgy Meuniere";
+			} else if (type & types["rice"]) {
+				name += "Seafood Rice Balls";
+			} else {
+				name += "Fish skewer";
+			}
+		//--- Salmon
+		} else if ((type ^ types["seafood"]) & types["salmon"]) {
+			if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
+				name += "Salmon Risotto";
+			} else if (type & types["wheat"] && type & types["butter"]) {
+				name += "Salmon Meuniere";
+			} else if (type & types["rice"]) {
+				name += "Seafood Rice Balls";
+			} else {
+				name += "Fish skewer";
+			}
+		//--- Fish
+		} else if ((type ^ types["seafood"]) & types["fish"]) {
+			if (type & types["wheat"] && type & types["butter"]) {
+				name += "Seafood Meuniere";
+			} else if (type & types["mushroom"]) {
+				name += "Fish and mushroom skewer";
+			} else if (type & types["salt"]) {
+				name += "Salt-Grilled Fish";
+			} else if (type & types["rice"]) {
+				name += "Seafood Rice Balls";
+			} else {
+				name += "Fish skewer";
+			}
+		//--- Crab
+		} else if ((type ^ types["seafood"]) & types["crab"]) {
+			//---- Main
+			if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
+				name += "Crab Risotto";
+			} else if (type & types["rice"] && type & types["egg"] && type & types["salt"]) {
+				name += "Crab Omelet with Rice";
+			} else if (type & types["wheat"] && type & types["butter"]) {
+				name += "Seafood Meuniere";
+			} else if (type & types["salt"]) {
+				name += "Salt-Grilled Crab";
+			} else if (type & types["spice"]) {
+				name += "Crab Stir-Fry";
+			} else if (type & types["rice"]) {
+				name += "Seafood Rice Balls";
+			} else {
+				name += "Seafood Skewer";
+			}
+		//--- Snail
+		} else if ((type ^ types["seafood"]) & types["snail"]) {
+			if (type & types["milk"] && type & types["wheat"] && type & types["butter"]) {
+				name += "Clam Chowder";
+			} else if (type & types["wheat"] && type & types["butter"]) {
+				name += "Seafood Meuniere";
+			} else if (type & types["rice"] && type & types["spice"]) {
+				name += "Seafood Curry";
+			} else if (type & types["rice"] && type & types["salt"]) {
+				name += "Seafood Fried Rice";
+			} else if (type & types["rice"]) {
+				name += "Seafood Rice Balls";
+			} else if (type & types["salt"]) {
+				name += "Salt-Grilled Fish";
+			} else {
+				name += "Seafood Skewer";
+			}
+		//--- Still seafood (abstract, cannot happen)
+		} else {
+			name += "Seafood Skewer";
+		}
+
+	/*
+	 * VEGETABLES
+	 */
+	} else if (type & types["vegetable"]) {
 	//--- General
-	} else if (type & types["seafood"] && type & types["milk"] && type & types["salt"] &&
-				(type & types["herb"] || type & types["vegetable"])) {
-		name += "Creamy Seafood Soup";
-	} else if (type & types["seafood"] && type & types["wheat"] &&
-				type & types["butter"] && type & types["salt"]) {
-		name += "Fish Pie";
-	} else if (type & types["seafood"] && type & types["herb"]) {
-		name += "Steamed Fish";
-	} else if (type & types["seafood"] && type & types["rice"]) {
-		name += "Seafood Rice Balls";
-	} else if (type & types["seafood"] && type & types["honey"]) {
-		name += "Glazed Seafood";
-	} else if (type == types["seafood"]) {
-		name += "Seafood Skewer";
-	//-- FRUIT
-	} else if (type & types["fruit"] && type & types["wheat"] &&
-				type & types["sugar"] && type & types["butter"]) {
-		name += "Fruit Pie";
-	} else if (type & types["fruit"] && type & types["mushroom"]) {
-		name += "Fruit and Mushroom mix";
-	} else if (type & types["fruit"] && type & types["honey"]) {
-		name += "Honeyed Fruits";
-	} else if (type & types["fruit"] &&
-				(type & types["herb"] || type & types["vegetable"])) {
-		name += "Steamed Fruit";
-	} else if (type == types["fruit"]) {
-		name += "Simmered fruit";
-	//-- MUSHROOM
-	} else if (type & types["mushroom"] && type & types["milk"] && type & types["salt"] &&
-				(type & types["herb"] || type & types["vegetable"])) {
-		name += "Cream of Mushroom Soup";
-	} else if (type & types["mushroom"] && type & types["egg"] &&
-				type & types["butter"] && type & types["salt"]) {
-		name += "Mushroom Omelet";
-	} else if (type & types["mushroom"] && type & types["rice"] &&
-				type & types["butter"] && type & types["salt"]) {
-		name += "Mushroom Risotto";
-	} else if (type & types["mushroom"] &&
-				(type & types["vegetable"] || type & types["herb"])) {
-		name += "Steamed Mushrooms";
-	} else if (type & types["mushroom"] && type & types["rice"]) {
-		name += "Mushroom Rice Balls";
-	} else if (type & types["mushroom"] && type & types["salt"]) {
-		name += "Salt-Grilled Mushrooms";
-	} else if (type & types["mushroom"] && type & types["honey"]) {
-		name += "Glazed Mushrooms";
-	} else if (type & types["mushroom"] && type & types["spice"]) {
-		name += "Fragrant Mushroom Saute";
-	} else if (type == types["mushroom"]) {
-		name += "Mushroom skewer";
-	//-- INSECT (elixir)
-	} else if (type & types["insect"] && type & types["monster"]) {
-		name += "Elixir";
-	//-- MISCELLANEOUS
+		//TODO: Steamed meat : meat + veg/herb. meat devrait check en premier
+		if (type & types["spice"]) {
+			name += "Herb Saute";
+		} else if (type & types["honey"]) {
+			name += "Glazed Veggies";
+		//--- Carrot
+		} else if ((type ^ types["vegetable"]) & types["carrot"]) {
+			if (type & types["wheat"] && type & types["sugar"] && type & types["butter"]) {
+				name += "Carrot Pie";
+			} else if (type & types["wheat"] && type & types["milk"] && type & types["butter"]) {
+				name += "Carrot Stew";
+			} else if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
+				name += "Vegetable Risotto";
+			} else if (type & types["rice"] && type & types["spice"]) {
+				name += "Vegetable Curry";
+			} else if (type & types["milk"] && type & types["salt"]) {
+				name += "Veggie Cream Soup";
+			} else {
+				name += "Fried Wild Greens";
+			}
+		//--- Pumpkin
+		} else if ((type ^ types["vegetable"]) & types["pumpkin"]) {
+			if (type & types["wheat"] && type & types["sugar"] && type & types["butter"]) {
+				name += "Pumpkin Pie";
+			} else if (type & types["wheat"] && type & types["milk"] && type & types["butter"]) {
+				name += "Pumpkin Stew";
+			} else if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
+				name += "Vegetable Risotto";
+			} else if (type & types["meat"]) {
+				name += "Meat-Stuffed Pumpkin";
+			} else if (type & types["rice"] && type & types["spice"]) {
+				name += "Vegetable Curry";
+			} else if (type & types["milk"] && type & types["salt"]) {
+				name += "Veggie Cream Soup";
+			} else {
+				name += "Fried Wild Greens";
+			}
+		//--- Still vegetable but neither carrot nor pumpkin
+		} else {
+			name += "Fried Wild Greens";
+		}
+
+	/*
+	 * MEAT
+	 */
+	} else if (type & types["meat"]) {
+	//--- General
+		if (type & types["milk"] && type & types["salt"] &&
+					(type & types["herb"] || type & types["vegetable"])) {
+			name += "Creamy Meat Soup";
+		} else if (type & types["wheat"] && type & types["butter"] && type & types["milk"]) {
+			name += "Meat Stew";
+		} else if (type & types["wheat"] && type & types["butter"] && type & types["salt"]) {
+			name += "Meat Pie";
+		} else if (type & types["rice"] && type & types["spice"]) {
+			name += "Meat Curry";
+		} else if (type & types["rice"] && type & types["salt"]) {
+			name += "Meat and Rice Bowl";
+		} else if (type & types["rice"]) {
+			name += "Meaty Rice Balls";
+		} else if (type & types["mushroom"]) {
+			name += "Meat and mushroom skewer";
+		} else if (type & types["salt"]) {
+			name += "Salt-Grilled meat";
+		} else if (type & types["honey"]) {
+			name += "Glazed Meat";
+		} else if (type & types["herb"]) {
+			name += "Steamed Meat";
+		} else if (type & types["spice"]) {
+			name += "Spiced Meat Skewer";
+		} else  {
+			name += "Meat Skewer";
+		}
+	/*
+	 * MUSHROOM
+	 */
+	} else if (type & types["mushroom"]) {
+	//--- General
+		if (type & types["milk"] && type & types["salt"] &&
+			(type & types["herb"] || type & types["vegetable"])) {
+			name += "Cream of Mushroom Soup";
+		} else if (type & types["egg"] && type & types["butter"] && type & types["salt"]) {
+			name += "Mushroom Omelet";
+		} else if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
+			name += "Mushroom Risotto";
+		} else if (type & types["vegetable"] || type & types["herb"]) {
+			name += "Steamed Mushrooms";
+		} else if (type & types["rice"]) {
+			name += "Mushroom Rice Balls";
+		} else if (type & types["salt"]) {
+			name += "Salt-Grilled Mushrooms";
+		} else if (type & types["honey"]) {
+			name += "Glazed Mushrooms";
+		} else if (type & types["spice"]) {
+			name += "Fragrant Mushroom Saute";
+		} else {
+			name += "Mushroom skewer";
+		}
+
+	/*
+	 * INSECT (elixir)
+	 */
+	} else if (type & types["insect"]) {
+		if (type & types["monster"]) {
+			name += "Elixir";
+		} else {
+			name = 'Dubious food';
+		}
+
+	/*
+	 * MISCELLANEOUS
+	 * Here, the misc. ingredients are dominant.
+	 */
 	} else if (type & types["milk"] && type & types["sugar"] &&
 				type & types["wheat"] && type & types["egg"] &&
 				type & types["honey"]) {
@@ -418,11 +582,9 @@ function getName(dish) {
 	} else if (type & types["rice"] && type & types["egg"] &&
 				type & types["butter"] && type & types["spice"]) {
 		name += "Curry Pilaf";
-	} else if (type & types["spice"] &&
-				(type & types["vegetable"] || type & types["herb"])) {
+	} else if (type & types["spice"] && type & types["herb"]) {
 		name += "Herb Saute";
-	} else if (type & types["honey"] &&
-				(type & types["vegetable"] || type & types["herb"])) {
+	} else if (type & types["honey"] && type & types["herb"]) {
 		name += "Glazed Veggies";
 	} else if (type & types["nut"] && type & types["sugar"] &&
 				type & types["wheat"] && type & types["butter"]) {

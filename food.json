@@ -1,6 +1,6 @@
 [{
 	"name": "Apple",
-	"type": "fruit",
+	"type": "apple",
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -18,7 +18,7 @@
 },
 {
 	"name": "Wildberry",
-	"type": "fruit",
+	"type": "wildberry",
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -203,7 +203,7 @@
 
 {
 	"name": "Mighty Porgy",
-	"type": "fish",
+	"type": "porgy",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Mighty",
 	"duration": [50, 100, 150, 200, 250],
@@ -258,7 +258,7 @@
 
 {
 	"name": "Armored Porgy",
-	"type": "fish",
+	"type": "porgy",
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "Tough",
 	"duration": [50, 100, 150, 200, 250],
@@ -294,7 +294,7 @@
 },
 {
 	"name": "Fortified Pumpkin",
-	"type": "vegetable",
+	"type": "pumpkin",
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "Tough",
 	"duration": [50, 100, 150, 200, 250],
@@ -313,7 +313,7 @@
 
 {
 	"name": "Endura Carrot",
-	"type": "vegetable",
+	"type": "carrot",
 	"hearts": [4, 8, 12, 16, 20],
 	"effect": "Energizing",
 	"duration": [40, 80, 120, 160, 200],
@@ -405,7 +405,7 @@
 },
 {
 	"name": "Sneaky River Snail",
-	"type": "seafood",
+	"type": "snail",
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "Sneaky",
 	"duration": [120, 240, 360, 480, 600],
@@ -433,7 +433,7 @@
 },
 {
 	"name": "Swift Carrot",
-	"type": "vegetable",
+	"type": "carrot",
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "Hasty",
 	"duration": [60, 120, 180, 240, 300],
@@ -479,7 +479,7 @@
 },
 {
 	"name": "Hearty Salmon",
-	"type": "fish",
+	"type": "salmon",
 	"hearts": [-1, -1, -1, -1, -1],
 	"effect": "Hearty",
 	"duration": [4, 8, 12, 16, 20],
@@ -497,7 +497,7 @@
 },
 {
 	"name": "Hearty Blueshell Snail",
-	"type": "seafood",
+	"type": "snail",
 	"hearts": [-1, -1, -1, -1, -1],
 	"effect": "Hearty",
 	"duration": [3, 6, 9, 12, 15],
@@ -642,7 +642,7 @@
 
 {
 	"name": "Spicy Pepper",
-	"type": "misc",
+	"type": "pepper",
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "Spicy",
 	"duration": [190, 380, 570, 760, 950],

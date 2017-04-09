@@ -41,3 +41,25 @@ function myCreateElement(tag, attr) {
 	}
 	return e;
 }
+
+/*
+ * Disassembles a compound type and returns
+ * an array containing every primitive type of the dish.
+ */
+function getTypes(ctype) {
+	var	typenames = [];
+
+	for (var key in types) {
+		if (ctype & types[key]) {
+			if (ctype != types[key]) {
+				console.log(key + ' is a related type')
+				if (ctype > types[key]) {
+					console.log(key + ' is a parent type')
+				}
+			}
+			typenames.push(key);
+		}
+		//ctype >> 1;
+	}
+	return typenames;
+}
