@@ -36,7 +36,7 @@ var dishImage = document.getElementById('dishImage')
 
 /* Get the food.json file using the Fetch API */
 if (self.fetch) {
-	fetch('/food.json', {
+	fetch('food.json', {
 		"method": "GET",
 		"cache": "default"
 	}).then(function(response) {
