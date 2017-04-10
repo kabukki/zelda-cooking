@@ -1,6 +1,6 @@
 [{
 	"name": "Apple",
-	"type": "apple",
+	"type": ["fruit", "apple"],
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -9,7 +9,7 @@
 },
 {
 	"name": "Palm Fruit",
-	"type": "fruit",
+	"type": ["fruit"],
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -18,16 +18,19 @@
 },
 {
 	"name": "Wildberry",
-	"type": "wildberry",
+	"type": ["fruit", "wildberry"],
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
 	"image": "wildberry.png"
 },
+
+
+
 {
 	"name": "Hylian Shroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -35,9 +38,24 @@
 	"image": "hylianshroom.png"
 },
 
+
+
+{
+	"name": "Hyrule Herb",
+	"type": ["herb"],
+	"hearts": [1, 2, 3, 4, 5],
+	"effect": "none",
+	"duration": [30, 60, 90, 120, 150],
+	"level": [0, 0, 0, 0, 0],
+	"image": "hyruleherb.png"
+},
+
+
+
+
 {
 	"name": "Raw Meat",
-	"type": "meat",
+	"type": ["meat", "regular", "venison"],
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -46,7 +64,7 @@
 },
 {
 	"name": "Raw Prime Meat",
-	"type": "meat",
+	"type": ["meat", "prime", "venison"],
 	"hearts": [3, 6, 9, 12, 15],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -55,7 +73,7 @@
 },
 {
 	"name": "Raw Gourmet Meat",
-	"type": "meat",
+	"type": ["meat", "gourmet", "venison"],
 	"hearts": [3, 6, 9, 12, 15],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -64,7 +82,7 @@
 },
 {
 	"name": "Raw Bird Drumstick",
-	"type": "meat",
+	"type": ["meat", "regular", "poultry"],
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -73,7 +91,7 @@
 },
 {
 	"name": "Raw Bird Thigh",
-	"type": "meat",
+	"type": ["meat", "prime", "poultry"],
 	"hearts": [1.5, 3, 4.5, 6, 7.5],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -82,7 +100,7 @@
 },
 {
 	"name": "Raw Whole Bird",
-	"type": "meat",
+	"type": ["meat", "gourmet", "poultry"],
 	"hearts": [3, 6, 9, 12, 15],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -90,9 +108,11 @@
 	"image": "rawwholebird.png"
 },
 
+
+
 {
 	"name": "Hyrule Bass",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -101,7 +121,7 @@
 },
 {
 	"name": "Sanke Carp",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
@@ -109,9 +129,11 @@
 	"image": "sankecarp.png"
 },
 
+
+
 {
 	"name": "Acorn",
-	"type": "nut",
+	"type": ["misc", "nut"],
 	"hearts": [1, 1.5, 2, 2.5, 3],
 	"effect": "none",
 	"duration": [50, 100, 150, 200, 250],
@@ -120,7 +142,7 @@
 },
 {
 	"name": "Bird Egg",
-	"type": "egg",
+	"type": ["misc", "egg"],
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -129,7 +151,7 @@
 },
 {
 	"name": "Chickaloo Tree Nut",
-	"type": "nut",
+ 	"type": ["misc", "nut"],
 	"hearts": [0.25, 0.5, 0.75, 1],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -138,7 +160,7 @@
 },
 {
 	"name": "Goat Butter",
-	"type": "butter",
+	"type": ["misc", "butter"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -147,7 +169,7 @@
 },
 {
 	"name": "Hylian Rice",
-	"type": "rice",
+	"type": ["misc", "rice"],
 	"hearts": [1, 1, 1, 1, 1],
 	"effect": "none",
 	"duration": [60, 90, 120, 150, 180],
@@ -156,7 +178,7 @@
 },
 {
 	"name": "Goron Spice",
-	"type": "spice",
+	"type": ["misc", "spice"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -164,8 +186,17 @@
 	"image": "goronspice.png"
 },
 {
+	"name": "Rock Salt",
+	"type": ["misc", "salt"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [60, 120, 180, 240, 300],
+	"level": [0, 0, 0, 0, 0],
+	"image": "rocksalt.png"
+},
+{
 	"name": "Tabantha Wheat",
-	"type": "wheat",
+	"type": ["misc", "wheat"],
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -174,7 +205,7 @@
 },
 {
 	"name": "Fresh Milk",
-	"type": "milk",
+	"type": ["misc", "milk"],
 	"hearts": [0.5, 1, 1.5, 2, 2.5],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -183,7 +214,7 @@
 },
 {
 	"name": "Cane Sugar",
-	"type": "sugar",
+	"type": ["misc", "sugar"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -191,66 +222,58 @@
 	"image": "canesugar.png"
 },
 
-{
-	"name": "Hyrule Herb",
-	"type": "herb",
-	"hearts": [1, 2, 3, 4, 5],
-	"effect": "none",
-	"duration": [30, 60, 90, 120, 150],
-	"level": [0, 0, 0, 0, 0],
-	"image": "hyruleherb.png"
-},
+
 
 {
 	"name": "Mighty Porgy",
-	"type": "porgy",
+	"type": ["seafood", "porgy"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Mighty",
+	"effect": "mighty",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 2, 3, 3, 3],
 	"image": "mightyporgy.png"
 },
 {
 	"name": "Razorclaw Crab",
-	"type": "crab",
+	"type": ["seafood", "crab"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Mighty",
+	"effect": "mighty",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 2, 2, 3, 3],
 	"image": "razorclawcrab.png"
 },
 {
 	"name": "Mighty Carp",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Mighty",
+	"effect": "mighty",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 2, 2, 3, 3],
 	"image": "mightycarp.png"
 },
 {
 	"name": "Mighty Bananas",
-	"type": "fruit",
+	"type": ["fruit"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": "Mighty",
+	"effect": "mighty",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 1, 2, 3, 3],
 	"image": "mightybananas.png"
 },
 {
 	"name": "Razorshroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": "Mighty",
+	"effect": "mighty",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 1, 2, 3, 3],
 	"image": "razorshroom.png"
 },
 {
 	"name": "Mighty Thistle",
-	"type": "herb",
+	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Mighty",
+	"effect": "mighty",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 1, 1, 1, 2],
 	"image": "mightythistle.png"
@@ -258,54 +281,54 @@
 
 {
 	"name": "Armored Porgy",
-	"type": "porgy",
+	"type": ["seafood", "porgy"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Tough",
+	"effect": "tough",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 2, 3, 3, 3],
 	"image": "armoredporgy.png"
 },
 {
 	"name": "Ironshell Crab",
-	"type": "crab",
+	"type": ["seafood", "crab"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Tough",
+	"effect": "tough",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 2, 2, 3, 3],
 	"image": "ironshellcrab.png"
 },
 {
 	"name": "Armored Carp",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Tough",
+	"effect": "tough",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 2, 2, 3, 3],
 	"image": "armoredcarp.png"
 },
 {
 	"name": "Ironshroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": "Tough",
+	"effect": "tough",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 1, 2, 3, 3],
 	"image": "ironshroom.png"
 },
 {
 	"name": "Fortified Pumpkin",
-	"type": "pumpkin",
+	"type": ["vegetable", "pumpkin"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": "Tough",
+	"effect": "tough",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 1, 2, 3, 3],
 	"image": "fortifiedpumpkin.png"
 },
 {
 	"name": "Armoranth",
-	"type": "herb",
+	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Tough",
+	"effect": "tough",
 	"duration": [50, 100, 150, 200, 250],
 	"level": [1, 1, 1, 1, 2],
 	"image": "armoranth.png"
@@ -313,18 +336,18 @@
 
 {
 	"name": "Endura Carrot",
-	"type": "carrot",
+	"type": ["vegetable", "carrot"],
 	"hearts": [4, 8, 12, 16, 20],
-	"effect": "Energizing",
+	"effect": "energizing",
 	"duration": [40, 80, 120, 160, 200],
 	"level": [0, 0, 0, 0, 0],
 	"image": "enduracarrot.png"
 },
 {
 	"name": "Endura Shroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [3, 6, 9, 12, 15],
-	"effect": "Energizing",
+	"effect": "energizing",
 	"duration": [20, 20, 20, 40, 40],
 	"level": [0, 0, 0, 0, 0],
 	"image": "endurashroom.png"
@@ -332,36 +355,36 @@
 
 {
 	"name": "Staminoka Bass",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Enduring",
+	"effect": "enduring",
 	"duration": [1, 2.2, 3, 3, 3],
 	"level": [0, 0, 0, 0, 0],
 	"image": "staminokabass.png"
 },
 {
 	"name": "Bright-Eyed Crab",
-	"type": "crab",
+	"type": ["seafood", "crab"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Enduring",
+	"effect": "enduring",
 	"duration": [0.4, 1, 1.6, 2.2, 2.8],
 	"level": [0, 0, 0, 0, 0],
 	"image": "brighteyedcrab.png"
 },
 {
 	"name": "Courser Bee Honey",
-	"type": "honey",
+	"type": ["misc", "honey"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Energizing",
+	"effect": "energizing",
 	"duration": [40, 80, 120, 160, 200],
 	"level": [0, 0, 0, 0, 0],
 	"image": "courserbeehoney.png"
 },
 {
 	"name": "Stamella Shroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": "Enduring",
+	"effect": "enduring",
 	"duration": [0.2, 0.4, 0.8, 1, 1.4],
 	"level": [0, 0, 0, 0, 0],
 	"image": "stamellashroom.png"
@@ -369,45 +392,45 @@
 
 {
 	"name": "Silent Princess",
-	"type": "herb",
+	"type": ["herb"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Sneaky",
+	"effect": "sneaky",
 	"duration": [120, 240, 360, 480, 600],
 	"level": [1, 2, 3, 3, 3],
 	"image": "silentprincess.png"
 },
 {
 	"name": "Stealthfin Trout",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": "Sneaky",
+	"effect": "sneaky",
 	"duration": [120, 240, 360, 480, 600],
 	"level": [1, 1, 2, 2, 3],
 	"image": "stealthfintrout.png"
 },
 {
 	"name": "Silent Shroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": "Sneaky",
+	"effect": "sneaky",
 	"duration": [120, 240, 360, 480, 600],
 	"level": [1, 1, 2, 2, 3],
 	"image": "silentshroom.png"
 },
 {
 	"name": "Blue Nightshade",
-	"type": "herb",
+	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Sneaky",
+	"effect": "sneaky",
 	"duration": [120, 240, 360, 480, 600],
 	"level": [1, 1, 1, 1, 2],
 	"image": "bluenightshade.png"
 },
 {
 	"name": "Sneaky River Snail",
-	"type": "snail",
+	"type": ["seafood", "snail"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Sneaky",
+	"effect": "sneaky",
 	"duration": [120, 240, 360, 480, 600],
 	"level": [1, 1, 1, 1, 2],
 	"image": "sneakyriversnail.png"
@@ -415,36 +438,36 @@
 
 {
 	"name": "Fleet-Lotus Seeds",
-	"type": "fruit",
+	"type": ["fruit"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": "Hasty",
+	"effect": "hasty",
 	"duration": [120, 240, 360, 480, 600],
 	"level": [1, 2, 3, 3, 3],
 	"image": "fleetlotusseeds.png"
 },
 {
 	"name": "Rushroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": "Hasty",
+	"effect": "hasty",
 	"duration": [60, 120, 180, 240, 300],
 	"level": [1, 1, 1, 2, 2],
 	"image": "rushroom.png"
 },
 {
 	"name": "Swift Carrot",
-	"type": "carrot",
+	"type": ["vegetable", "carrot"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Hasty",
+	"effect": "hasty",
 	"duration": [60, 120, 180, 240, 300],
 	"level": [1, 1, 1, 2, 2],
 	"image": "swiftcarrot.png"
 },
 {
 	"name": "Swift Violet",
-	"type": "herb",
+	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Hasty",
+	"effect": "hasty",
 	"duration": [60, 120, 180, 240, 300],
 	"level": [1, 1, 1, 2, 2],
 	"image": "swiftviolet.png"
@@ -452,72 +475,72 @@
 
 {
 	"name": "Big Hearty Radish",
-	"type": "vegetable",
+	"type": ["vegetable", "radish"],
 	"hearts": [-1, -1, -1, -1, -1],
-	"effect": "Hearty",
+	"effect": "hearty",
 	"duration": [5, 10, 15, 20, 25],
 	"level": [0, 0, 0, 0, 0],
 	"image": "bigheartyradish.png"
 },
 {
 	"name": "Big Hearty Truffle",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [-1, -1, -1, -1, -1],
-	"effect": "Hearty",
+	"effect": "hearty",
 	"duration": [4, 8, 12, 16, 20],
 	"level": [0, 0, 0, 0, 0],
 	"image": "bigheartytruffle.png"
 },
 {
 	"name": "Hearty Durian",
-	"type": "fruit",
+	"type": ["fruit"],
 	"hearts": [-1, -1, -1, -1, -1],
-	"effect": "Hearty",
+	"effect": "hearty",
 	"duration": [4, 8, 12, 16, 20],
 	"level": [0, 0, 0, 0, 0],
 	"image": "heartydurian.png"
 },
 {
 	"name": "Hearty Salmon",
-	"type": "salmon",
+	"type": ["seafood", "salmon"],
 	"hearts": [-1, -1, -1, -1, -1],
-	"effect": "Hearty",
+	"effect": "hearty",
 	"duration": [4, 8, 12, 16, 20],
 	"level": [0, 0, 0, 0, 0],
 	"image": "heartysalmon.png"
 },
 {
 	"name": "Hearty Radish",
-	"type": "vegetable",
+	"type": ["vegetable", "radish"],
 	"hearts": [-1, -1, -1, -1, -1],
-	"effect": "Hearty",
+	"effect": "hearty",
 	"duration": [3, 6, 9, 12, 15],
 	"level": [0, 0, 0, 0, 0],
 	"image": "heartyradish.png"
 },
 {
 	"name": "Hearty Blueshell Snail",
-	"type": "snail",
+	"type": ["seafood", "snail"],
 	"hearts": [-1, -1, -1, -1, -1],
-	"effect": "Hearty",
+	"effect": "hearty",
 	"duration": [3, 6, 9, 12, 15],
 	"level": [0, 0, 0, 0, 0],
 	"image": "heartyblueshellsnail.png"
 },
 {
 	"name": "Hearty Bass",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [-1, -1, -1, -1, -1],
-	"effect": "Hearty",
+	"effect": "hearty",
 	"duration": [2, 4, 6, 8, 10],
 	"level": [0, 0, 0, 0, 0],
 	"image": "heartybass.png"
 },
 {
 	"name": "Hearty Truffle",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [-1, -1, -1, -1, -1],
-	"effect": "Hearty",
+	"effect": "hearty",
 	"duration": [1, 2, 3, 4, 5],
 	"level": [0, 0, 0, 0, 0],
 	"image": "heartytruffle.png"
@@ -527,47 +550,36 @@
 
 
 
-
-{
-	"name": "Rock Salt",
-	"type": "salt",
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "none",
-	"duration": [60, 120, 180, 240, 300],
-	"level": [0, 0, 0, 0, 0],
-	"image": "rocksalt.png"
-},
-
 {
 	"name": "Fireproof Lizard",
-	"type": "insect",
+	"type": ["insect"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Fireproof",
+	"effect": "fireproof",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [1, 2, 3, 3, 3],
 	"image": "fireprooflizard.png"
 },
 {
 	"name": "Hightail Lizard",
-	"type": "insect",
+	"type": ["insect"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Hasty",
+	"effect": "hasty",
 	"duration": [60, 120, 180, 240, 300],
 	"level": [1, 2, 3, 3, 3],
 	"image": "hightaillizard.png"
 },
 {
 	"name": "Sunset Firefly",
-	"type": "insect",
+	"type": ["insect"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Sneaky",
+	"effect": "sneaky",
 	"duration": [120, 240, 360, 480, 600],
 	"level": [1, 2, 3, 3, 3],
 	"image": "sunsetfirefly.png"
 },
 {
 	"name": "Fairy",
-	"type": "fairy",
+	"type": ["fairy"],
 	"hearts": [9, 18, 27, 36, 45],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
@@ -577,7 +589,7 @@
 
 {
 	"name": "Bokoblin Fang",
-	"type": "monster",
+	"type": ["monster"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [110, 160, 210, 260, 310],
@@ -586,7 +598,7 @@
 },
 {
 	"name": "Bokoblin Guts",
-	"type": "monster",
+	"type": ["monster"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [190, 380, 570, 760, 950],
@@ -595,7 +607,7 @@
 },
 {
 	"name": "Keese Eyeball",
-	"type": "monster",
+	"type": ["monster"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [190, 380, 570, 760, 950],
@@ -605,36 +617,36 @@
 
 {
 	"name": "Hydromelon",
-	"type": "fruit",
+	"type": ["fruit", "melon"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Chilly",
+	"effect": "chilly",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "hydromelon.png"
 },
 {
 	"name": "Chillshroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Chilly",
+	"effect": "chilly",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "chillshroom.png"
 },
 {
 	"name": "Chillfin Trout",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Chilly",
+	"effect": "chilly",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "chillfintrout.png"
 },
 {
 	"name": "Cool Safflina",
-	"type": "herb",
+	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Chilly",
+	"effect": "chilly",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "coolsafflina.png"
@@ -642,36 +654,36 @@
 
 {
 	"name": "Spicy Pepper",
-	"type": "pepper",
+	"type": ["fruit", "pepper"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Spicy",
+	"effect": "spicy",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "spicypepper.png"
 },
 {
 	"name": "Sunshroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Spicy",
+	"effect": "spicy",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "sunshroom.png"
 },
 {
 	"name": "Sizzlefin Trout",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Spicy",
+	"effect": "spicy",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "sizzlefintrout.png"
 },
 {
 	"name": "Warm Safflina",
-	"type": "herb",
+	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Spicy",
+	"effect": "spicy",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "warmsafflina.png"
@@ -679,36 +691,36 @@
 
 {
 	"name": "Voltfruit",
-	"type": "fruit",
+	"type": ["fruit"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Electro",
+	"effect": "electro",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "voltfruit.png"
 },
 {
 	"name": "Zapshroom",
-	"type": "mushroom",
+	"type": ["mushroom"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Electro",
+	"effect": "electro",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "zapshroom.png"
 },
 {
 	"name": "Voltfin Trout",
-	"type": "fish",
+	"type": ["seafood", "fish"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Electro",
+	"effect": "electro",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "voltfintrout.png"
 },
 {
 	"name": "Electric Safflina",
-	"type": "herb",
+	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": "Electro",
+	"effect": "electro",
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "electricsafflina.png"

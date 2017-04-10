@@ -5,65 +5,34 @@
  *	- Bug: viande + effect special (duration) cree des problemes. (fonction cook)
  *	- Bug: les niveaux ne sont pas calcules correctement.
  *	- Todo: trouver les images manquantes y compris les coeurs jaunes
+ *	- Todo: re-dl les images au format 80x80 au lieu de 60 ou 40px.
+ *	- Todo: trouver les proprietes de nouveaux ingredients.
+ *	- Todo: mettre au propre UIdisplayIngredients.
+ *	- Todo: transferer les recettes vers recipes.js.
  */
+
+var debug = true;
 var items = [];
 var queue = [];
-var effects = {
-	"Mighty": "hearts.png",
-	"Tough": "tough.png",
-	"Enduring": "enduring.png",
-	"Energizing": "energizing.png",
-	"Electro": "electro.png",
-	"Sneaky": "sneaky.png",
-	"Hasty": "hasty.png",
-	"Hearty": "hearts.png",
-	"Chilly": "chilly.png",
-	"Spicy": "spicy.png",
-	"Fireproof": "fireproof.png"
-};
-var types = {
-	//				 |-------------------S--V----F-|
-	"unknown": 		0b00000000000000000000000000000,
-	"meat": 		0b00000000000000000000000000001,
-	"fruit": 		0b00000000000000000000000000010, // Fruit
-	"apple": 		0b00000000000000000000000000110, // - Apple inherits from fruit
-	"wildberry": 	0b00000000000000000000000001010, // - Wildberry inherits from fruit
-	"pepper": 		0b00000000000000000000000010010, // - Pepper inherits from fruit
-	"mushroom": 	0b00000000000000000000000100000,
-	"vegetable":	0b00000000000000000000001000000, // Vegetable
-	"carrot":		0b00000000000000000000011000000, // - Carrot inherits from vegetable
-	"pumpkin":		0b00000000000000000000101000000, // - Pumpkin inherits from vegetable
-	"seafood": 		0b00000000000000000001000000000, // Seafood
-	"crab": 		0b00000000000000000011000000000, // - Crab inherits from seafood
-	"fish": 		0b00000000000000000101000000000, // - Fish inherits from seafood
-	"snail": 		0b00000000000000001001000000000, // - Snail inherits from seafood
-	"salmon": 		0b00000000000000010001000000000, // - Salmon inherits from seafood
-	"porgy": 		0b00000000000000100001000000000, // - Porgy inherits from seafood
-	"herb": 		0b00000000000001000000000000000,
-	"insect": 		0b00000000000010000000000000000,
-	"fairy": 		0b00000000000100000000000000000,
-	"monster": 		0b00000000001000000000000000000,
-	/* Misc types are actually unique */
-	"nut":			0b00000000010000000000000000000,
-	"egg": 			0b00000000100000000000000000000,
-	"rice": 		0b00000001000000000000000000000,
-	"salt": 		0b00000010000000000000000000000,
-	"butter": 		0b00000100000000000000000000000,
-	"sugar": 		0b00001000000000000000000000000,
-	"wheat": 		0b00010000000000000000000000000,
-	"milk": 		0b00100000000000000000000000000,
-	"spice": 		0b01000000000000000000000000000,
-	"honey": 		0b10000000000000000000000000000
-};
 
 var cmpFunctions = {
 		"name": compareIngredientsByName,
-		"type": compareIngredientsByType,
+		"type": compareIngredientsBytYpe,
 		"effect": compareIngredientsByEffect
 	},
-	// Global used to know how to sort items.
-	cmpSelector = "name";
-var debug = true;
+	cmpSelector = "name"; // Global used to know how to sort items.
+
+/* DOM Vars */
+var dishImage = document.getElementById('dishImage')
+	, dishTitle = document.getElementById('dishTitle')
+	, dishHearts = document.getElementById('dishHearts')
+	, dishEffect = document.getElementById('dishEffect')
+	, dishDuration = document.getElementById('dishDuration')
+	, dishLevel = document.getElementById('dishLevel')
+	, ingredients = document.getElementById('ingredients').getElementsByClassName('ing')
+	, ingredientList = document.getElementById('ingredientList')
+	, clearBtn = document.getElementById('clearBtn')
+	, sortSelect = document.getElementById('sortSelect');
 
 /* Get the food.json file using the Fetch API */
 if (self.fetch) {
@@ -82,17 +51,9 @@ if (self.fetch) {
 	console.log("Your browser is outdated and does not support the Fetch API.");
 }
 
-/* DOM Vars */
-var dishImage = document.getElementById('dishImage')
-	, dishTitle = document.getElementById('dishTitle')
-	, dishHearts = document.getElementById('dishHearts')
-	, dishEffect = document.getElementById('dishEffect')
-	, dishDuration = document.getElementById('dishDuration')
-	, dishLevel = document.getElementById('dishLevel')
-	, ingredients = document.getElementById('ingredients').getElementsByClassName('ing')
-	, ingredientList = document.getElementById('ingredientList')
-	, clearBtn = document.getElementById('clearBtn')
-	, sortSelect = document.getElementById('sortSelect');
+/******************/
+/* User Interface */
+/******************/
 
 /*
  * Add a separator in the ingredients list
@@ -107,7 +68,7 @@ function UIaddSeparator(text) {
 /*
  * Setting up selection GUI
  * Displays all the ingredients after sorting them
- * 	depending on the cmpSelector variable.
+ * 	 depending on the cmpSelector variable.
  */
 function UIdisplayIngredients(items) {
 	var cmpf = cmpFunctions[cmpSelector];
@@ -135,10 +96,12 @@ function UIdisplayIngredients(items) {
 			};
 		})();
 		// If we meet a new type/name/effect, add a separator
-		// For names, only sort by first letter, otherwise it's a mess.
+		// For names, only sort by first letter.
 		if (i == 0) {
 			if (cmpSelector == "name")
 				UIaddSeparator(items[i].name[0]);
+			else if (cmpSelector == "type")
+				UIaddSeparator(items[i].type[0]);
 			else
 				UIaddSeparator(items[i][cmpSelector]);
 		} else if (cmpf(items[i - 1], items[i]) != 0) {
@@ -146,6 +109,8 @@ function UIdisplayIngredients(items) {
 				if (items[i - 1].name[0] != items[i].name[0]) {
 					UIaddSeparator(items[i].name[0]);
 				}
+			} else if (cmpSelector == "type") {
+				UIaddSeparator(items[i].type[0]);
 			} else {
 				UIaddSeparator(items[i][cmpSelector]);
 			}
@@ -193,7 +158,7 @@ function cook(ing) {
 
 	if (ing.length == 0)
 		return null;
-	dish.type = types["unknown"];
+	dish.type = new Set();
 	dish.hearts = 0;
 	dish.effect = "none";
 	dish.duration = 0;
@@ -207,7 +172,9 @@ function cook(ing) {
 		}
 	});
 	ping.forEach(function(e) {
-		dish.type |= types[e.type];
+		e.type.forEach(function(type) {
+			dish.type.add(type);
+		});
 		// Hearty ingredients give full hearts.
 		if (e.hearts == -1)
 			dish.hearts = -1;
@@ -225,7 +192,7 @@ function cook(ing) {
 			dish.duration += e.duration;
 		dish.level = Math.max(dish.level, e.level);
 	});
-	dish.name = getName(dish);
+	dish.name = _getName(dish);
 	dish.image = getImage(dish);
 	return dish;
 }
@@ -271,9 +238,9 @@ function nbTimesInArray(ing, arr) {
 function display(dish) {
 	if (dish != null) {
 		dishImage.innerHTML = dish.image;
-		dishTitle.innerHTML = dish.name || "none";
+		dishTitle.innerHTML = dish.name;
 		dishHearts.innerHTML = htmlHearts(dish.hearts);
-		dishEffect.innerHTML = 'Effect: ' + htmlEffect(dish.effect) + dish.effect || "none";
+		dishEffect.innerHTML = 'Effect: ' + htmlEffect(dish) + dish.effect;
 		if (dish.effect == "Enduring") {
 			dishDuration.innerHTML = 'Refill: ' + dish.duration + ' bars';
 		} else if (dish.effect == "Energizing") {
@@ -633,16 +600,16 @@ function getName(dish) {
  * Returns an image for a given type of dish
  */
 function getImage(dish) {
-	var name = '<img src="/img/food/',
-		dname = dish.name, ename;
+	var name = '<img src="img/food/',
+		dname = dish.name.toLowerCase(), ename;
 
 	// Unless it is an elixir, ignore the effect to get a generic image
 	if (dname.indexOf("Elixir") == -1) {
 		ename = dname.substring(0, dname.indexOf(' '));
-		if (effects[ename])
+		if (ename == dish.effect)
 			dname = dname.slice(ename.length);
 	}
-	name += dname.replace(/\s/g, '').toLowerCase(); // Remove whitespaces
+	name += dname.replace(/\s/g, ''); // Remove whitespaces
 	return name + '.png"/>';
 }
 
@@ -663,13 +630,13 @@ function printIngredients(ing) {
  * Transforms an ingredient into an html string to display its image & description
  */
 function htmlIngredient(ing) {
-	return '<img src="/img/food/' + ing.image + '"/>' +
+	return '<img src="img/food/' + ing.image + '"/>' +
 			'<div class="sqTooltip">' + 
 				'<div class="sqTooltipHeader">' + 
 					ing.name + 
 				'</div>' +
 				'<div class="sqTooltipContent">' + 
-					'Type: ' + ing.type + '<br>' +
+					'Type: ' + ing.type.join(' > ') + '<br>' +
 					'Effect: ' + ing.effect + '<br>' +
 					'Level curve: ' + ing.level +
 				'</div>' +
@@ -684,30 +651,30 @@ function htmlHearts(n, extra) {
 	var s = "";
 
 	if (n == -1) // Special case: -1 means full recovery
-		return '<img src="/img/heart100.png"/>' + ' Full Recovery';
+		return '<img src="img/heart100.png"/>' + ' Full Recovery';
 	while (n >= 1) {
 		if (n > 10) {
-			s += '<img src="/img/' + (extra ? 'y' : '') + 'heart1000.png"/>';
+			s += '<img src="img/' + (extra ? 'y' : '') + 'heart1000.png"/>';
 			n -= 10;
 		} else if (n > 5) {
-			s += '<img src="/img/' + (extra ? 'y' : '') + 'heart500.png"/>';
+			s += '<img src="img/' + (extra ? 'y' : '') + 'heart500.png"/>';
 			n -= 5;
 		} else {
-			s += '<img src="/img/' + (extra ? 'y' : '') + 'heart100.png"/>';
+			s += '<img src="img/' + (extra ? 'y' : '') + 'heart100.png"/>';
 			n--;
 		}
 	}
 	if (n > 0) // 0 < n < 1
-		s += '<img src="/img/' + (extra ? 'y' : '') + 'heart' + (n * 100) + '.png"/>';
+		s += '<img src="img/' + (extra ? 'y' : '') + 'heart' + (n * 100) + '.png"/>';
 	return s;
 }
 
 /*
  * Transforms an effect into an html string to display it
  */
-function htmlEffect(effect) {
-	if (effect != undefined && effects[effect] != undefined)
-		return '<img src="/img/fx/' + effects[effect] + '"/>'
+function htmlEffect(dish) {
+	if (dish !== undefined && hasEffect(dish))
+		return '<img src="img/fx/' + dish.effect + '.png"/>'
 	return '';
 }
 

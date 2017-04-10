@@ -22,6 +22,13 @@ function compareIngredientsByType(a, b) {
 }
 
 /*
+ * Compare ingredients by type (primitive type)
+ */
+function compareIngredientsBytYpe(a, b) {
+	return strcmp(a.type[0], b.type[0]);
+}
+
+/*
  * strcmp
  */
 function strcmp(a, b) {
@@ -43,23 +50,8 @@ function myCreateElement(tag, attr) {
 }
 
 /*
- * Disassembles a compound type and returns
- * an array containing every primitive type of the dish.
+ * Returns true if the dish has an active effect
  */
-function getTypes(ctype) {
-	var	typenames = [];
-
-	for (var key in types) {
-		if (ctype & types[key]) {
-			if (ctype != types[key]) {
-				console.log(key + ' is a related type')
-				if (ctype > types[key]) {
-					console.log(key + ' is a parent type')
-				}
-			}
-			typenames.push(key);
-		}
-		//ctype >> 1;
-	}
-	return typenames;
+function hasEffect(dish) {
+	return (dish.effect != "none" && dish.effect != "cancelled");
 }

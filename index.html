@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<title>BOTW Cooking Simulator</title>
-		<link rel='icon' href='/img/food/apple.png'/>
+		<link rel='icon' href='img/food/apple.png'/>
 		<style>
 			body {
 				font-family: 'Arial', sans-serif;
-				background-image:url('/img/bg-black.png');
+				background-image:url('img/bg-black.png');
 			}
 
 			#wrapper {
@@ -14,7 +14,7 @@
 				padding: 30px;
 				width: 80%;
 				background-color: #c39b6d;
-				background-image: url('/img/lightpaperfibers.png');
+				background-image: url('img/lightpaperfibers.png');
 				border-radius: 25px;
 			}
 			header {
@@ -25,16 +25,16 @@
 			/* SQ */
 			.sq {
 				display: inline-block;
-				width: 5vmax;
-				height: 5vmax;
+				width:	10vmin;
+				height:	10vmin;
 				margin: 1px;
 				background: rgba(0, 0, 0, 0.75);
 				border: 5px solid rgba(0, 0, 0, 0.25);
 				border-radius: 2px;
 			}
 			.sq img {
-				width: 5vmax;
-				height: 5vmax;
+				width:	10vmin;
+				height:	10vmin;
 			}
 			/* SQ Tooltip */
 			.sqTooltip {
@@ -45,17 +45,17 @@
 				color: #fff;
 				border: 1px solid rgba(255, 255, 255, 0.5);
 				border-radius: 4px;
-				padding: 5px;
+				padding: 10px;
 				transition: opacity 0.25s;
 			}
 			.sqTooltipHeader {
-				font-size: 20px;
+				font-size: 4vmin;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 				margin-bottom: 5px;
 				font-style: italic;
 			}
 			.sqTooltipContent {
-				font-size: 12px;
+				font-size: 2.5vmin;
 			}
 			.sq:hover .sqTooltip {
 				visibility: visible;
@@ -63,10 +63,11 @@
 			}
 			/* SQ Separator */
 			.sqSeparator {
-				font-size: 2vmax;
+				font-size: 5vmin;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 				margin-bottom: 5px;
 				font-style: italic;
+				text-transform: capitalize;
 			}
 
 			.cross {
@@ -90,6 +91,9 @@
 				width: 50px;
 				height: 50px;
 			}
+			#dishTitle {
+				text-transform: capitalize;
+			}
 			#ctl {
 				margin: 10px 0;
 			}
@@ -112,7 +116,7 @@
 				<div class='sq ing'></div>
 				<div class='sq ing'></div>
 				<div id='clearBtn' class='sq cross'>
-					<img src='/img/cross2.png'/>
+					<img src='img/cross2.png'/>
 					<p class='sqTooltip'>
 						Clear the queue
 					</p>
@@ -143,6 +147,7 @@
 		</div>
 
 		<script src='util.js'></script>
+		<script src='recipes.js'></script>
 		<script src='cooking.js'></script>
 		<script>
 			// Test area
