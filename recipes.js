@@ -34,6 +34,99 @@
  * it contains at least the 'seafood' type.
  */
 function seafoodRecipes(type) {
+	// [Seafood] + Milk + Salt + [Herb|Vegetable]
+	if (type.has("milk") && type.has("salt") && (type.has("herb") || type.has("vegetable")))
+		return "Creamy Seafood Soup";
+	// [Seafood] + Wheat + Salt + Butter
+	if (type.has("wheat") && type.has("salt") && type.has("butter"))
+		return "Fish Pie";
+	// [Seafood] + [Meat>[Gourmet]]
+	if (type.has("meat") && type.has("gourmet"))
+		return "Gourmet Meat and Seafood Fry";
+	// [Seafood] + [Meat>[Prime]]
+	if (type.has("meat") && type.has("prime"))
+		return "Prime Meat and Seafood Fry";
+	// [Seafood] + [Meat(>[Regular])]
+	if (type.has("meat"))
+		return "Meat and Seafood Fry";
+	// [Seafood] + Honey
+	if (type.has("honey"))
+		return "Glazed Seafood";
+	// [Seafood] + Pepper
+	if (type.has("pepper"))
+		return "Pepper Seafood";
+	////// Porgy
+	if (type.has("porgy")) {
+		// Porgy + Rice + Snail + Butter + Salt
+		if (type.has("rice") && type.has("snail") && type.has("butter") && type.has("salt"))
+			return "Seafood Paella";
+		// Porgy + Butter + Wheat
+		if (type.has("butter") && type.has("wheat"))
+			return "Porgy Meuniere";
+		// Porgy + Rice + Spice
+		if (type.has("rice") && type.has("spice"))
+			return "Seafood Curry";
+		// Porgy + Rice + Salt
+		if (type.has("rice") && type.has("salt"))
+			return "Seafood Fried Rice";
+	}
+	////// Salmon
+	if (type.has("salmon")) {
+		// Salmon + Rice + Butter + Salt
+		if (type.has("rice") && type.has("butter") && type.has("salt"))
+			return "Salmon Risotto";
+		// Salmon + Butter + Wheat
+		if (type.has("butter") && type.has("wheat"))
+			return "Salmon Meuniere";
+	}
+	////// Snail
+	if (type.has("snail")) {
+		// Snail + Milk + Wheat + Butter
+		if (type.has("milk") && type.has("wheat") && type.has("butter"))
+			return "Clam Chowder";
+		// Snail + Rice + Spice
+		if (type.has("rice") && type.has("spice"))
+			return "Seafood Curry";
+		// Snail + Rice + Salt
+		if (type.has("rice") && type.has("salt"))
+			return "Seafood Fried Rice";
+	}
+	// [Seafood - Porgy - Salmon - Snail] + Butter + Wheat
+	if (type.has("butter") && type.has("wheat"))
+		return "Seafood Meuniere";
+	////// Fish
+	if (type.has("fish")) {
+		// Fish + Mushroom
+		if (type.has("mushroom"))
+			return "Fish and Mushroom Skewer";
+		// Fish + Salt
+		if (type.has("salt"))
+			return "Salt-Grilled Fish";
+		// Fish + Rice
+		if (type.has("rice"))
+			return "Seafood Rice Balls";
+		// Fish
+		else
+			return "Fish skewer";
+	}
+	////// Crab
+	if (type.has("crab")) {
+		// Crab + Rice  + Butter + Salt
+		if (type.has("rice") && type.has("butter") && type.has("salt"))
+			return "Crab Risotto";
+		// Crab + Rice  + Egg + Salt
+		if (type.has("rice") && type.has("egg") && type.has("salt"))
+			return "Crab Omelet with Rice";
+		// Crab + Spice
+		if (type.has("spice"))
+			return "Crab Stir-Fry";
+		// Crab + Salt
+		if (type.has("salt"))
+			return "Salt-Grilled Crab";
+	}
+	// [Seafood] + Rice
+	if (type.has("rice"))
+		return "Seafood Rice Balls";
 	return "Seafood Skewer";
 }
 
@@ -127,6 +220,9 @@ function mushroomRecipes(type) {
  * it contains at least the 'misc' type.
  */
 function miscRecipes(type) {
+	// Milk
+	if (type.has("milk"))
+		return "Warm Milk";
 	return "Dubious Food";
 }
 

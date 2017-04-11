@@ -226,7 +226,7 @@
 
 {
 	"name": "Mighty Porgy",
-	"type": ["seafood", "porgy"],
+	"type": ["seafood", "fish", "porgy"],
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "mighty",
 	"duration": [50, 100, 150, 200, 250],
@@ -502,7 +502,7 @@
 },
 {
 	"name": "Hearty Salmon",
-	"type": ["seafood", "salmon"],
+	"type": ["seafood", "fish", "salmon"],
 	"hearts": [-1, -1, -1, -1, -1],
 	"effect": "hearty",
 	"duration": [4, 8, 12, 16, 20],

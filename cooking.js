@@ -8,7 +8,7 @@
  *	- Todo: re-dl les images au format 80x80 au lieu de 60 ou 40px.
  *	- Todo: trouver les proprietes de nouveaux ingredients.
  *	- Todo: mettre au propre UIdisplayIngredients.
- *	- Todo: transferer les recettes vers recipes.js.
+ *	- Todo: transferer le reste des recettes vers recipes.js.
  */
 
 var debug = true;
@@ -278,152 +278,9 @@ function getName(dish) {
 		name += dish.effect + ' ';
 
 	/*
-	 * FRUIT
-	 */
-	if (type & types["fruit"]) {
-	//--- General
-		if (type & types["herb"] || type & types["vegetable"]) {
-			name += "Steamed Fruit";
-		} else if (type & types["mushroom"]) {
-			name += "Fruit and Mushroom mix";
-		//--- Apple
-		} else if ((type ^ types["fruit"]) & types["apple"]) {
-			if (type & types["wheat"] && type & types["sugar"] && type & types["butter"]) {
-				name += "Apple Pie";
-			} else if (type & types["honey"]) {
-				name += "Honeyed Apple";
-			} else if (type & types["wheat"] && type & types["sugar"]) {
-				name += "Fruitcake";
-			} else {
-				name += "Simmered Fruit";
-			}
-		// Not an apple
-		} else if (type & types["wheat"] && type & types["sugar"] && type & types["butter"]) {
-			name += "Fruit Pie";
-		} else if (type & types["honey"]) {
-			name += "Honeyed Fruits";
-		//--- Wildberry
-		} else if ((type ^ types["fruit"]) & types["wildberry"]) {
-			if (type & types["milk"] && type & types["sugar"] && type & types["wheat"] && type & types["egg"]) {
-				name += "Wildberry Crepe";
-			} else if (type & types["wheat"] && type & types["sugar"]) {
-				name += "Fruitcake";
-			} else {
-				name += "Simmered Fruit";
-			}
-		//--- Spicy Pepper
-		} else if ((type ^ types["fruit"]) & types["pepper"]) {
-			if (type & types["meat"]) {
-				name += "Pepper Steak";
-			} else if (type & types["seafood"]) {
-				name += "Pepper Seafood";
-			} else {
-				name += "Sauteed Peppers";
-			}
-		//--- Still fruit but neither apple nor wildberry
-		} else {
-			name += "Simmered fruit";
-		}
-
-	/*
-	 * SEAFOOD
-	 */
-	} else if (type & types["seafood"]) {
-	//--- General: Recipes that do not need a particular type of seafood to be made
-		if (type & types["milk"] && type & types["salt"] &&
-			(type & types["herb"] || type & types["vegetable"])) {
-			name += "Creamy Seafood Soup";
-		} else if (type & types["wheat"] && type & types["butter"] && type & types["salt"]) {
-			name += "Fish Pie";
-		} else if (type & types["meat"]) {
-			name += "Meat and seafood fry";
-		} else if (type & types["herb"] || type & types["vegetable"]) {
-			name += "Steamed Fish";
-		} else if (type & types["honey"]) {
-			name += "Glazed Seafood";
-		//--- Porgy
-		} else if ((type ^ types["seafood"]) & types["porgy"]) {
-			if (type & types["snail"] && type & types["rice"] && type & types["butter"] && type & types["salt"]) { // To check
-				name += "Seafood Paella";
-			} else if (type & types["rice"] && type & types["spice"]) {
-				name += "Seafood Curry";
-			} else if (type & types["rice"] && type & types["salt"]) {
-				name += "Seafood Fried Rice";
-			} else if (type & types["butter"] && type & types["wheat"]) {
-				name += "Porgy Meuniere";
-			} else if (type & types["rice"]) {
-				name += "Seafood Rice Balls";
-			} else {
-				name += "Fish skewer";
-			}
-		//--- Salmon
-		} else if ((type ^ types["seafood"]) & types["salmon"]) {
-			if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
-				name += "Salmon Risotto";
-			} else if (type & types["wheat"] && type & types["butter"]) {
-				name += "Salmon Meuniere";
-			} else if (type & types["rice"]) {
-				name += "Seafood Rice Balls";
-			} else {
-				name += "Fish skewer";
-			}
-		//--- Fish
-		} else if ((type ^ types["seafood"]) & types["fish"]) {
-			if (type & types["wheat"] && type & types["butter"]) {
-				name += "Seafood Meuniere";
-			} else if (type & types["mushroom"]) {
-				name += "Fish and mushroom skewer";
-			} else if (type & types["salt"]) {
-				name += "Salt-Grilled Fish";
-			} else if (type & types["rice"]) {
-				name += "Seafood Rice Balls";
-			} else {
-				name += "Fish skewer";
-			}
-		//--- Crab
-		} else if ((type ^ types["seafood"]) & types["crab"]) {
-			//---- Main
-			if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
-				name += "Crab Risotto";
-			} else if (type & types["rice"] && type & types["egg"] && type & types["salt"]) {
-				name += "Crab Omelet with Rice";
-			} else if (type & types["wheat"] && type & types["butter"]) {
-				name += "Seafood Meuniere";
-			} else if (type & types["salt"]) {
-				name += "Salt-Grilled Crab";
-			} else if (type & types["spice"]) {
-				name += "Crab Stir-Fry";
-			} else if (type & types["rice"]) {
-				name += "Seafood Rice Balls";
-			} else {
-				name += "Seafood Skewer";
-			}
-		//--- Snail
-		} else if ((type ^ types["seafood"]) & types["snail"]) {
-			if (type & types["milk"] && type & types["wheat"] && type & types["butter"]) {
-				name += "Clam Chowder";
-			} else if (type & types["wheat"] && type & types["butter"]) {
-				name += "Seafood Meuniere";
-			} else if (type & types["rice"] && type & types["spice"]) {
-				name += "Seafood Curry";
-			} else if (type & types["rice"] && type & types["salt"]) {
-				name += "Seafood Fried Rice";
-			} else if (type & types["rice"]) {
-				name += "Seafood Rice Balls";
-			} else if (type & types["salt"]) {
-				name += "Salt-Grilled Fish";
-			} else {
-				name += "Seafood Skewer";
-			}
-		//--- Still seafood (abstract, cannot happen)
-		} else {
-			name += "Seafood Skewer";
-		}
-
-	/*
 	 * VEGETABLES
 	 */
-	} else if (type & types["vegetable"]) {
+	if (type & types["vegetable"]) {
 	//--- General
 		//TODO: Steamed meat : meat + veg/herb. meat devrait check en premier
 		if (type & types["spice"]) {
