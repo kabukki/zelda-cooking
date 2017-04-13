@@ -5,6 +5,7 @@
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
+	"description": "A common fruit found on trees all around Hyrule. Eat it fresh, or cook it to increase its effect.",
 	"image": "apple.png"
 },
 {
@@ -38,8 +39,6 @@
 	"image": "hylianshroom.png"
 },
 
-
-
 {
 	"name": "Hyrule Herb",
 	"type": ["herb"],
@@ -49,9 +48,6 @@
 	"level": [0, 0, 0, 0, 0],
 	"image": "hyruleherb.png"
 },
-
-
-
 
 {
 	"name": "Raw Meat",
@@ -107,8 +103,6 @@
 	"level": [0, 0, 0, 0, 0],
 	"image": "rawwholebird.png"
 },
-
-
 
 {
 	"name": "Hyrule Bass",
@@ -210,6 +204,7 @@
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
+	"description": "This fresh milk comes from Hateno cows and white goats kept in the village. It's delicious on its own but can also be used as an ingredient in soups and stews.",
 	"image": "freshmilk.png"
 },
 {
@@ -220,6 +215,15 @@
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
 	"image": "canesugar.png"
+},
+{
+	"name": "Wood",
+	"type": ["misc", "wood"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"image": "wood.png"
 },
 
 
@@ -279,9 +283,11 @@
 	"image": "mightythistle.png"
 },
 
+
+
 {
 	"name": "Armored Porgy",
-	"type": ["seafood", "porgy"],
+	"type": ["seafood", "fish", "porgy"],
 	"hearts": [2, 4, 6, 8, 10],
 	"effect": "tough",
 	"duration": [50, 100, 150, 200, 250],
@@ -334,6 +340,8 @@
 	"image": "armoranth.png"
 },
 
+
+
 {
 	"name": "Endura Carrot",
 	"type": ["vegetable", "carrot"],
@@ -352,6 +360,8 @@
 	"level": [0, 0, 0, 0, 0],
 	"image": "endurashroom.png"
 },
+
+
 
 {
 	"name": "Staminoka Bass",
@@ -389,6 +399,8 @@
 	"level": [0, 0, 0, 0, 0],
 	"image": "stamellashroom.png"
 },
+
+
 
 {
 	"name": "Silent Princess",
@@ -436,6 +448,8 @@
 	"image": "sneakyriversnail.png"
 },
 
+
+
 {
 	"name": "Fleet-Lotus Seeds",
 	"type": ["fruit"],
@@ -472,6 +486,8 @@
 	"level": [1, 1, 1, 2, 2],
 	"image": "swiftviolet.png"
 },
+
+
 
 {
 	"name": "Big Hearty Radish",
@@ -548,73 +564,6 @@
 
 
 
-
-
-{
-	"name": "Fireproof Lizard",
-	"type": ["insect"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "fireproof",
-	"duration": [0, 0, 0, 0, 0],
-	"level": [1, 2, 3, 3, 3],
-	"image": "fireprooflizard.png"
-},
-{
-	"name": "Hightail Lizard",
-	"type": ["insect"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "hasty",
-	"duration": [60, 120, 180, 240, 300],
-	"level": [1, 2, 3, 3, 3],
-	"image": "hightaillizard.png"
-},
-{
-	"name": "Sunset Firefly",
-	"type": ["insect"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "sneaky",
-	"duration": [120, 240, 360, 480, 600],
-	"level": [1, 2, 3, 3, 3],
-	"image": "sunsetfirefly.png"
-},
-{
-	"name": "Fairy",
-	"type": ["fairy"],
-	"hearts": [9, 18, 27, 36, 45],
-	"effect": "none",
-	"duration": [0, 0, 0, 0, 0],
-	"level": [1, 2, 3, 3, 3],
-	"image": "fairy.png"
-},
-
-{
-	"name": "Bokoblin Fang",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "none",
-	"duration": [110, 160, 210, 260, 310],
-	"level": [0, 0, 0, 0, 0],
-	"image": "bokoblinfang.png"
-},
-{
-	"name": "Bokoblin Guts",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "none",
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"image": "bokoblinguts.png"
-},
-{
-	"name": "Keese Eyeball",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "none",
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"image": "keeseeyeball.png"
-},
-
 {
 	"name": "Hydromelon",
 	"type": ["fruit", "melon"],
@@ -652,12 +601,14 @@
 	"image": "coolsafflina.png"
 },
 
+
+
 {
 	"name": "Spicy Pepper",
 	"type": ["fruit", "pepper"],
-	"hearts": [0, 0, 0, 0, 0],
+	"hearts": [1, 2, 3, 4, 5],
 	"effect": "spicy",
-	"duration": [190, 380, 570, 760, 950],
+	"duration": [150, 300, 450, 600, 750],
 	"level": [0, 0, 0, 0, 0],
 	"image": "spicypepper.png"
 },
@@ -666,7 +617,7 @@
 	"type": ["mushroom"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "spicy",
-	"duration": [190, 380, 570, 760, 950],
+	"duration": [150, 300, 450, 600, 750],
 	"level": [0, 0, 0, 0, 0],
 	"image": "sunshroom.png"
 },
@@ -684,14 +635,14 @@
 	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "spicy",
-	"duration": [190, 380, 570, 760, 950],
+	"duration": [150, 300, 450, 600, 750],
 	"level": [0, 0, 0, 0, 0],
 	"image": "warmsafflina.png"
 },
 
 {
 	"name": "Voltfruit",
-	"type": ["fruit"],
+	"type": ["fruit", "voltfruit"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "electro",
 	"duration": [190, 380, 570, 760, 950],
@@ -724,7 +675,330 @@
 	"duration": [190, 380, 570, 760, 950],
 	"level": [0, 0, 0, 0, 0],
 	"image": "electricsafflina.png"
-}
+},
 
+
+
+{
+	"name": "Cold Darner",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "chilly",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"image": "colddarner.png"
+},
+{
+	"name": "Electric Darner",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "electro",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"image": "electricdarner.png"
+},
+{
+	"name": "Warm Darner",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "spicy",
+	"duration": [150, 300, 450, 600, 750],
+	"level": [1, 2, 3, 3, 3],
+	"image": "warmdarner.png"
+},
+
+{
+	"name": "Hot-Footed Frog",
+	"type": ["critter", "frog"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "hasty",
+	"duration": [60, 120, 180, 240, 300],
+	"level": [1, 2, 3, 3, 3],
+	"image": "hot-footedfrog.png"
+},
+{
+	"name": "Tireless Frog",
+	"type": ["critter", "frog"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "enduring",
+	"duration": [0.2, 0.4, 0.6, 0.8, 1.0],
+	"level": [1, 2, 3, 3, 3],
+	"image": "tirelessfrog.png"
+},
+
+{
+	"name": "Hearty Lizard",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "hearty",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"image": "heartylizard.png"
+},
+{
+	"name": "Fireproof Lizard",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "fireproof",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"image": "fireprooflizard.png"
+},
+{
+	"name": "Hightail Lizard",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "hasty",
+	"duration": [60, 120, 180, 240, 300],
+	"level": [1, 2, 3, 3, 3],
+	"image": "hightaillizard.png"
+},
+
+{
+	"name": "Restless Cricket",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "energizing",
+	"duration": [20, 40, 60, 80, 100],
+	"level": [0, 0, 0, 0, 0],
+	"image": "restlesscricket.png"
+},
+
+{
+	"name": "Rugged Rhino Beetle",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "tough",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"image": "ruggedrhinobeetle.png"
+},
+{
+	"name": "Energetic Rhino Beetle",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "energizing",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"image": "energeticrhinobeetle.png"
+},
+
+{
+	"name": "Smotherwing Butterfly",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "fireproof",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"image": "smotherwingbutterfly.png"
+},
+{
+	"name": "Summerwing Butterfly",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "spicy",
+	"duration": [150, 300, 450, 600, 750],
+	"level": [1, 2, 3, 3, 3],
+	"image": "summerwingbutterfly.png"
+},
+{
+	"name": "Thunderwing Butterfly",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "electro",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"image": "thunderwingbutterfly.png"
+},
+{
+	"name": "Winterwing Butterfly",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "chilly",
+	"duration": [150, 300, 450, 600, 750],
+	"level": [1, 2, 3, 3, 3],
+	"image": "winterwingbutterfly.png"
+},
+
+{
+	"name": "Sunset Firefly",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "sneaky",
+	"duration": [120, 240, 360, 480, 600],
+	"level": [1, 2, 3, 3, 3],
+	"image": "sunsetfirefly.png"
+},
+
+{
+	"name": "Fairy",
+	"type": ["critter", "fairy"],
+	"hearts": [9, 18, 27, 36, 45],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"image": "fairy.png"
+},
+
+
+
+{
+	"name": "Chuchu Jelly",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"image": "chuchujelly.png"
+},
+{
+	"name": "Red Chuchu Jelly",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"image": "redchuchujelly.png"
+},
+{
+	"name": "White Chuchu Jelly",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"image": "whitechuchujelly.png"
+},
+{
+	"name": "Yellow Chuchu Jelly",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"image": "yellowchuchujelly.png"
+},
+
+{
+	"name": "Bokoblin Horn",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"image": "bokoblinhorn.png"
+},
+{
+	"name": "Bokoblin Fang",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"image": "bokoblinfang.png"
+},
+{
+	"name": "Bokoblin Guts",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"image": "bokoblinguts.png"
+},
+
+{
+	"name": "Keese Wing",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"image": "keesewing.png"
+},
+{
+	"name": "Electric Keese Wing",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"image": "electrickeesewing.png"
+},
+{
+	"name": "Keese Eyeball",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"image": "keeseeyeball.png"
+},
+
+{
+	"name": "Moblin Horn",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"image": "moblinhorn.png"
+},
+{
+	"name": "Moblin Fang",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"image": "moblinfang.png"
+},
+{
+	"name": "Moblin Guts",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"image": "moblinguts.png"
+},
+
+{
+	"name": "Lizalfos Horn",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"image": "lizalfoshorn.png"
+},
+{
+	"name": "Lizalfos Talon",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"image": "lizalfostalon.png"
+},
+{
+	"name": "Lizalfos Tail",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"image": "lizalfostail.png"
+},
+
+{
+	"name": "Monster Extract",
+	"type": ["monster", "extract"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"image": "monsterextract.png"
+}
 
 ]

@@ -8,7 +8,7 @@
  *	- Todo: re-dl les images au format 80x80 au lieu de 60 ou 40px.
  *	- Todo: trouver les proprietes de nouveaux ingredients.
  *	- Todo: mettre au propre UIdisplayIngredients.
- *	- Todo: transferer le reste des recettes vers recipes.js.
+ *	- Todo: Finir de remplir les recettes misc pour que la fonction puisse evaluer en stand-alone un repas.
  */
 
 var debug = true;
@@ -43,6 +43,9 @@ if (self.fetch) {
 		return response.json();
 	}).then(function(data) {
 		items = data;
+		for (var i = 0; i < items.length; i++) {
+			items[i].id = i;
+		}
 		UIQueue();
 		UIdisplayIngredients(items, cmpFunctions[cmpSelector]);
 		display(cook(queue));
@@ -91,7 +94,7 @@ function UIdisplayIngredients(items) {
 
 		(function() {
 			var ci = i;
-			d.onclick = function() {
+			d.getElementsByTagName("img")[0].onclick = function() {
 				addToQueue(items[ci]);
 			};
 		})();
@@ -192,7 +195,7 @@ function cook(ing) {
 			dish.duration += e.duration;
 		dish.level = Math.max(dish.level, e.level);
 	});
-	dish.name = _getName(dish);
+	dish.name = getName(dish);
 	dish.image = getImage(dish);
 	return dish;
 }
@@ -266,194 +269,6 @@ function display(dish) {
 }
 
 /*
- * Returns a name for a given type of dish
- */
-function getName(dish) {
-	var name = "",
-		type = dish.type;
-
-	debug && console.log(dish);
-	// Prepend by effect
-	if (dish.effect != "none" && dish.effect != "cancelled")
-		name += dish.effect + ' ';
-
-	/*
-	 * VEGETABLES
-	 */
-	if (type & types["vegetable"]) {
-	//--- General
-		//TODO: Steamed meat : meat + veg/herb. meat devrait check en premier
-		if (type & types["spice"]) {
-			name += "Herb Saute";
-		} else if (type & types["honey"]) {
-			name += "Glazed Veggies";
-		//--- Carrot
-		} else if ((type ^ types["vegetable"]) & types["carrot"]) {
-			if (type & types["wheat"] && type & types["sugar"] && type & types["butter"]) {
-				name += "Carrot Pie";
-			} else if (type & types["wheat"] && type & types["milk"] && type & types["butter"]) {
-				name += "Carrot Stew";
-			} else if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
-				name += "Vegetable Risotto";
-			} else if (type & types["rice"] && type & types["spice"]) {
-				name += "Vegetable Curry";
-			} else if (type & types["milk"] && type & types["salt"]) {
-				name += "Veggie Cream Soup";
-			} else {
-				name += "Fried Wild Greens";
-			}
-		//--- Pumpkin
-		} else if ((type ^ types["vegetable"]) & types["pumpkin"]) {
-			if (type & types["wheat"] && type & types["sugar"] && type & types["butter"]) {
-				name += "Pumpkin Pie";
-			} else if (type & types["wheat"] && type & types["milk"] && type & types["butter"]) {
-				name += "Pumpkin Stew";
-			} else if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
-				name += "Vegetable Risotto";
-			} else if (type & types["meat"]) {
-				name += "Meat-Stuffed Pumpkin";
-			} else if (type & types["rice"] && type & types["spice"]) {
-				name += "Vegetable Curry";
-			} else if (type & types["milk"] && type & types["salt"]) {
-				name += "Veggie Cream Soup";
-			} else {
-				name += "Fried Wild Greens";
-			}
-		//--- Still vegetable but neither carrot nor pumpkin
-		} else {
-			name += "Fried Wild Greens";
-		}
-
-	/*
-	 * MEAT
-	 */
-	} else if (type & types["meat"]) {
-	//--- General
-		if (type & types["milk"] && type & types["salt"] &&
-					(type & types["herb"] || type & types["vegetable"])) {
-			name += "Creamy Meat Soup";
-		} else if (type & types["wheat"] && type & types["butter"] && type & types["milk"]) {
-			name += "Meat Stew";
-		} else if (type & types["wheat"] && type & types["butter"] && type & types["salt"]) {
-			name += "Meat Pie";
-		} else if (type & types["rice"] && type & types["spice"]) {
-			name += "Meat Curry";
-		} else if (type & types["rice"] && type & types["salt"]) {
-			name += "Meat and Rice Bowl";
-		} else if (type & types["rice"]) {
-			name += "Meaty Rice Balls";
-		} else if (type & types["mushroom"]) {
-			name += "Meat and mushroom skewer";
-		} else if (type & types["salt"]) {
-			name += "Salt-Grilled meat";
-		} else if (type & types["honey"]) {
-			name += "Glazed Meat";
-		} else if (type & types["herb"]) {
-			name += "Steamed Meat";
-		} else if (type & types["spice"]) {
-			name += "Spiced Meat Skewer";
-		} else  {
-			name += "Meat Skewer";
-		}
-	/*
-	 * MUSHROOM
-	 */
-	} else if (type & types["mushroom"]) {
-	//--- General
-		if (type & types["milk"] && type & types["salt"] &&
-			(type & types["herb"] || type & types["vegetable"])) {
-			name += "Cream of Mushroom Soup";
-		} else if (type & types["egg"] && type & types["butter"] && type & types["salt"]) {
-			name += "Mushroom Omelet";
-		} else if (type & types["rice"] && type & types["butter"] && type & types["salt"]) {
-			name += "Mushroom Risotto";
-		} else if (type & types["vegetable"] || type & types["herb"]) {
-			name += "Steamed Mushrooms";
-		} else if (type & types["rice"]) {
-			name += "Mushroom Rice Balls";
-		} else if (type & types["salt"]) {
-			name += "Salt-Grilled Mushrooms";
-		} else if (type & types["honey"]) {
-			name += "Glazed Mushrooms";
-		} else if (type & types["spice"]) {
-			name += "Fragrant Mushroom Saute";
-		} else {
-			name += "Mushroom skewer";
-		}
-
-	/*
-	 * INSECT (elixir)
-	 */
-	} else if (type & types["insect"]) {
-		if (type & types["monster"]) {
-			name += "Elixir";
-		} else {
-			name = 'Dubious food';
-		}
-
-	/*
-	 * MISCELLANEOUS
-	 * Here, the misc. ingredients are dominant.
-	 */
-	} else if (type & types["milk"] && type & types["sugar"] &&
-				type & types["wheat"] && type & types["egg"] &&
-				type & types["honey"]) {
-		name += "Honey Crepe";
-	} else if (type & types["milk"] && type & types["sugar"] &&
-				type & types["wheat"] && type & types["egg"] &&
-				type & types["butter"]) {
-		name += "Plain Crepe";
-	} else if (type & types["rice"] && type & types["egg"] &&
-				type & types["butter"] && type & types["spice"]) {
-		name += "Curry Pilaf";
-	} else if (type & types["spice"] && type & types["herb"]) {
-		name += "Herb Saute";
-	} else if (type & types["honey"] && type & types["herb"]) {
-		name += "Glazed Veggies";
-	} else if (type & types["nut"] && type & types["sugar"] &&
-				type & types["wheat"] && type & types["butter"]) {
-		name += "Nutcake";
-	} else if (type & types["wheat"] && type & types["egg"] &&
-				type & types["sugar"] && type & types["butter"]) {
-		name += "Egg Tart";
-	} else if (type & types["milk"] && type & types["egg"] &&
-				type & types["sugar"]) {
-		name += "Egg Pudding";
-	} else if (type & types["rice"] &&
-				(type & types["vegetable"] || type & types["herb"])) {
-		name += "Veggie Rice Balls";
-	} else if (type & types["egg"] && type & types["butter"] && type & types["salt"] &&
-				(type & types["vegetable"] || type & types["herb"])) {
-		name += "Vegetable Omelet";
-	} else if (type & types["salt"] &&
-				(type & types["vegetable"] || type & types["herb"])) {
-		name += "Salt-Grilled Greens";
-	} else if (type & types["spice"] && type & types["rice"]) {
-		name += "Curry Rice";
-	} else if (type & types["egg"] && type & types["rice"]) {
-		name += "Fried Egg and Rice";
-	} else if (type & types["wheat"] && type & types["salt"]) {
-		name += "Wheat Bread";
-	} else if (type == types["egg"]) {
-		name += "Omelet";
-	} else if (type == types["milk"]) {
-		name += "Warm Milk";
-	} else if (type == types["nut"]) {
-		name += "Sauteed Nuts";
-	} else if (type == types["honey"]) {
-		name += "Honey Candy";
-	//- And then lone types
-	} else if (type == types["fairy"]) {
-		name += "Fairy Tonic";
-	} else if (type & types["herb"] || type & types["vegetable"]) {
-		name += "Fried Wild Greens";
-	} else {
-		name = "Dubious food";
-	}
-	return name;
-}
-
-/*
  * Returns an image for a given type of dish
  */
 function getImage(dish) {
@@ -461,7 +276,7 @@ function getImage(dish) {
 		dname = dish.name.toLowerCase(), ename;
 
 	// Unless it is an elixir, ignore the effect to get a generic image
-	if (dname.indexOf("Elixir") == -1) {
+	if (dname.indexOf("elixir") == -1) {
 		ename = dname.substring(0, dname.indexOf(' '));
 		if (ename == dish.effect)
 			dname = dname.slice(ename.length);
@@ -481,49 +296,6 @@ function printIngredients(ing) {
 	for (var i = 0; i < ing.length; i++) {
 		console.log(ing[i]);
 	}
-}
-
-/*
- * Transforms an ingredient into an html string to display its image & description
- */
-function htmlIngredient(ing) {
-	return '<img src="img/food/' + ing.image + '"/>' +
-			'<div class="sqTooltip">' + 
-				'<div class="sqTooltipHeader">' + 
-					ing.name + 
-				'</div>' +
-				'<div class="sqTooltipContent">' + 
-					'Type: ' + ing.type.join(' > ') + '<br>' +
-					'Effect: ' + ing.effect + '<br>' +
-					'Level curve: ' + ing.level +
-				'</div>' +
-			'</div>';
-}
-
-/*
- * Transforms an amount of hearts into an html string to display them
- * arg extra - true if the hearts are extra (yellow)
- */
-function htmlHearts(n, extra) {
-	var s = "";
-
-	if (n == -1) // Special case: -1 means full recovery
-		return '<img src="img/heart100.png"/>' + ' Full Recovery';
-	while (n >= 1) {
-		if (n > 10) {
-			s += '<img src="img/' + (extra ? 'y' : '') + 'heart1000.png"/>';
-			n -= 10;
-		} else if (n > 5) {
-			s += '<img src="img/' + (extra ? 'y' : '') + 'heart500.png"/>';
-			n -= 5;
-		} else {
-			s += '<img src="img/' + (extra ? 'y' : '') + 'heart100.png"/>';
-			n--;
-		}
-	}
-	if (n > 0) // 0 < n < 1
-		s += '<img src="img/' + (extra ? 'y' : '') + 'heart' + (n * 100) + '.png"/>';
-	return s;
 }
 
 /*

@@ -3,115 +3,25 @@
 	<head>
 		<title>BOTW Cooking Simulator</title>
 		<link rel='icon' href='img/food/apple.png'/>
-		<style>
-			body {
-				font-family: 'Arial', sans-serif;
-				background-image:url('img/bg-black.png');
-			}
-
-			#wrapper {
-				margin: 0 auto;
-				padding: 30px;
-				width: 80%;
-				background-color: #c39b6d;
-				background-image: url('img/lightpaperfibers.png');
-				border-radius: 25px;
-			}
-			header {
-				padding: 10px;
-				font-size: 5vmin;
-				color: #f9f3ef;
-				text-align: center;
-				border-bottom: 1px solid #000;
-			}
-			/* SQ */
-			.sq {
-				display: inline-block;
-				width:	10vmin;
-				height:	10vmin;
-				margin: 1px;
-				background: rgba(0, 0, 0, 0.75);
-				border: 5px solid rgba(0, 0, 0, 0.25);
-				border-radius: 2px;
-			}
-			.sq img {
-				width:	10vmin;
-				height:	10vmin;
-			}
-			/* SQ Tooltip */
-			.sqTooltip {
-				visibility: hidden;
-				opacity: 0;
-				position: absolute;
-				background: rgba(0, 0, 0, 0.75);
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 4px;
-				padding: 10px;
-				transition: opacity 0.25s;
-			}
-			.sqTooltipHeader {
-				font-size: 4vmin;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-				margin-bottom: 5px;
-				font-style: italic;
-			}
-			.sqTooltipContent {
-				font-size: 2.5vmin;
-			}
-			.sq:hover .sqTooltip {
-				visibility: visible;
-				opacity: 1;
-			}
-			/* SQ Separator */
-			.sqSeparator {
-				font-size: 5vmin;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-				margin-bottom: 5px;
-				font-style: italic;
-				text-transform: capitalize;
-			}
-
-			.cross {
-				border-radius: 50%;
-				background: rgba(255, 0, 0, 0.75);
-			}
-
-			#ingredients {
-				margin: 10px 0;
-			}
-			#dish {
-				margin: 10px 0;
-				padding: 10px;
-				border: 1px black solid;
-				background: #f9f3ef;
-			}
-			#dishImage {
-				float: left;
-			}
-			#dishImage img {
-				width: 80px;
-				height: 80px;
-			}
-			#dishTitle {
-				text-transform: capitalize;
-			}
-			#ctl {
-				margin: 10px 0;
-			}
-			#ingredientList {
-				margin: 10px 0;
-			}
-		</style>
+		<link rel='stylesheet' href='style/main.css'/>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	</head>
 	<body>
 		<div id='wrapper'>
 			<header>
-				Zelda Breath of The Wild Cooking Simulator	
+				Zelda Breath of The Wild: Cooking Simulator	
 			</header>
 
+			<nav>
+				<ul class='navbar'>
+					<li class='navbar-item'><a href='index.html'>Cook</a></li>
+					<li class='navbar-item'>Learn</li>
+					<li class='navbar-item'>Recipes</li>
+				</ul>
+			</nav>
+
+			<h2>Queue:</h2>
 			<div id='ingredients'>
-				<h2>Queue:</h2>
 				<div class='sq ing'></div>
 				<div class='sq ing'></div>
 				<div class='sq ing'></div>
@@ -126,8 +36,10 @@
 			</div>
 
 			<div id='dish'>
-				<div id='dishImage'></div>
-				<h2 id='dishTitle'></h2>
+				<div id='dishHeader'>
+					<span id='dishImage'></span>
+					<span id='dishTitle'></span>
+				</div>
 				<div id='dishHearts'></div>
 				<div id='dishEffect'></div>
 				<div id='dishDuration'></div>

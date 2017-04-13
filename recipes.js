@@ -29,6 +29,37 @@
  *    checks for more readability.
  */
 
+
+
+/*
+ * Returns the name of the dish, knowing that
+ * it contains at least the 'monster' type.
+ */
+function monsterRecipes(type) {
+	////// Extract
+	if (type.has("extract")) {
+		// Extract + Wheat + Sugar + Butter
+		if (type.has("wheat") && type.has("sugar") && type.has("butter"))
+			return "Monster Pie";
+		// Extract + Wheat + Milk + Butter
+		if (type.has("wheat") && type.has("milk") && type.has("butter"))
+			return "Monster Soup";
+		// Extract + Rice + Spice
+		if (type.has("rice") &&type.has("spice"))
+			return "Monster Curry";		
+		// Extract + Rice + Salt
+		if (type.has("rice") &&type.has("salt"))
+			return "Monster Rice Balls";		
+		// Extract + [Seafood] + [Meat]
+		if (type.has("seafood") && type.has("meat"))
+			return "Monster Stew";
+	}
+	// [Monster] + [Critter] -- Only these 2 types
+	if (type.has("critter"))
+		return "Elixir";
+	return "Dubious Food";
+}
+
 /*
  * Returns the name of the dish, knowing that
  * it contains at least the 'seafood' type.
@@ -138,6 +169,12 @@ function fruitRecipes(type) {
 	// [Fruit] + Mushroom
 	if (type.has("mushroom"))
 		return "Fruit and Mushroom Mix";
+	////// Melon
+	if (type.has("melon")) {
+		// Melon + Voltfruit + [Vegetable]
+		if (type.has("voltfruit") && type.has("vegetable"))
+			return "Creamy Heart Soup";
+	}
 	// [Fruit] + [Herb]|[Vegetable]
 	if (type.has("herb") || type.has("vegetable"))
 		return "Steamed Fruit";
@@ -149,6 +186,9 @@ function fruitRecipes(type) {
 		// Apple + Wheat + Sugar
 		if (type.has("wheat") && type.has("sugar"))
 			return "Fruitcake";
+		// Apple + Butter
+		if (type.has("butter"))
+			return "Hot Buttered Apple";
 		// Apple + Honey
 		if (type.has("honey"))
 			return "Honeyed Apple";
@@ -188,6 +228,90 @@ function fruitRecipes(type) {
  * it contains at least the 'vegetable' type.
  */
 function vegetableRecipes(type) {
+	// [Vegetable] + Egg + Butter + Salt
+	if (type.has("egg") && type.has("butter") && type.has("salt"))
+		return "Vegetable Omelet";
+	// [Vegetable] + [Meat] + Milk + Salt
+	if (type.has("meat") && type.has("milk") && type.has("salt"))
+		return "Creamy Meat Soup";
+	// [Vegetable] + [Mushroom] + Milk + Salt
+	if (type.has("mushroom") && type.has("milk") && type.has("salt"))
+		return "Cream of Mushroom Soup";
+	// [Vegetable] + [Mushroom]
+	if (type.has("mushroom"))
+		return "Steamed Mushrooms";
+	// [Vegetable] + [Seafood] + Milk + Salt
+	if (type.has("seafood") && type.has("milk") && type.has("salt"))
+		return "Creamy Meat Soup";
+	// [Vegetable] + [Seafood] 
+	if (type.has("seafood"))
+		return "Steamed Fish";
+	// [Vegetable] + Honey
+	if (type.has("honey"))
+		return "Glazed Veggies";
+	////// Pumpkin
+	if (type.has("pumpkin")) {
+		// Puumpkin + Wheat + Butter + Sugar
+		if (type.has("wheat") && type.has("butter") && type.has("sugar"))
+			return "Pumpkin Pie";
+		// Pumpkin + Wheat + Butter + Milk
+		if (type.has("wheat") && type.has("butter") && type.has("milk"))
+			return "Punpkin Stew";
+		// Pumpkin + Rice + Butter + Salt
+		if (type.has("rice") && type.has("butter") && type.has("salt"))
+			return "Vegetable Risotto";
+		// Pumpkin + Milk + Salt
+		if (type.has("milk") && type.has("salt"))
+			return "Veggie Cream Soup";
+		// Pumpkin + Rice + Spice
+		if (type.has("rice") && type.has("spice"))
+			return "Vegetable Curry";
+		// Pumpkin + Meat
+		if (type.has("meat"))
+			return "Meat-Stuffed Pumpkin";
+	}
+	// [Vegetable - Pumpkin] + [Meat]
+	if (type.has("meat"))
+		return "Steamed Meat";
+	////// Radish
+	if (type.has("radish")) {
+		// Radish + Melon + Voltfruit + Milk
+		if (type.has("melon") && type.has("voltfruit") && type.has("milk"))
+			return "Creamy Heart Soup";
+	}
+	// [Vegetable] + [Fruit] -- To avoid conflict with radish
+	if (type.has("fruit"))
+		return "Steamed Fruit";
+	////// Carrot
+	if (type.has("carrot")) {
+		// Carrot + Wheat + Butter + Sugar
+		if (type.has("wheat") && type.has("butter") && type.has("sugar"))
+			return "Carrot Cake";
+		// Carrot + Wheat + Butter + Milk
+		if (type.has("wheat") && type.has("butter") && type.has("milk"))
+			return "Carrot Stew";
+		// Carrot + Rice + Butter + Salt
+		if (type.has("rice") && type.has("butter")  && type.has("salt"))
+			return "Vegetable Risotto";
+		// Carrot + Milk + Salt
+		if (type.has("milk") && type.has("salt"))
+			return "Veggie Cream Soup";
+		// Carrot + Rice + Spice
+		if (type.has("rice") && type.has("spice"))
+			return "Vegetable Curry";
+	}
+	// [Vegetable - Carrot - Pumpkin] + Milk + Salt
+	if (type.has("milk") && type.has("salt"))
+		return "Cream of Vegetable Soup";
+	// [Vegetable] + Salt
+	if (type.has("salt"))
+		return "Salt-Grilled Greens";
+	// [Vegetable] + Rice
+	if (type.has("rice"))
+		return "Veggie Rice Balls";
+	// [Vegetable] + Spice
+	if (type.has("spice"))
+		return "Herb Saute";
 	return "Fried Wild Greens";
 }
 
@@ -196,6 +320,45 @@ function vegetableRecipes(type) {
  * it contains at least the 'herb' type.
  */
 function herbRecipes(type) {
+	// [Herb] + Egg + Butter + Salt
+	if (type.has("egg") && type.has("butter") && type.has("salt"))
+		return "Vegetable Omelet";
+	// [Herb] + [Meat] + Milk + Salt
+	if (type.has("meat") && type.has("milk") && type.has("salt"))
+		return "Creamy Meat Soup";
+	// [Herb] + [Mushroom] + Milk + Salt
+	if (type.has("mushroom") && type.has("milk") && type.has("salt"))
+		return "Cream of Mushroom Soup";
+	// [Herb] + [Mushroom]
+	if (type.has("mushroom"))
+		return "Steamed Mushrooms";
+	// [Herb] + [Seafood] + Milk + Salt
+	if (type.has("seafood") && type.has("milk") && type.has("salt"))
+		return "Creamy Meat Soup";
+	// [Herb] + [Seafood] 
+	if (type.has("seafood"))
+		return "Steamed Fish";
+	// [Herb] + Milk + Salt
+	if (type.has("milk") && type.has("salt"))
+		return "Cream of Vegetable Soup";
+	// [Herb] + Honey
+	if (type.has("honey"))
+		return "Glazed Veggies";
+	// [Herb - Pumpkin] + [Meat]
+	if (type.has("meat"))
+		return "Steamed Meat";
+	// [Herb] + [Fruit] -- To avoid conflict with radish
+	if (type.has("fruit"))
+		return "Steamed Fruit";
+	// [Herb] + Salt
+	if (type.has("salt"))
+		return "Salt-Grilled Greens";
+	// [Herb] + Rice
+	if (type.has("rice"))
+		return "Veggie Rice Balls";
+	// [Herb] + Spice
+	if (type.has("spice"))
+		return "Herb Saute";
 	return "Fried Wild Greens";
 }
 
@@ -204,6 +367,134 @@ function herbRecipes(type) {
  * it contains at least the 'meat' type.
  */
 function meatRecipes(type) {
+	// [Meat] + [Vegetable|Herb] + Milk + Salt
+	if ((type.has("vegetable") || type.has("herb")) &&
+		type.has("milk") && type.has("salt"))
+		return "Creamy Meat Soup";
+	// [Meat] + Pumpkin
+	if (type.has("pumpkin"))
+		return "Meat-Stuffed Pumpkin";
+	// [Meat] + [Vegetable|Herb] + Milk + Salt
+	if (type.has("vegetable") || type.has("herb"))
+		return "Steamed Meat";
+	// [Meat] + Wheat + Butter + Salt
+	if (type.has("wheat") && type.has("butter") && type.has("salt"))
+		return "Meat Pie";
+	// [Meat] + [Mushroom]
+	if (type.has("mushroom"))
+		return "Meat and Mushroom Skewer";
+	// [Meat] + [Seafood] + [Monster]
+	if (type.has("seafood") && type.has("monster"))
+		return "Monster Stew";
+	////// [>Gourmet]
+	if (type.has("gourmet")) {
+		// [>Gourmet] + [Seafood]
+		if (type.has("seafood"))
+			return "Gourmet Meat and Seafood Fry";
+		// [>Gourmet] + Wheat + Butter + Milk
+		if (type.has("wheat") && type.has("butter") && type.has("milk"))
+			return "Gourmet Meat Stew";
+		// [>Gourmet] + Salt
+		if (type.has("salt"))
+			return "Salt-Grilled Gourmet Meat";
+		////// [>Gourmet>[Venison]] 
+		if (type.has("venison")) {
+			// [>Gourmet>[Venison]] + Rice + Spice
+			if (type.has("rice") && type.has("spice"))
+				return "Gourmet Meat Curry";
+		}
+		////// [>Gourmet>[Poultry]] 
+		if (type.has("poultry")) {
+			// [>Gourmet>[Poultry]] + Rice + Egg + Butter
+			if (type.has("rice") && type.has("egg") && type.has("butter"))
+				return "Gourmet Poultry Pilaf";
+			// [>Gourmet>[Poultry]] + Rice + Spice
+			if (type.has("rice") && type.has("spice"))
+				return "Gourmet Poultry Curry";
+		}
+		// [>Gourmet] + Rice + Salt
+		if (type.has("rice") && type.has("salt"))
+			return "Gourmet Meat and Rice Bowl";
+		// [>Gourmet] + Spice
+		if (type.has("spice"))
+			return "Gourmet Spiced Meat Skewer";
+	}
+	////// [>Prime]
+	if (type.has("prime")) {
+		// [>Prime] + [Seafood]
+		if (type.has("seafood"))
+			return "Prime Meat and Seafood Fry";
+		// [>Prime] + Wheat + Butter + Milk
+		if (type.has("wheat") && type.has("butter") && type.has("milk"))
+			return "Prime Meat Stew";
+		// [>Prime] + Salt
+		if (type.has("salt"))
+			return "Salt-Grilled Prime Meat";
+		////// [>Prime>[Venison]] 
+		if (type.has("venison")) {
+			// [>Prime>[Venison]] + Rice + Spice
+			if (type.has("rice") && type.has("spice"))
+				return "Prime Meat Curry";
+		}
+		////// [>Prime>[Poultry]] 
+		if (type.has("poultry")) {
+			// [>Prime>[Poultry]] + Rice + Egg + Butter
+			if (type.has("rice") && type.has("egg") && type.has("butter"))
+				return "Prime Poultry Pilaf";
+			// [>Prime>[Poultry]] + Rice + Spice
+			if (type.has("rice") && type.has("spice"))
+				return "Prime Poultry Curry";
+		}
+		// [>Prime] + Rice + Salt
+		if (type.has("rice") && type.has("salt"))
+			return "Prime Meat and Rice Bowl";
+		// [>Prime] + Spice
+		if (type.has("spice"))
+			return "Prime Spiced Meat Skewer";
+	}
+	////// [>Regular]
+	if (type.has("regular")) {
+		// [>Regular] + Wheat + Butter + Milk
+		if (type.has("wheat") && type.has("butter") && type.has("milk"))
+			return "Meat Stew";
+		// [>Regular] + [Seafood]
+		if (type.has("seafood"))
+			return "Meat and Seafood Fry";
+		// [>Regular] + Salt
+		if (type.has("salt"))
+			return "Salt-Grilled Meat";
+		////// [>Regular>[Venison]] 
+		if (type.has("venison")) {
+			// [>Regular>[Venison]] + Rice + Spice
+			if (type.has("rice") && type.has("spice"))
+				return "Meat Curry";
+		}
+		////// [>Regular>[Poultry]] 
+		if (type.has("poultry")) {
+			// [>Regular>[Poultry]] + Rice + Egg + Butter
+			if (type.has("rice") && type.has("egg") && type.has("butter"))
+				return "Poultry Pilaf";
+			// [>Regular>[Poultry]] + Rice + Spice
+			if (type.has("rice") && type.has("spice"))
+				return "Poultry Curry";
+		}
+		// [>Regular] + Rice + Salt
+		if (type.has("rice") && type.has("salt"))
+			return "Meat and Rice Bowl";
+		// [>Regular] + Spice
+		if (type.has("spice"))
+			return "Spiced Meat Skewer";
+
+	}
+	// [Meat] + Rice + Salt
+	if (type.has("rice"))
+		return "Meaty Rice Balls";
+	// [Meat] + Pepper
+	if (type.has("pepper"))
+		return "Pepper Steak";
+	// [Meat] + Honey
+	if (type.has("honey"))
+		return "Glazed Meat";
 	return "Meat Skewer";
 }
 
@@ -212,6 +503,40 @@ function meatRecipes(type) {
  * it contains at least the 'mushroom' type.
  */
 function mushroomRecipes(type) {
+	// [Mushroom] + [Vegetable|Herb] + Milk + Salt
+	if ((type.has("vegetable") || type.has("herb")) &&
+		type.has("milk") && type.has("salt"))
+		return "Cream of Mushroom Soup";	
+	// [Mushroom] + [Vegetable|Herb]
+	if (type.has("vegetable") || type.has("herb"))
+		return "Steamed Mushrooms";	
+	// [Mushroom] + Egg + Butter + Salt
+	if (type.has("egg") && type.has("butter") && type.has("salt"))
+		return "Mushroom Omelet";	
+	// [Mushroom] + Rice + Butter + Salt
+	if (type.has("rice") && type.has("butter") && type.has("salt"))
+		return "Mushroom Risotto";	
+	// [Mushroom] + Rice
+	if (type.has("rice"))
+		return "Mushroom Rice Balls";	
+	// [Mushroom] + [Fruit]
+	if (type.has("fruit"))
+		return "Fruit and Mushroom Mix";	
+	// [Mushroom] + [Meat]
+	if (type.has("meat"))
+		return "Meat and Mushroom Skewer";	
+	// [Mushroom] + [Seafood>[Fish]]
+	if (type.has("fish"))
+		return "Fish and Mushroom Skewer";	
+	// [Mushroom] + Spice
+	if (type.has("spice"))
+		return "Fragrant Mushroom Saute";	
+	// [Mushroom] + Salt
+	if (type.has("salt"))
+		return "Salt-Grilled Mushrooms";	
+	// [Mushroom] + Honey
+	if (type.has("honey"))
+		return "Glazed Mushroom";	
 	return "Mushroom Skewer";
 }
 
@@ -220,6 +545,82 @@ function mushroomRecipes(type) {
  * it contains at least the 'misc' type.
  */
 function miscRecipes(type) {
+	// Wood
+	if (type.has("wood"))
+		return "Rock-Hard Food";
+	// Egg + Sugar + Milk + Wheat + Butter
+	if (type.has("egg") && type.has("sugar") && type.has("milk") && type.has("wheat") && type.has("butter"))
+		return "Plain Crepe";	
+	// Egg + Sugar + Milk + Wheat + Honey
+	if (type.has("egg") && type.has("sugar") && type.has("milk") && type.has("wheat") && type.has("honey"))
+		return "Honey Crepe";	
+	// Egg + Sugar + Milk + Wheat + Wildberry
+	if (type.has("egg") && type.has("sugar") && type.has("milk") && type.has("wheat") && type.has("wildberry"))
+		return "Wildberry Crepe";	
+	// Egg + Butter + Salt + [Mushroom]
+	if (type.has("egg") && type.has("butter") && type.has("salt") && type.has("mushroom"))
+		return "Mushroom Omelet";	
+	// Egg + Butter + Rice + Spice
+	if (type.has("egg") && type.has("butter") && type.has("rice") && type.has("spice"))
+		return "Curry Pilaf";	
+	// Egg + Butter + Sugar + Wheat
+	if (type.has("egg") && type.has("butter") && type.has("sugar") && type.has("wheat"))
+		return "Egg Tart";
+	// Egg + Butter + Salt + [Vegetable|Herb]
+	if (type.has("egg") && type.has("butter") && type.has("salt") &&
+		(type.has("vegetable") || type.has("herb")))
+		return "Vegetable Omelet";
+	// Egg + Milk + Sugar
+	if (type.has("egg") && type.has("milk") && type.has("sugar"))
+		return "Egg Pudding";	
+	// Egg + Rice
+	if (type.has("egg") && type.has("rice"))
+		return "Fried Egg and Rice";	
+	// Egg
+	if (type.has("egg"))
+		return "Omelet";
+	// Rice + [Vegetable|Herb]
+	if (type.has("rice") &&
+		(type.has("vegetable") || type.has("herb")))
+		return "Veggie Rice Balls";
+	// Rice + [Meat]
+	if (type.has("rice") && type.has("meat"))
+		return "Meaty Rice Balls";
+	// Rice + [Mushroom]
+	if (type.has("rice") && type.has("mushroom"))
+		return "Meaty Rice Balls";
+	// Rice + spice
+	if (type.has("rice") && type.has("spice"))
+		return "Curry Rice";
+	// Spice + [Vegetable|Herb]
+	if (type.has("spice") &&
+		(type.has("vegetable") || type.has("herb")))
+		return "Herb Saute";
+	// Spice + Herb
+	if (type.has("spice") && type.has("mushroom"))
+		return "Fragrant Mushroom Saute";
+	// Wheat + Salt
+	if (type.has("wheat") && type.has("salt"))
+		return "Wheat Bread";
+	// Nut + Butter + Sugar + Wheat
+	if (type.has("nut") && type.has("butter") && type.has("sugar") && type.has("wheat"))
+		return "Sauteed Nuts";
+	// Nut
+	if (type.has("nut"))
+		return "Sauteed Nuts";
+	// Salt + [Vegetable|Herb]
+	if (type.has("salt") &&
+		(type.has("vegetable") || type.has("herb")))
+		return "Salt-Grilled Greens";
+	// Honey + [Vegetable|Herb]
+	if (type.has("honey") && (type.has("vegetable") || type.has("herb")))
+		return "Glazed Veggies";
+	// Honey + [Meat]
+	if (type.has("honey") && type.has("meat"))
+		return "Glazed Meat";
+	// Honey
+	if (type.has("honey"))
+		return "Honey Candy";
 	// Milk
 	if (type.has("milk"))
 		return "Warm Milk";
@@ -228,9 +629,15 @@ function miscRecipes(type) {
 
 /*
  * Returns the name of the dish, knowing that
- * it contains at least the 'insect' type.
+ * it contains at least the 'critter' type.
  */
-function insectRecipes(type) {
+function critterRecipes(type) {
+	// Fairy
+	if (type.has("fairy"))
+		return "Fairy Tonic";
+	// [Critter] + [Monster] -- Only these 2 types
+	if (type.has("monster"))
+		return "Elixir";
 	return "Dubious Food";
 }
 
@@ -238,13 +645,17 @@ function insectRecipes(type) {
  * Determines the name of a given dish
  * based on what makes it up.
  */
-function _getName(dish) {
+function getName(dish) {
 	var name = "",
 		type = dish.type;
 
 	debug && console.log(dish);
+	/* Monster */
+	if (type.has("monster")) {
+		name = monsterRecipes(type);
+	}
 	/* Seafood */
-	if (type.has("seafood")) {
+	else if (type.has("seafood")) {
 		name = seafoodRecipes(type);
 	}
 	/* Fruits */
@@ -271,12 +682,12 @@ function _getName(dish) {
 	else if (type.has("misc")) {
 		name = miscRecipes(type);
 	}
-	/* Insect */
-	else if (type.has("insect")) {
-		name = insectRecipes(type);
+	/* Critter */
+	else if (type.has("critter")) {
+		name = critterRecipes(type);
 	}
 	/*
-	 * No type matched: only non-edible types are left.
+	 * No type matched: only non-edible types are left (usually cannot happen)
 	 */
 	else {
 		return "Dubious food";

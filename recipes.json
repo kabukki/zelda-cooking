@@ -1,0 +1,16 @@
+[{
+	"name": "Apple Pie",
+	"required": ["apple", "wheat", "sugar", "butter"],
+	"image": "applepie.png"
+},
+{
+	"name": "Simmered Fruit",
+	"required": ["fruit"],
+	"image": "simmeredfruit.png"
+},
+{
+	"name": "Glazed Meat",
+	"required": ["honey", "meat"],
+	"image": "glazedmeat.png"
+}
+]
