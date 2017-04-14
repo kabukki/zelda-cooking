@@ -20,13 +20,14 @@
 				</ul>
 			</nav>
 
-			<div id='dish'>
-				<div id='dishHeader'>
-					<span id='dishImage'></span>
-					<span id='dishTitle'></span>
+			<div class='dish-lg'>
+				<div class='dishHeader'>
+					<span class='dishImage'></span>
+					<span class='dishTitle'></span>
 				</div>
+				<div class='dishDesc'></div>
 				<div id='dishType'></div>
-				<div id='dishDesc'></div>
+				<div id='dishEffect'></div>
 				<table id='dishStats'>
 					<thead>
 						<tr>
@@ -44,7 +45,6 @@
 						<tr id='dishLevel'></tr>
 					</tbody>
 				</table>
-				<h3>Appears in:</h3>
 				<div id='dishRelated'></div>
 			</div>
 		</div>
@@ -52,68 +52,90 @@
 		<script src='util.js'></script>
 		<script>
 			var items = [],
-				recipes = [];
+				dishes = [];
 
 			/* DOM Vars */
-			var dish = document.getElementById('dish')
-				, dishImage = document.getElementById('dishImage')
-				, dishTitle = document.getElementById('dishTitle')
-				, dishDesc = document.getElementById('dishDesc')
+			var dish = document.getElementsByClassName('dish-lg')[0]
+				, dishImage = document.getElementsByClassName('dishImage')[0]
+				, dishTitle = document.getElementsByClassName('dishTitle')[0]
+				, dishDesc = document.getElementsByClassName('dishDesc')[0]
 				, dishType = document.getElementById('dishType')
-				, dishHearts = document.getElementById('dishHearts')
-				, dishRelated = document.getElementById('dishRelated')/*
 				, dishEffect = document.getElementById('dishEffect')
-				, dishDuration = document.getElementById('dishDuration')
-				, dishLevel = document.getElementById('dishLevel')
-				, ingredients = document.getElementById('ingredients').getElementsByClassName('ing')
-				, ingredientList = document.getElementById('ingredientList')
-				, clearBtn = document.getElementById('clearBtn')
-				, sortSelect = document.getElementById('sortSelect');*/;
+				, dishHearts = document.getElementById('dishHearts')
+				, dishRelated = document.getElementById('dishRelated');
 
 			/* Get the food.json file using the Fetch API */
 			if (self.fetch) {
-				fetch('food.json', {
-					"method": "GET",
-					"cache": "default"
-				}).then(function(response) {
-					return response.json();
-				}).then(function(data) {
+				fetchThen('food.json', function(data) {
 					var id = getParam("id");
+
 					items = data;
 					if (id) {
 						if (id < 0 || id >= items.length)
 							dish.innerHTML = "Out of bounds ID : " + id;
 						else {
-							fetch('recipes.json', {
-								"method": "GET",
-								"cache": "default"
-							})
-							.then(function(response) { return response.json();})
-							.then(function(data) { recipes = data; UIdisplayIngredientInfo(items[id]); });
+							fetchThen('recipes.json', function(data) {
+								dishes = data;
+								UIdisplayIngredientInfo(items[id]);
+							});
 						}
 					} else {
 						dish.innerHTML = "Missing ID ! Request this page with the GET method and 'id' argument.";
 					}
 				});
-				
 			} else {
 				console.log("Your browser is outdated and does not support the Fetch API.");
+			}
+
+			/* 
+			 * Returns the description for a given effect
+			 */
+			function getEffectDescription(effect) {
+				switch (effect) {
+					case "energizing": 	return "Refill (%)";
+					case "enduring": 	return "Bonus (wheel)";
+					case "hearty": 		return "Extra hearts";
+					default: 			return "Duration (s)"
+				}
+			}
+
+			/* 
+			 * Returns the transoform function to display a given effect
+			 */
+			function getEffectTransform(effect) {
+				switch (effect) {
+					case "hearty": 		return htmlExtraHearts;
+					default: 			return null;
+				}
 			}
 
 			function UIdisplayIngredientInfo(ing) {
 				if (!ing) return ;
 				dishImage.innerHTML = '<img src="img/food/' + ing.image + '"/>';
 				dishTitle.innerHTML = ing.name;
-				dishType.innerHTML = 'In class: ' + ing.type.join(' > ');
-				dishDesc.innerHTML = ing.description;
+				setType(ing);
+				dishEffect.innerHTML = 'Effect: ' + htmlEffect(ing) + ' ' + ing.effect;
+				dishDesc.innerHTML = ing.description || 'No description.';
 				setRow(dishHearts, "Hearts Healed", ing.hearts, htmlHearts);
-				setRow(dishDuration, "+ Duration (s)", ing.duration, null);
+				setRow(dishDuration, getEffectDescription(ing.effect), ing.duration, null);
 				setRow(dishLevel, "Effect Level", ing.level, null);
 				setRelated(ing);
 			}
 
+			function setType(ing) {
+				dishType.appendChild(myCreateElement("h3", {
+					innerHTML: 'Type Tree:'
+				}));
+				for (var i = 0; i < ing.type.length; i++) {
+					dishType.appendChild(myCreateElement("div", {
+						innerHTML: Array(i + 1).join('-') + '> ' + htmlType(ing.type[i]) + (i == 0 ? ' (parent type)' : '')
+					}));
+				}
+			}
+
 			/*
 			 * Fills a given row (DOM) from 'table' the data in the array 'data'
+			 * If 'transformFunction' is given, applies it to every member of 'data' before displaying it.
 			 * Removes any data that was previously on this row
 			 */
 			function setRow(row, title, data, transformFunction) {
@@ -129,22 +151,33 @@
 			}
 
 			function setRelated(ing) {
-				var related = recipes.filter(function(x) {
-						for (var i = 0; i < ing.type.length; i++) {
-							if (x.required.indexOf(ing.type[i]) != -1)
-								return true;
-						}
-						return false;
-					});
+				var recipes = getRelatedRecipes(dishes, ing);
 
-				if (related.length == 0) {
-					dishRelated.innerHTML = 'No match found.';
+				if (recipes.length == 0) {
+					dishRelated.appendChild(myCreateElement("h3", {
+						innerHTML: 'No known recipe uses this ingredient.'
+					}));
 				} else {
-					related.forEach(function(x) {
+					dishRelated.appendChild(myCreateElement("h3", {
+						innerHTML: 'Appears in ' + recipes.length + ' recipes:'
+					}));
+					recipes.sort(compareByName);
+					for (var i = 0; i < recipes.length; i++) { // Loop every recipe in subtype => apple: Apple pie, ... ; any: simmered fruit, mushroom mix, ...
 						dishRelated.appendChild(myCreateElement("div", {
-							innerHTML: '<div class="sq sq-mini ing"><img src="img/food/' + x.image + '"/></div>' + x.name
+							className: 'dish-sm',
+							innerHTML: 	'<div class="dishHeader">' +
+											'<span class="dishImage">' +
+												'<img src="img/food/' + recipes[i].image + '"/>' +
+											'</span>' + '<span class="dishTitle">' +
+												recipes[i].name +
+											'</span>' +
+										'</div>' +
+										'<div class="dishDesc">' +
+											'<strong>Recipe</strong>: ' + recipes[i].required.map(function(item) { return htmlType(item); }).join(' + ') +
+												(recipes[i].excluded ? ' (except: ' + recipes[i].excluded.join(', ') + ')' : '') +
+										'</div>'
 						}));
-					})
+					}
 				}
 			}
 		</script>

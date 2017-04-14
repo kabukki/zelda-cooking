@@ -15,6 +15,7 @@
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
+	"description": "Fruit from palm trees that grow near the ocean. It doesn't offer any special effects but will increase your heart recovery when used as an ingredient.",
 	"image": "palmfruit.png"
 },
 {
@@ -24,6 +25,7 @@
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
+	"description": "A fruit that grows in cold, snowy regions known for its tangy, sweet flavor. It doesn't offer any special effects, but it's a popular cooking ingredient.",
 	"image": "wildberry.png"
 },
 
@@ -36,6 +38,7 @@
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
+	"description": "A common mushroom found near trees around Hyrule. Eat it to restore half a heart.",
 	"image": "hylianshroom.png"
 },
 
@@ -46,6 +49,7 @@
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
+	"description": "This healthy herb grows abundantly in the plains of Hyrule. Cook it before eating to increase the number of hearts it restores.",
 	"image": "hyruleherb.png"
 },
 
@@ -56,6 +60,7 @@
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
+	"description": "Meat obtained from animals in plains and forests. You can eat it raw, but cooking it will make it more delicious and nutritious.",
 	"image": "rawmeat.png"
 },
 {
@@ -65,6 +70,7 @@
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
+	"description": "A fresh, high-quality piece of animal meat. This stuff isn't easy to come by, so savor it. Cook it to recover more hearts.",
 	"image": "rawprimemeat.png"
 },
 {
@@ -74,6 +80,7 @@
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
+	"description": "This prized cut of meat is usually from a large animal. Any connoisseur would rank this tender, juicy cut of meat 'gourmet'. Expect an exquisite meal when cooking with this.",
 	"image": "rawgourmetmeat.png"
 },
 {
@@ -83,6 +90,7 @@
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
+	"description": "This meat is tougher and chewier than a standard steak. Tastes better cooked.",
 	"image": "rawbirddrumstick.png"
 },
 {
@@ -92,6 +100,7 @@
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
+	"description": "A high-quality piece of meat that's hard to come by. You can eat it raw, but cooking it first will recover more hearts.",
 	"image": "rawbirdthigh.png"
 },
 {
@@ -101,6 +110,7 @@
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
+	"description": "This prized meat can be obtained from certain birds. It gets full points for flavor, nutrition, and volume. It pairs perfectly with other ingredients or can be enjoyed alone.",
 	"image": "rawwholebird.png"
 },
 
@@ -111,6 +121,7 @@
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
+	"description": "An ordinary fish that can be found all over Hyrule. Can be eaten raw, but cooking it amplifies its healing benefits.",
 	"image": "hyrulebass.png"
 },
 {
@@ -120,6 +131,7 @@
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
+	"description": "This wild armored carp has been bred into a prizewinning fish. Its beautifully colored markings do not occur in nature. It offers no special effects when cooked.",
 	"image": "sankecarp.png"
 },
 
@@ -128,10 +140,11 @@
 {
 	"name": "Acorn",
 	"type": ["misc", "nut"],
-	"hearts": [1, 1.5, 2, 2.5, 3],
+	"hearts": [0.75, 1, 1.25, 1.5, 1.75],
 	"effect": "none",
-	"duration": [50, 100, 150, 200, 250],
+	"duration": [50, 80, 110, 140, 170],
 	"level": [0, 0, 0, 0, 0],
+	"description": "Often found on the ground near trees. Squirrels adore this nut, so you may have competition while foraging. Add one to a meal for a nutty seasoning.",
 	"image": "acorn.png"
 },
 {
@@ -141,61 +154,28 @@
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
+	"description": "A fresh bird egg necessary for making dishes such as omelets and crepes. You can snag them from birds' nests if you're sneaky. Nutritious and delicious, perfect.",
 	"image": "birdegg.png"
+},
+{
+	"name": "Cane Sugar",
+	"type": ["misc", "sugar"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [80, 110, 140, 170, 200],
+	"level": [0, 0, 0, 0, 0],
+	"description": "",
+	"image": "canesugar.png"
 },
 {
 	"name": "Chickaloo Tree Nut",
  	"type": ["misc", "nut"],
-	"hearts": [0.25, 0.5, 0.75, 1],
+	"hearts": [0.75, 1, 1.25, 1.5, 1.75],
 	"effect": "none",
-	"duration": [0, 0, 0, 0, 0],
+	"duration": [40, 70, 100, 130, 160],
 	"level": [0, 0, 0, 0, 0],
+	"description": "Small birds love this nut. You can eat it raw for a minor effect, but it can also be added as a spice to other recipes.",
 	"image": "chickalootreenut.png"
-},
-{
-	"name": "Goat Butter",
-	"type": ["misc", "butter"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "none",
-	"duration": [0, 0, 0, 0, 0],
-	"level": [0, 0, 0, 0, 0],
-	"image": "goatbutter.png"
-},
-{
-	"name": "Hylian Rice",
-	"type": ["misc", "rice"],
-	"hearts": [1, 1, 1, 1, 1],
-	"effect": "none",
-	"duration": [60, 90, 120, 150, 180],
-	"level": [0, 0, 0, 0, 0],
-	"image": "hylianrice.png"
-},
-{
-	"name": "Goron Spice",
-	"type": ["misc", "spice"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "none",
-	"duration": [0, 0, 0, 0, 0],
-	"level": [0, 0, 0, 0, 0],
-	"image": "goronspice.png"
-},
-{
-	"name": "Rock Salt",
-	"type": ["misc", "salt"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "none",
-	"duration": [60, 120, 180, 240, 300],
-	"level": [0, 0, 0, 0, 0],
-	"image": "rocksalt.png"
-},
-{
-	"name": "Tabantha Wheat",
-	"type": ["misc", "wheat"],
-	"hearts": [1, 2, 3, 4, 5],
-	"effect": "none",
-	"duration": [0, 0, 0, 0, 0],
-	"level": [0, 0, 0, 0, 0],
-	"image": "tabanthawheat.png"
 },
 {
 	"name": "Fresh Milk",
@@ -208,13 +188,54 @@
 	"image": "freshmilk.png"
 },
 {
-	"name": "Cane Sugar",
-	"type": ["misc", "sugar"],
+	"name": "Goat Butter",
+	"type": ["misc", "butter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [80, 110, 140, 170, 200],
+	"level": [0, 0, 0, 0, 0],
+	"description": "Butter made from the milk of a domesticated white goat. In addition to being used in dishes like stews and meunière. It's often used when making cakes and other sweets.",
+	"image": "goatbutter.png"
+},
+{
+	"name": "Goron Spice",
+	"type": ["misc", "spice"],
 	"hearts": [0, 0, 0, 0, 0],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
-	"image": "canesugar.png"
+	"description": "Made from several types of spices, this secret Goron seasoning has been handed down for generations. An initial wave of spiciness paves the way for the sweetness.",
+	"image": "goronspice.png"
+},
+{
+	"name": "Hylian Rice",
+	"type": ["misc", "rice"],
+	"hearts": [1, 2, 3, 4, 5],
+	"effect": "none",
+	"duration": [60, 90, 120, 150, 180],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This grain is a favorite among residents of Kakariko Village. It's grown in regions with a lot of water and is quite versatile. Used as an ingredient in things like risotto and rice balls.",
+	"image": "hylianrice.png"
+},
+{
+	"name": "Rock Salt",
+	"type": ["misc", "salt"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [60, 120, 180, 240, 300],
+	"level": [0, 0, 0, 0, 0],
+	"description": "Crystallized salt from the ancient sea commonly used to season meals. Cannot be eaten in this form.",
+	"image": "rocksalt.png"
+},
+{
+	"name": "Tabantha Wheat",
+	"type": ["misc", "wheat"],
+	"hearts": [1, 2, 3, 4, 5],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "",
+	"image": "tabanthawheat.png"
 },
 {
 	"name": "Wood",
@@ -223,6 +244,7 @@
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
+	"description": "A portable bundle of wood. You can use this to make a campfire if you have something to light it.",
 	"image": "wood.png"
 },
 
@@ -257,7 +279,7 @@
 },
 {
 	"name": "Mighty Bananas",
-	"type": ["fruit"],
+	"type": ["fruit", "banana"],
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "mighty",
 	"duration": [50, 100, 150, 200, 250],
@@ -610,6 +632,7 @@
 	"effect": "spicy",
 	"duration": [150, 300, 450, 600, 750],
 	"level": [0, 0, 0, 0, 0],
+	"description": "This pepper is exploding with spice. Cook with it to create dishes that will raise your body temperature and help you withstand the cold.",
 	"image": "spicypepper.png"
 },
 {
@@ -837,6 +860,7 @@
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [1, 2, 3, 3, 3],
+	"description": "This fairy will fly from your pouch and heal all your wounds the moment you lose your last heart. It's easily mistaken for a firefly at first, but it glows in the daylight as well as night.",
 	"image": "fairy.png"
 },
 

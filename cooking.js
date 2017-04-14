@@ -4,27 +4,29 @@
  *	TODO
  *	- Bug: viande + effect special (duration) cree des problemes. (fonction cook)
  *	- Bug: les niveaux ne sont pas calcules correctement.
+ *  - Bug: Clicking on 'more info' on an ingredient in the queue pops it before redirecting
  *	- Todo: trouver les images manquantes y compris les coeurs jaunes
- *	- Todo: re-dl les images au format 80x80 au lieu de 60 ou 40px.
  *	- Todo: trouver les proprietes de nouveaux ingredients.
  *	- Todo: mettre au propre UIdisplayIngredients.
  *	- Todo: Finir de remplir les recettes misc pour que la fonction puisse evaluer en stand-alone un repas.
+ *  - Todo: page referencant tous les ingredients d'un type donne (encyclopedia.html?type=fruit)
  */
 
 var debug = true;
-var items = [];
+
+var items = [], dishes = [];
 var queue = [];
 
 var cmpFunctions = {
-		"name": compareIngredientsByName,
-		"type": compareIngredientsBytYpe,
-		"effect": compareIngredientsByEffect
+		"name": compareByName,
+		"type": compareByType,
+		"effect": compareByEffect
 	},
 	cmpSelector = "name"; // Global used to know how to sort items.
 
 /* DOM Vars */
-var dishImage = document.getElementById('dishImage')
-	, dishTitle = document.getElementById('dishTitle')
+var dishImage = document.getElementsByClassName('dishImage')[0]
+	, dishTitle = document.getElementsByClassName('dishTitle')[0]
 	, dishHearts = document.getElementById('dishHearts')
 	, dishEffect = document.getElementById('dishEffect')
 	, dishDuration = document.getElementById('dishDuration')
@@ -36,19 +38,19 @@ var dishImage = document.getElementById('dishImage')
 
 /* Get the food.json file using the Fetch API */
 if (self.fetch) {
-	fetch('food.json', {
-		"method": "GET",
-		"cache": "default"
-	}).then(function(response) {
-		return response.json();
-	}).then(function(data) {
+	fetchThen('food.json', function(data) {
 		items = data;
-		for (var i = 0; i < items.length; i++) {
-			items[i].id = i;
-		}
-		UIQueue();
-		UIdisplayIngredients(items, cmpFunctions[cmpSelector]);
-		display(cook(queue));
+		debug && console.log("Items loaded");
+		fetchThen('recipes.json', function(data) {
+			dishes = data;
+			debug && console.log("Dishes loaded");
+			for (var i = 0; i < items.length; i++) {
+				items[i].id = i;
+			}
+			UIQueue();
+			UIdisplayIngredients(items, cmpFunctions[cmpSelector]);
+			display(cook(queue));
+		});
 	});
 } else {
 	console.log("Your browser is outdated and does not support the Fetch API.");
@@ -195,7 +197,9 @@ function cook(ing) {
 			dish.duration += e.duration;
 		dish.level = Math.max(dish.level, e.level);
 	});
-	dish.name = getName(dish);
+	dish.name = getBestMatch(getAvailableRecipes(ing)).name;
+	if (hasEffect(dish))
+		dish.name = dish.effect + ' ' + dish.name;
 	dish.image = getImage(dish);
 	return dish;
 }

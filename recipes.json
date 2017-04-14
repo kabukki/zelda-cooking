@@ -1,16 +1,1522 @@
-[{
-	"name": "Apple Pie",
-	"required": ["apple", "wheat", "sugar", "butter"],
-	"image": "applepie.png"
-},
 {
-	"name": "Simmered Fruit",
-	"required": ["fruit"],
-	"image": "simmeredfruit.png"
-},
-{
-	"name": "Glazed Meat",
-	"required": ["honey", "meat"],
-	"image": "glazedmeat.png"
+	"any": {
+		"any": [{
+					"name": "Dubious Food",
+					"required": [],
+					"image": "dubiousfood.png"
+				}]
+	},
+	"fruit": {
+		"any": [{
+				"name": "Simmered Fruit",
+					"required": ["fruit"],
+					"image": "simmeredfruit.png"
+				},{
+					"name": "Steamed Fruit",
+					"required": ["fruit", "herb"],
+					"image": "steamedfruit.png"
+				},{
+					"name": "Steamed Fruit",
+					"required": ["fruit", "vegetable"],
+					"image": "steamedfruit.png"
+				},{
+					"name": "Fruit and Mushroom Mix",
+					"required": ["fruit", "mushroom"],
+					"image": "fruitandmushroommix.png"
+				},{
+					"name": "Fruit Pie",
+					"required": ["fruit", "wheat", "sugar", "butter"],
+					"excluded": ["apple"],
+					"image": "fruitpie.png"
+				},{
+					"name": "Honeyed Fruits",
+					"required": ["fruit", "honey"],
+					"excluded": ["apple"],
+					"image": "honeyedfruits.png"
+				}],
+		"apple": [{
+					"name": "Apple Pie",
+					"required": ["apple", "wheat", "sugar", "butter"],
+					"image": "applepie.png"
+				},{
+					"name": "Fruitcake",
+					"required": ["apple", "wheat", "sugar", "wildberry"],
+					"image": "fruitcake.png"
+				},{
+					"name": "Hot Buttered Apple",
+					"required": ["apple", "butter"],
+					"image": "hotbutteredapple.png"
+				},{
+					"name": "Honeyed Apple",
+					"required": ["apple", "honey"],
+					"image": "honeyedapple.png"
+				}],
+		"wildberry": [{
+					"name": "Wildberry Crepe",
+					"required": ["wildberry", "wheat", "sugar", "milk", "egg"],
+					"image": "wildberrycrepe.png"
+				},{
+					"name": "Fruitcake",
+					"required": ["wildberry", "wheat", "sugar", "apple"],
+					"image": "fruitcake.png"
+				}],
+		"pepper": [{
+					"name": "Pepper Steak",
+					"required": ["pepper", "meat"],
+					"image": "peppersteak.png"
+				},{
+					"name": "Pepper Seafood",
+					"required": ["pepper", "seafood"],
+					"image": "pepperseafood.png"
+				},{
+					"name": "Sauteed Peppers",
+					"required": ["pepper"],
+					"image": "sauteedpeppers.png"
+				}],
+		"banana": [{
+					"name": "Fried Bananas",
+					"required": ["banana", "wheat", "sugar"],
+					"image": "friedbananas.png"
+				}],
+		"melon": [{
+					"name": "Creamy Heart Soup",
+					"required": ["melon", "voltfruit", "radish"],
+					"image": "creamyheartsoup.png"
+				}],
+		"voltfruit": [{
+					"name": "Creamy Heart Soup",
+					"required": ["voltfruit", "melon", "radish"],
+					"image": "creamyheartsoup.png"
+				}]
+	},
+	"meat": {
+		"any": [{
+					"name": "Creamy Meat Soup",
+					"required": ["meat", "milk", "salt", "vegetable"],
+					"image": "creamymeatsoup.png"
+				},{
+					"name": "Creamy Meat Soup",
+					"required": ["meat", "milk", "salt", "herb"],
+					"image": "creamymeatsoup.png"
+				},{
+					"name": "Steamed Meat",
+					"required": ["meat", "vegetable"],
+					"excluded": ["pumpkin"],
+					"image": "steamedmeat.png"
+				},{
+					"name": "Steamed Meat",
+					"required": ["meat", "herb"],
+					"image": "steamedmeat.png"
+				},{
+					"name": "Meat Pie",
+					"required": ["meat", "wheat",  "butter", "salt"],
+					"image": "meatpie.png"
+				},{
+					"name": "Meat and Mushroom Skewer",
+					"required": ["meat", "mushroom"],
+					"image": "meatandmushroomskewer.png"
+				},{
+					"name": "Monster Stew",
+					"required": ["meat", "seafood", "monster"],
+					"image": "monsterstew.png"
+				},{
+					"name": "Meat-Stuffed Pumpkin",
+					"required": ["meat", "pumpkin"],
+					"image": "meat-stuffedpumpkin.png"
+				},{
+					"name": "Glazed Meat",
+					"required": ["meat", "honey"],
+					"image": "glazedmeat.png"
+				},{
+					"name": "Pepper Steak",
+					"required": ["meat", "pepper"],
+					"image": "peppersteak.png"
+				},{
+					"name": "Meaty Rice Balls",
+					"required": ["meat", "rice"],
+					"image": "meatyriceballs.png"
+				},{
+					"name": "Meat Skewer",
+					"required": ["meat"],
+					"image": "meatskewer.png"
+				}],
+		"regular": {
+			"any": [{
+						"name": "Meat Stew",
+						"required": ["regular", "wheat", "butter", "milk"],
+						"image": "meatstew.png"
+					},{
+						"name": "Meat and Seafood Fry",
+						"required": ["regular", "seafood"],
+						"image": "meatandseafoodfry.png"
+					},{
+						"name": "Salt-Grilled Meat",
+						"required": ["regular", "salt"],
+						"image": "salt-grilledmeat.png"
+					},{
+						"name": "Meat and Rice Bowl",
+						"required": ["regular", "rice", "salt"],
+						"image": "meatandricebowl.png"
+					},{
+						"name": "Spiced Meat Skewer",
+						"required": ["regular", "spice"],
+						"image": "spicedmeatskewer.png"
+					}],
+			"venison": [{
+						"name": "Meat Curry",
+						"required": ["venison", "rice", "spice"],
+						"image": "meatcurry.png"
+					}],
+			"poultry": [{
+						"name": "Poultry Pilaf",
+						"required": ["poultry", "rice", "egg", "butter"],
+						"image": "poultrypilaf.png"
+					},{
+						"name": "Poultry curry",
+						"required": ["poultry", "rice", "spice"],
+						"image": "poultrycurry.png"
+					}]
+		},
+		"prime": {
+			"any": [{
+						"name": "Prime Meat Stew",
+						"required": ["prime", "wheat", "butter", "milk"],
+						"image": "primemeatstew.png"
+					},{
+						"name": "Prime Meat and Seafood Fry",
+						"required": ["prime", "seafood"],
+						"image": "primemeatandseafoodfry.png"
+					},{
+						"name": "Salt-Grilled Prime Meat",
+						"required": ["prime", "salt"],
+						"image": "salt-grilledprimemeat.png"
+					},{
+						"name": "Prime Meat and Rice Bowl",
+						"required": ["prime", "rice", "salt"],
+						"image": "primemeatandricebowl.png"
+					},{
+						"name": "Prime Spiced Meat Skewer",
+						"required": ["prime", "spice"],
+						"image": "primespicedmeatskewer.png"
+					}],
+			"venison": [{
+						"name": "Prime Meat Curry",
+						"required": ["venison", "rice", "spice"],
+						"image": "primemeatcurry.png"
+					}],
+			"poultry": [{
+						"name": "Prime Poultry Pilaf",
+						"required": ["poultry", "rice", "egg", "butter"],
+						"image": "primepoultrypilaf.png"
+					},{
+						"name": "Prime Poultry curry",
+						"required": ["poultry", "rice", "spice"],
+						"image": "primepoultrycurry.png"
+					}]
+		},
+		"gourmet": {
+			"any": [{
+						"name": "Gourmet Meat Stew",
+						"required": ["gourmet", "wheat", "butter", "milk"],
+						"image": "gourmetmeatstew.png"
+					},{
+						"name": "Gourmet Meat and Seafood Fry",
+						"required": ["gourmet", "seafood"],
+						"image": "gourmetmeatandseafoodfry.png"
+					},{
+						"name": "Salt-Grilled Gourmet Meat",
+						"required": ["gourmet", "salt"],
+						"image": "salt-grilledgourmetmeat.png"
+					},{
+						"name": "Gourmet Meat and Rice Bowl",
+						"required": ["gourmet", "rice", "salt"],
+						"image": "gourmetmeatandricebowl.png"
+					},{
+						"name": "Gourmet Spiced Meat Skewer",
+						"required": ["gourmet", "spice"],
+						"image": "gourmetspicedmeatskewer.png"
+					}],
+			"venison": [{
+						"name": "Gourmet Meat Curry",
+						"required": ["venison", "rice", "spice"],
+						"image": "gourmetmeatcurry.png"
+					}],
+			"poultry": [{
+						"name": "Gourmet Poultry Pilaf",
+						"required": ["poultry", "rice", "egg", "butter"],
+						"image": "gourmetpoultrypilaf.png"
+					},{
+						"name": "Gourmet Poultry curry",
+						"required": ["poultry", "rice", "spice"],
+						"image": "gourmetpoultrycurry.png"
+					}]
+		}
+	},
+	"seafood": {
+		"any": [{
+					"name": "Creamy Seafood Soup",
+					"required": ["seafood", "milk", "salt", "vegetable"],
+					"image": "creamyseafoodsoup.png"
+				},{
+					"name": "Creamy Seafood Soup",
+					"required": ["seafood", "milk", "salt", "herb"],
+					"image": "creamyseafoodsoup.png"
+				},{
+					"name": "Fish Pie",
+					"required": ["seafood", "wheat", "salt", "butter"],
+					"image": "fishpie.png"
+				},{
+					"name": "Gourmet Meat and Seafood Fry",
+					"required": ["seafood", "gourmet"],
+					"image": "gourmetmeatandseafoodfry.png"
+				},{
+					"name": "Prime Meat and Seafood Fry",
+					"required": ["seafood", "prime"],
+					"image": "primemeatandseafoodfry.png"
+				},{
+					"name": "Meat and Seafood Fry",
+					"required": ["seafood", "regular"],
+					"image": "meatandseafoodfry.png"
+				},{
+					"name": "Glazed Seafood",
+					"required": ["seafood", "honey"],
+					"image": "glazedseafood.png"
+				},{
+					"name": "Pepper Seafood",
+					"required": ["seafood", "pepper"],
+					"image": "pepperseafood.png"
+				},{
+					"name": "Seafood Meuniere",
+					"required": ["seafood", "butter", "wheat"],
+					"excluded": ["porgy", "salmon"],
+					"image": "seafoodmeuniere.png"
+				},{
+					"name": "Seafood Rice Balls",
+					"required": ["seafood", "rice"],
+					"image": "seafoodriceballs.png"
+				},{
+					"name": "Monster Stew",
+					"required": ["seafood", "meat", "extract"],
+					"image": "monsterstew.png"
+				},{
+					"name": "Seafood Skewer",
+					"required": ["seafood"],
+					"image": "seafoodskewer.png"
+				}],
+		"porgy": [{
+					"name": "Seafood Paella",
+					"required": ["porgy", "rice", "snail", "butter", "salt"],
+					"image": "seafoodpaella.png"
+				},{
+					"name": "Porgy Meuniere",
+					"required": ["porgy", "wheat", "butter"],
+					"image": "porgymeuniere.png"
+				},{
+					"name": "Seafood Curry",
+					"required": ["porgy", "rice", "spice"],
+					"image": "seafoodcurry.png"
+				},{
+					"name": "Seafood Fried Rice",
+					"required": ["porgy", "rice", "salt"],
+					"image": "seafoodfriedrice.png"
+				}],
+		"salmon": [{
+					"name": "Salmon Risotto",
+					"required": ["salmon", "rice", "butter", "salt"],
+					"image": "salmonrisotto.png"
+				},{
+					"name": "Salmon Meuniere",
+					"required": ["salmon", "wheat", "butter"],
+					"image": "salmonmeuniere.png"
+				}],
+		"snail": [{
+					"name": "Seafood Paella",
+					"required": ["snail", "rice", "porgy", "butter", "salt"],
+					"image": "seafoodpaella.png"
+				},{
+					"name": "Clam Chowder",
+					"required": ["snail", "milk", "wheat", "butter"],
+					"image": "clamchowder.png"
+				},{
+					"name": "Seafood Curry",
+					"required": ["snail", "rice", "spice"],
+					"image": "seafoodcurry.png"
+				},{
+					"name": "Seafood Fried Rice",
+					"required": ["snail", "rice", "salt"],
+					"image": "seafoodfriedrice.png"
+				}],
+		"fish": [{
+					"name": "Fish and Mushroom Skewer",
+					"required": ["fish", "mushroom"],
+					"image": "fishandmushroomskewer.png"
+				},{
+					"name": "Salt-Grilled Fish",
+					"required": ["fish", "salt"],
+					"image": "salt-grilledfish.png"
+				}],
+		"crab": [{
+					"name": "Crab Risotto",
+					"required": ["crab", "rice", "butter", "salt"],
+					"image": "crabrisotto.png"
+				},{
+					"name": "Crab Omelet with Rice",
+					"required": ["crab", "rice", "egg", "salt"],
+					"image": "crabomeletwithrice.png"
+				},{
+					"name": "Crab Stir-Fry",
+					"required": ["crab", "spice"],
+					"image": "crabstir-fry.png"
+				},{
+					"name": "Salt-Grilled Crab",
+					"required": ["crab", "salt"],
+					"image": "salt-grilledcrab.png"
+				}]
+	},
+	"vegetable": {
+		"any": [{
+					"name": "Vegetable Omelet",
+					"required": ["vegetable", "egg", "butter", "salt"],
+					"image": "vegetableomelet.png"
+				},{
+					"name": "Creamy Meat Soup",
+					"required": ["vegetable", "meat", "milk", "salt"],
+					"image": "creamymeatsoup.png"
+				},{
+					"name": "Cream of Mushroom Soup",
+					"required": ["vegetable", "mushroom", "milk", "salt"],
+					"image": "creamofmushroomsoup.png"
+				},{
+					"name": "Creamy Seafood Soup",
+					"required": ["vegetable", "seafood", "milk", "salt"],
+					"image": "creamyseafoodsoup.png"
+				},{
+					"name": "Cream of Vegetable Soup",
+					"required": ["vegetable", "milk", "salt"],
+					"excluded": ["carrot", "pumpkin"],
+					"image": "creamofvegetablesoup.png"
+				},{
+					"name": "Steamed Mushrooms",
+					"required": ["vegetable", "mushroom"],
+					"image": "steamedmushrooms.png"
+				},{
+					"name": "Steamed Fish",
+					"required": ["vegetable", "seafood"],
+					"image": "steamedfish.png"
+				},{
+					"name": "Steamed Meat",
+					"required": ["vegetable", "meat"],
+					"excluded": ["pumpkin"],
+					"image": "steamedmeat.png"
+				},{
+					"name": "Steamed Fruit",
+					"required": ["vegetable", "fruit"],
+					"image": "steamedfruit.png"
+				},{
+					"name": "Glazed Veggies",
+					"required": ["vegetable", "honey"],
+					"image": "glazedveggies.png"
+				},{
+					"name": "Salt-Grilled Greens",
+					"required": ["vegetable", "salt"],
+					"image": "salt-grilledgreens.png"
+				},{
+					"name": "Veggie Rice Balls",
+					"required": ["vegetable", "rice"],
+					"image": "veggiericeballs.png"
+				},{
+					"name": "Herb Saute",
+					"required": ["vegetable", "spice"],
+					"image": "herbsaute.png"
+				},{
+					"name": "Fried Wild Greens",
+					"required": ["vegetable"],
+					"image": "friedwildgreens.png"
+				}],
+		"pumpkin": [{
+					"name": "Pumpkin Pie",
+					"required": ["pumpkin", "wheat", "butter", "sugar"],
+					"image": "pumpkinpie.png"
+				},{
+					"name": "Pumpkin Stew",
+					"required": ["pumpkin", "wheat", "butter", "milk"],
+					"image": "pumpkinstew.png"
+				},{
+					"name": "Vegetable Risotto",
+					"required": ["pumpkin", "rice", "butter", "salt"],
+					"image": "vegetablerisotto.png"
+				},{
+					"name": "Veggie Cream Soup",
+					"required": ["pumpkin", "milk", "salt"],
+					"image": "veggiecreamsoup.png"
+				},{
+					"name": "Vegetable Curry",
+					"required": ["pumpkin", "rice", "spice"],
+					"image": "vegetablecurry.png"
+				},{
+					"name": "Meat-Stuffed Pumpkin",
+					"required": ["pumpkin", "meat"],
+					"image": "meat-stuffedpumpkin.png"
+				}],
+		"carrot": [{
+					"name": "Carrot Cake",
+					"required": ["carrot", "wheat", "butter", "sugar"],
+					"image": "carrotcake.png"
+				},{
+					"name": "Carrot Stew",
+					"required": ["carrot", "wheat", "butter", "milk"],
+					"image": "carrotstew.png"
+				},{
+					"name": "Vegetable Risotto",
+					"required": ["carrot", "rice", "butter", "salt"],
+					"image": "vegetablerisotto.png"
+				},{
+					"name": "Veggie Cream Soup",
+					"required": ["carrot", "milk", "salt"],
+					"image": "veggiecreamsoup.png"
+				},{
+					"name": "Vegetable Curry",
+					"required": ["pumpkin", "rice", "spice"],
+					"image": "vegetablecurry.png"
+				}],
+		"radish": [{
+					"name": "Creamy Heart soup",
+					"required": ["radish", "melon", "voltfruit", "milk"],
+					"image": "creamyheartsoup.png"
+				}]
+	},
+	"herb": {
+		"any": [{
+					"name": "Vegetable Omelet",
+					"required": ["herb", "egg", "butter", "salt"],
+					"image": "vegetableomelet.png"
+				},{
+					"name": "Creamy Meat Soup",
+					"required": ["herb", "meat", "milk", "salt"],
+					"image": "creamymeatsoup.png"
+				},{
+					"name": "Cream of Mushroom Soup",
+					"required": ["herb", "mushroom", "milk", "salt"],
+					"image": "creamofmushroomsoup.png"
+				},{
+					"name": "Creamy Seafood Soup",
+					"required": ["herb", "seafood", "milk", "salt"],
+					"image": "creamyseafoodsoup.png"
+				},{
+					"name": "Cream of Vegetable Soup",
+					"required": ["herb", "milk", "salt"],
+					"image": "creamofvegetablesoup.png"
+				},{
+					"name": "Steamed Mushrooms",
+					"required": ["herb", "mushroom"],
+					"image": "steamedmushrooms.png"
+				},{
+					"name": "Steamed Fish",
+					"required": ["herb", "seafood"],
+					"image": "steamedfish.png"
+				},{
+					"name": "Steamed Meat",
+					"required": ["herb", "meat"],
+					"image": "steamedmeat.png"
+				},{
+					"name": "Steamed Fruit",
+					"required": ["herb", "fruit"],
+					"image": "steamedfruit.png"
+				},{
+					"name": "Glazed Veggies",
+					"required": ["herb", "honey"],
+					"image": "glazedveggies.png"
+				},{
+					"name": "Salt-Grilled Greens",
+					"required": ["herb", "salt"],
+					"image": "salt-grilledgreens.png"
+				},{
+					"name": "Veggie Rice Balls",
+					"required": ["herb", "rice"],
+					"image": "veggiericeballs.png"
+				},{
+					"name": "Herb Saute",
+					"required": ["herb", "spice"],
+					"image": "herbsaute.png"
+				},{
+					"name": "Fried Wild Greens",
+					"required": ["herb"],
+					"image": "friedwildgreens.png"
+				}]
+	},
+	"mushroom": {
+		"any": [{
+					"name": "Mushroom Omelet",
+					"required": ["mushroom", "egg", "butter", "salt"],
+					"image": "mushroomomelet.png"
+				},{
+					"name": "Mushroom Risotto",
+					"required": ["mushroom", "rice", "butter", "salt"],
+					"image": "mushroomrisotto.png"
+				},{
+					"name": "Cream of Mushroom Soup",
+					"required": ["mushroom", "vegetable", "milk", "salt"],
+					"image": "creamofmushroomsoup.png"
+				},{
+					"name": "Cream of Mushroom Soup",
+					"required": ["mushroom", "herb", "milk", "salt"],
+					"image": "creamofmushroomsoup.png"
+				},{
+					"name": "Steamed Mushrooms",
+					"required": ["mushroom", "vegetable"],
+					"image": "steamedmushrooms.png"
+				},{
+					"name": "Steamed Mushrooms",
+					"required": ["mushroom", "herb"],
+					"image": "steamedmushrooms.png"
+				},{
+					"name": "Mushroom Rice Balls",
+					"required": ["mushroom", "rice"],
+					"image": "mushroomriceballs.png"
+				},{
+					"name": "Fruit and Mushroom Mix",
+					"required": ["mushroom", "fruit"],
+					"image": "fruitandmushroommix.png"
+				},{
+					"name": "Meat and Mushroom Skewer",
+					"required": ["mushroom", "meat"],
+					"image": "meatandmushroomskewer.png"
+				},{
+					"name": "Fish and Mushroom Skewer",
+					"required": ["mushroom", "fish"],
+					"image": "fishandmushroomskewer.png"
+				},{
+					"name": "Fragrant Mushroom Saute",
+					"required": ["mushroom", "spice"],
+					"image": "fragrantmushroomsaute.png"
+				},{
+					"name": "Salt-Grilled Mushrooms",
+					"required": ["mushroom", "salt"],
+					"image": "salt-grilledmushrooms.png"
+				},{
+					"name": "Glazed Mushrooms",
+					"required": ["mushroom", "honey"],
+					"image": "glazedmushrooms.png"
+				},{
+					"name": "Mushroom skewer",
+					"required": ["mushroom"],
+					"image": "mushroomskewer.png"
+				}]
+	},
+	"misc": {
+		"egg": [{
+					"name": "Plain Crepe",
+					"required": ["egg", "sugar", "milk", "wheat", "butter"],
+					"image": "plaincrepe.png"
+				},{
+					"name": "Honey Crepe",
+					"required": ["egg", "sugar", "milk", "wheat", "honey"],
+					"image": "honeycrepe.png"
+				},{
+					"name": "Wildberry Crepe",
+					"required": ["egg", "sugar", "milk", "wheat", "wildberry"],
+					"image": "wildberrycrepe.png"
+				},{
+					"name": "Muhsroom Omelet",
+					"required": ["egg", "sugar", "salt", "mushroom"],
+					"image": "mushroomomelet.png"
+				},{
+					"name": "Curry Pilaf",
+					"required": ["egg", "butter", "rice", "spice"],
+					"image": "currypilaf.png"
+				},{
+					"name": "Egg Tart",
+					"required": ["egg", "butter", "sugar", "wheat"],
+					"image": "eggtart.png"
+				},{
+					"name": "Vegetable Omelet",
+					"required": ["egg", "vegetable", "butter", "salt"],
+					"image": "vegetableomelet.png"
+				},{
+					"name": "Vegetable Omelet",
+					"required": ["egg", "herb", "butter", "salt"],
+					"image": "vegetableomelet.png"
+				},{
+					"name": "Crab Omelet with Rice",
+					"required": ["egg", "rice", "salt", "crab"],
+					"image": "crabomeletwithrice.png"
+				},{
+					"name": "Egg Pudding",
+					"required": ["egg", "milk", "sugar"],
+					"image": "eggpudding.png"
+				},{
+					"name": "Fried Egg and Rice",
+					"required": ["egg", "rice"],
+					"image": "friedeggandrice.png"
+				},{
+					"name": "Poultry Pilaf",
+					"required": ["egg", "rice", "butter", ["regular", "poultry"]],
+					"image": "poultrypilaf.png"
+				},{
+					"name": "Prime Poultry Pilaf",
+					"required": ["egg", "rice", "butter", ["prime", "poultry"]],
+					"image": "primepoultrypilaf.png"
+				},{
+					"name": "Gourmet Poultry Pilaf",
+					"required": ["egg", "rice", "butter", ["gourmet", "poultry"]],
+					"image": "gourmetpoultrypilaf.png"
+				},{
+					"name": "Omelet",
+					"required": ["egg"],
+					"image": "omelet.png"
+				}],
+		"rice": [{
+					"name": "Salmon Risotto",
+					"required": ["rice", "butter", "salt", "salmon"],
+					"image": "salmonrisotto.png"
+				},{
+					"name": "Seafood Curry",
+					"required": ["rice", "spice", "snail"],
+					"image": "seafoodcurry.png"
+				},{
+					"name": "Seafood Curry",
+					"required": ["rice", "spice", "porgy"],
+					"image": "seafoodcurry.png"
+				},{
+					"name": "Seafood Fried Rice",
+					"required": ["rice", "salt", "snail"],
+					"image": "seafoodfriedrice.png"
+				},{
+					"name": "Seafood Fried Rice",
+					"required": ["rice", "salt", "porgy"],
+					"image": "seafoodfriedrice.png"
+				},{
+					"name": "Seafood Paella",
+					"required": ["rice", "salt", "butter", "porgy", "snail"],
+					"image": "seafoodpaella.png"
+				},{
+					"name": "Seafood Rice Balls",
+					"required": ["rice", "seafood"],
+					"image": "seafoodriceballs.png"
+				},{
+					"name": "Vegetable Curry",
+					"required": ["rice", "spice", "pumpkin"],
+					"image": "vegetablecurry.png"
+				},{
+					"name": "Vegetable Curry",
+					"required": ["rice", "spice", "carrot"],
+					"image": "vegetablecurry.png"
+				},{
+					"name": "Vegetable Risotto",
+					"required": ["rice", "butter", "salt", "pumpkin"],
+					"image": "vegetablerisotto.png"
+				},{
+					"name": "Vegetable Risotto",
+					"required": ["rice", "butter", "salt", "carrot"],
+					"image": "vegetablerisotto.png"
+				},{
+					"name": "Veggie Rice Balls",
+					"required": ["rice", "vegetable"],
+					"image": "veggiericeballs.png"
+				},{
+					"name": "Veggie Rice Balls",
+					"required": ["rice", "herb"],
+					"image": "veggiericeballs.png"
+				},{
+					"name": "Meaty Rice Balls",
+					"required": ["rice", "meat"],
+					"image": "meatyriceballs.png"
+				},{
+					"name": "Mushroom Rice Balls",
+					"required": ["rice", "mushroom"],
+					"image": "mushroomriceballs.png"
+				},{
+					"name": "Mushroom Risotto",
+					"required": ["rice", "mushroom", "butter", "salt"],
+					"image": "mushroomrisotto.png"
+				},{
+					"name": "Crab Omelet with Rice",
+					"required": ["rice", "egg", "salt", "crab"],
+					"image": "crabomeletwithrice.png"
+				},{
+					"name": "Crab Risotto",
+					"required": ["rice", "butter", "salt", "crab"],
+					"image": "crabrisotto.png"
+				},{
+					"name": "Meat and Rice Bowl",
+					"required": ["rice", "salt", "regular"],
+					"excluded": ["poultry"],
+					"image": "meatandricebowl.png"
+				},{
+					"name": "Meat Curry",
+					"required": ["rice", "spice", "regular"],
+					"excluded": ["poultry"],
+					"image": "meatcurry.png"
+				},{
+					"name": "Poultry Curry",
+					"required": ["rice", "spice", "regular"],
+					"excluded": ["venison"],
+					"image": "poultrycurry.png"
+				},{
+					"name": "Poultry Pilaf",
+					"required": ["rice", "egg", "butter", "regular"],
+					"excluded": ["venison"],
+					"image": "poultrypilaf.png"
+				},{
+					"name": "Prime Meat and Rice Bowl",
+					"required": ["rice", "salt", "prime"],
+					"excluded": ["poultry"],
+					"image": "primemeatandricebowl.png"
+				},{
+					"name": "Prime Meat Curry",
+					"required": ["rice", "spice", "prime"],
+					"excluded": ["poultry"],
+					"image": "primemeatcurry.png"
+				},{
+					"name": "Prime Poultry Curry",
+					"required": ["rice", "spice", "prime"],
+					"excluded": ["venison"],
+					"image": "primepoultrycurry.png"
+				},{
+					"name": "Prime Poultry Pilaf",
+					"required": ["rice", "egg", "butter", "prime"],
+					"excluded": ["venison"],
+					"image": "primepoultrypilaf.png"
+				},{
+					"name": "Gourmet Meat and Rice Bowl",
+					"required": ["rice", "salt", "gourmet"],
+					"excluded": ["poultry"],
+					"image": "gourmetmeatandricebowl.png"
+				},{
+					"name": "Gourmet Meat Curry",
+					"required": ["rice", "spice", "gourmet"],
+					"excluded": ["poultry"],
+					"image": "gourmetmeatcurry.png"
+				},{
+					"name": "Gourmet Poultry Curry",
+					"required": ["rice", "spice", "gourmet"],
+					"excluded": ["venison"],
+					"image": "gourmetpoultrycurry.png"
+				},{
+					"name": "Gourmet Poultry Pilaf",
+					"required": ["rice", "egg", "butter", "poultry"],
+					"excluded": ["venison"],
+					"image": "gourmetpoultrypilaf.png"
+				},{
+					"name": "Fried Egg and Rice",
+					"required": ["rice", "egg"],
+					"image": "friedeggandrice.png"
+				},{
+					"name": "Curry Pilaf",
+					"required": ["rice", "butter", "egg", "spice"],
+					"image": "currypilaf.png"
+				},{
+					"name": "Curry Rice",
+					"required": ["rice", "spice"],
+					"image": "curryrice.png"
+				},{
+					"name": "Monster Curry",
+					"required": ["rice", "spice", "extract"],
+					"image": "monstercurry.png"
+				},{
+					"name": "Monster Rice Balls",
+					"required": ["rice", "salt", "extract"],
+					"image": "monsterriceballs.png"
+				}],
+		"spice": [{
+					"name": "Herb Saute",
+					"required": ["spice", "vegetable"],
+					"image": "herbsaute.png"
+				},{
+					"name": "Vegetable Curry",
+					"required": ["spice", "rice", "vegetable"],
+					"image": "vegetablecurry.png"
+				},{
+					"name": "Herb Saute",
+					"required": ["spice", "herb"],
+					"image": "herbsaute.png"
+				},{
+					"name": "Seafood Curry",
+					"required": ["spice", "rice", "snail"],
+					"image": "seafoodcurry.png"
+				},{
+					"name": "Seafood Curry",
+					"required": ["spice", "rice", "porgy"],
+					"image": "seafoodcurry.png"
+				},{
+					"name": "Crab Stir-Fry",
+					"required": ["spice", "crab"],
+					"image": "crabstir-fry.png"
+				},{
+					"name": "Fragrant Mushroom Saute",
+					"required": ["spice", "mushroom"],
+					"image": "fragrantmushroomsaute.png"
+				},{
+					"name": "Meat Curry",
+					"required": ["spice", "rice", "regular"],
+					"excluded": ["poultry"],
+					"image": "meatcurry.png"
+				},{
+					"name": "Spiced Meat Skewer",
+					"required": ["spice", "regular"],
+					"excluded": ["poultry"],
+					"image": "spicedmeatskewer.png"
+				},{
+					"name": "Poultry Curry",
+					"required": ["spicce", "rice", "regular"],
+					"excluded": ["venison"],
+					"image": "poultrycurry.png"
+				},{
+					"name": "Prime Spiced Meat Skewer",
+					"required": ["spice", "prime"],
+					"excluded": ["poultry"],
+					"image": "primespicedmeatskewer.png"
+				},{
+					"name": "Prime Meat Curry",
+					"required": ["spice", "rice", "prime"],
+					"excluded": ["poultry"],
+					"image": "primemeatcurry.png"
+				},{
+					"name": "Prime Poultry Curry",
+					"required": ["spicce", "rice", "prime"],
+					"excluded": ["venison"],
+					"image": "primepoultrycurry.png"
+				},{
+					"name": "Gourmet Spiced Meat Skewer",
+					"required": ["spice", "gourmet"],
+					"excluded": ["poultry"],
+					"image": "gourmetspicedmeatskewer.png"
+				},{
+					"name": "Gourmet Meat Curry",
+					"required": ["spice", "rice", "gourmet"],
+					"excluded": ["poultry"],
+					"image": "gourmetmeatcurry.png"
+				},{
+					"name": "Gourmet Poultry Curry",
+					"required": ["spicce", "rice", "gourmet"],
+					"excluded": ["venison"],
+					"image": "gourmetpoultrycurry.png"
+				},{
+					"name": "Curry Pilaf",
+					"required": ["spice", "rice", "egg", "butter"],
+					"image": "currypilaf.png"
+				},{
+					"name": "Curry Rice",
+					"required": ["spice", "rice"],
+					"image": "curryrice.png"
+				},{
+					"name": "Monster Curry",
+					"required": ["spice", "rice", "extract"],
+					"image": "monstercurry.png"
+				}],
+		"wheat": [{
+					"name": "Wheat Bread",
+					"required": ["wheat", "salt"],
+					"image": "wheatbread.png"
+				},{
+					"name": "Plain Crepe",
+					"required": ["wheat", "sugar", "milk", "egg", "butter"],
+					"image": "plaincrepe.png"
+				},{
+					"name": "Honey Crepe",
+					"required": ["wheat", "sugar", "milk", "egg", "honey"],
+					"image": "honeycrepe.png"
+				},{
+					"name": "Wildberry Crepe",
+					"required": ["wheat", "sugar", "milk", "egg", "wildberry"],
+					"image": "wildberrycrepe.png"
+				},{
+					"name": "Apple Pie",
+					"required": ["wheat", "apple", "butter", "sugar"],
+					"image": "applepie.png"
+				},{
+					"name": "Carrot Cake",
+					"required": ["wheat", "carrot", "butter", "sugar"],
+					"image": "carrotcake.png"
+				},{
+					"name": "Carrot Stew",
+					"required": ["wheat", "carrot", "butter", "milk"],
+					"image": "carrotstew.png"
+				},{
+					"name": "Egg Tart",
+					"required": ["wheat", "butter", "sugar", "egg"],
+					"image": "eggtart.png"
+				},{
+					"name": "Fish Pie",
+					"required": ["wheat", "butter", "salt", "seafood"],
+					"image": "fishpie.png"
+				},{
+					"name": "Fried Bananas",
+					"required": ["wheat", "sugar", "banana"],
+					"image": "friedbananas.png"
+				},{
+					"name": "Fruit Pie",
+					"required": ["wheat", "sugar", "butter", "fruit"],
+					"excluded": ["apple"],
+					"image": "fruitpie.png"
+				},{
+					"name": "Fruitcake",
+					"required": ["wheat", "sugar", "apple", "wildberry"],
+					"image": "fruitcake.png"
+				},{
+					"name": "Meat Stew",
+					"required": ["wheat", "milk", "butter", "regular"],
+					"image": "meatstew.png"
+				},{
+					"name": "Prime Meat Stew",
+					"required": ["wheat", "milk", "butter", "prime"],
+					"image": "primemeatstew.png"
+				},{
+					"name": "Gourmet Meat Stew",
+					"required": ["wheat", "milk", "butter", "gourmet"],
+					"image": "gourmetmeatstew.png"
+				},{
+					"name": "Clam Chowder",
+					"required": ["wheat", "milk", "butter", "snail"],
+					"image": "clamchowder.png"
+				},{
+					"name": "Porgy Meuniere",
+					"required": ["wheat", "butter", "porgy"],
+					"image": "porgymeuniere.png"
+				},{
+					"name": "Salmon Meuniere",
+					"required": ["wheat", "butter", "salmon"],
+					"image": "salmonmeuniere.png"
+				},{
+					"name": "Seafood Meuniere",
+					"required": ["wheat", "butter", "seafood"],
+					"exclued": ["porgy", "salmon"],
+					"image": "seafoodmeuniere.png"
+				},{
+					"name": "Meat Pie",
+					"required": ["wheat", "salt", "butter", "meat"],
+					"image": "meatpie.png"
+				},{
+					"name": "Pumpkin Pie",
+					"required": ["wheat", "sugar", "butter", "pumpkin"],
+					"image": "pumpkinpie.png"
+				},{
+					"name": "Pumpkin Stew",
+					"required": ["wheat", "milk", "butter", "pumpkin"],
+					"image": "pumpkinstew.png"
+				},{
+					"name": "Monster Cake",
+					"required": ["wheat", "sugar", "butter", "extract"],
+					"image": "monstercake.png"
+				},{
+					"name": "Monster Soup",
+					"required": ["wheat", "milk", "butter", "extract"],
+					"image": "monstersoup.png"
+				},{
+					"name": "Nutcake",
+					"required": ["wheat", "sugar", "butter", "nut"],
+					"image": "nutcake.png"
+				}],
+		"nut": [{
+					"name": "Sauteed Nuts",
+					"required": ["nut"],
+					"image": "sauteednuts.png"
+				},{
+					"name": "Nutcake",
+					"required": ["nut", "wheat", "sugar", "butter"],
+					"image": "nutcake.png"
+				}],
+		"salt": [{
+					"name": "Creamy Seafood Soup",
+					"required": ["salt", "milk", "seafood", "vegetable"],
+					"image": "creamyseafoodsoup.png"
+				},{
+					"name": "Creamy Seafood Soup",
+					"required": ["salt", "milk", "seafood", "herb"],
+					"image": "creamyseafoodsoup.png"
+				},{
+					"name": "Seafood Fried Rice",
+					"required": ["salt", "rice", "snail"],
+					"image": "seafoodfriedrice.png"
+				},{
+					"name": "Seafood Fried Rice",
+					"required": ["salt", "rice", "porgy"],
+					"image": "seafoodfriedrice.png"
+				},{
+					"name": "Fish Pie",
+					"required": ["salt", "wheat", "butter", "seafood"],
+					"image": "fishpie.png"
+				},{
+					"name": "Salmon Risotto",
+					"required": ["salt", "butter", "rice", "salmon"],
+					"image": "salmonrisotto.png"
+				},{
+					"name": "Seafood Paella",
+					"required": ["salt", "rice", "butter", "porgy", "snail"],
+					"image": "seafoodpaella.png"
+				},{
+					"name": "Crab Omelet with Rice",
+					"required": ["salt", "egg", "rice", "crab"],
+					"image": "crabomeletwithrice.png"
+				},{
+					"name": "Crab Risotto",
+					"required": ["salt", "butter", "rice", "crab"],
+					"image": "crabrisotto.png"
+				},{
+					"name": "Salt-Grilled Crab",
+					"required": ["salt", "crab"],
+					"image": "salt-grilledcrab.png"
+				},{
+					"name": "Salt-Grilled Fish",
+					"required": ["salt", "fish"],
+					"image": "salt-grilledfish.png"
+				},{
+					"name": "Salt-Grilled Fish",
+					"required": ["salt", "snail"],
+					"image": "salt-grilledfish.png"
+				},{
+					"name": "Vegetable Risotto",
+					"required": ["salt", "butter", "rice", "pumpkin"],
+					"image": "vegetablerisotto.png"
+				},{
+					"name": "Vegetable Risotto",
+					"required": ["salt", "butter", "rice", "carrot"],
+					"image": "vegetablerisotto.png"
+				},{
+					"name": "Vegetable Omelet",
+					"required": ["salt", "butter", "egg", "vegetable"],
+					"image": "vegetableomelet.png"
+				},{
+					"name": "Vegetable Omelet",
+					"required": ["salt", "butter", "egg", "herb"],
+					"image": "vegetableomelet.png"
+				},{
+					"name": "Veggie Cream Soup",
+					"required": ["salt", "milk", "carrot"],
+					"image": "veggiecreamsoup.png"
+				},{
+					"name": "Veggie Cream Soup",
+					"required": ["salt", "milk", "pumpkin"],
+					"image": "veggiecreamsoup.png"
+				},{
+					"name": "Salt-Grilled Greens",
+					"required": ["salt", "vegetable"],
+					"image": "salt-grilledgreens.png"
+				},{
+					"name": "Salt-Grilled Greens",
+					"required": ["salt", "herb"],
+					"image": "salt-grilledgreens.png"
+				},{
+					"name": "Cream of Mushroom Soup",
+					"required": ["salt", "milk", "mushroom", "vegetable"],
+					"image": "creamofmushroomsoup.png"
+				},{
+					"name": "Cream of Mushroom Soup",
+					"required": ["salt", "milk", "mushroom", "herb"],
+					"image": "creamofmushroomsoup.png"
+				},{
+					"name": "Salt-Grilled Mushrooms",
+					"required": ["salt", "mushrooms"],
+					"image": "salt-grilledmushrooms.png"
+				},{
+					"name": "Cream of Vegetable Soup",
+					"required": ["salt", "milk", "vegetable"],
+					"excluded": ["carrot", "pumpkin"],
+					"image": "creamofvegetablesoup.png"
+				},{
+					"name": "Cream of Vegetable Soup",
+					"required": ["salt", "milk", "herb"],
+					"image": "creamofvegetablesoup.png"
+				},{
+					"name": "Mushroom Risotto",
+					"required": ["salt", "mushroom", "butter", "rice"],
+					"image": "mushroomrisotto.png"
+				},{
+					"name": "Mushroom Omelet",
+					"required": ["salt", "mushroom", "butter", "egg"],
+					"image": "mushroomomelet.png"
+				},{
+					"name": "Meat Pie",
+					"required": ["salt", "wheat", "butter", "meat"],
+					"image": "meatpie.png"
+				},{
+					"name": "Creamy Meat Soup",
+					"required": ["salt", "milk", "meat", "vegetable"],
+					"image": "creamymeatsoup.png"
+				},{
+					"name": "Creamy Meat Soup",
+					"required": ["salt", "milk", "meat", "herb"],
+					"image": "creamymeatsoup.png"
+				},{
+					"name": "Salt-Grilled Meat",
+					"required": ["salt", "regular"],
+					"image": "salt-grilledmeat.png"
+				},{
+					"name": "Meat and Rice Bowl",
+					"required": ["salt", "rice", "regular"],
+					"excluded": ["poultry"],
+					"image": "meatandricebowl.png"
+				},{
+					"name": "Salt-Grilled Prime Meat",
+					"required": ["salt", "prime"],
+					"image": "salt-grilledprimemeat.png"
+				},{
+					"name": "Prime Meat and Rice Bowl",
+					"required": ["salt", "rice", "prime"],
+					"excluded": ["poultry"],
+					"image": "primemeatandricebowl.png"
+				},{
+					"name": "Salt-Grilled Gourmet Meat",
+					"required": ["salt", "gourmet"],
+					"image": "salt-grilledgourmetmeat.png"
+				},{
+					"name": "Gourmet Meat and Rice Bowl",
+					"required": ["salt", "rice", "gourmet"],
+					"excluded": ["poultry"],
+					"image": "gourmetmeatandricebowl.png"
+				},{
+					"name": "Wheat Bread",
+					"required": ["salt", "wheat"],
+					"image": "wheatbread.png"
+				},{
+					"name": "Monster Rice Balls",
+					"required": ["salt", "rice", "extract"],
+					"image": "monsterriceballs.png"
+				}],
+		"honey": [{
+					"name": "Honey Crepe",
+					"required": ["honey", "sugar", "wheat", "egg", "milk"],
+					"image": "honeycrepe.png"
+				},{
+					"name": "Honeyed Fruits",
+					"required": ["honey", "fruit"],
+					"excluded": ["apple"],
+					"image": "honeyedfruits.png"
+				},{
+					"name": "Honeyed Apple",
+					"required": ["honey", "apple"],
+					"image": "honeyedapple.png"
+				},{
+					"name": "Glazed Meat",
+					"required": ["honey", "meat"],
+					"image": "glazedmeat.png"
+				},{
+					"name": "Glazed Mushrooms",
+					"required": ["honey", "mushrooms"],
+					"image": "glazedmushrooms.png"
+				},{
+					"name": "Glazed Seafood",
+					"required": ["honey", "seafood"],
+					"image": "glazedseafood.png"
+				},{
+					"name": "Glazed Veggies",
+					"required": ["honey", "vegetable"],
+					"image": "glazedveggies.png"
+				},{
+					"name": "Glazed Veggies",
+					"required": ["honey", "herb"],
+					"image": "glazedveggies.png"
+				},{
+					"name": "Honey Candy",
+					"required": ["honey"],
+					"image": "honeycandy.png"
+				}],
+		"wood": [{
+					"name": "Rock-hard Food",
+					"required": ["wood"],
+					"image": "rock-hardfood.png"
+				}],
+		"milk": [{
+					"name": "Carrot Stew",
+					"required": ["milk", "wheat", "butter", "carrot"],
+					"image": "carrotstew.png"
+				},{
+					"name": "Clam Chowder",
+					"required": ["milk", "wheat", "butter", "snail"],
+					"image": "clamchowder.png"
+				},{
+					"name": "Cream of Mushroom Soup",
+					"required": ["milk", "salt", "mushroom", "vegetable"],
+					"image": "creamofmushroomsoup.png"
+				},{
+					"name": "Cream of Mushroom Soup",
+					"required": ["milk", "salt", "mushroom", "herb"],
+					"image": "creamofmushroomsoup.png"
+				},{
+					"name": "Cream of Vegetable Soup",
+					"required": ["milk", "salt", "vegetable"],
+					"excluded": ["carrot", "pumpkin"],
+					"image": "creamofvegetablesoup.png"
+				},{
+					"name": "Cream of Vegetable Soup",
+					"required": ["milk", "salt", "herb"],
+					"image": "creamofvegetablesoup.png"
+				},{
+					"name": "Creamy Heart Soup",
+					"required": ["milk", "melon", "voltfruit", "radish"],
+					"image": "creamyheartsoup.png"
+				},{
+					"name": "Creamy Meat Soup",
+					"required": ["milk", "salt", "meat", "vegetable"],
+					"image": "creamymeatsoup.png"
+				},{
+					"name": "Creamy Meat Soup",
+					"required": ["milk", "salt", "meat", "herb"],
+					"image": "creamymeatsoup.png"
+				},{
+					"name": "Creamy Seafood Soup",
+					"required": ["milk", "salt", "seafood", "vegetable"],
+					"image": "creamyseafoodsoup.png"
+				},{
+					"name": "Creamy Seafood Soup",
+					"required": ["milk", "salt", "seafood", "herb"],
+					"image": "creamyseafoodsoup.png"
+				},{
+					"name": "Egg Pudding",
+					"required": ["milk", "egg", "sugar"],
+					"image": "eggpudding.png"
+				},{
+					"name": "Gourmet Meat Stew",
+					"required": ["milk", "wheat", "butter", "gourmet"],
+					"image": "gourmetmeatstew.png"
+				},{
+					"name": "Honey Crepe",
+					"required": ["milk", "wheat", "egg", "sugar", "honey"],
+					"image": "honeycrepe.png"
+				},{
+					"name": "Meat Stew",
+					"required": ["milk", "wheat", "butter", "regular"],
+					"image": "meatstew.png"
+				},{
+					"name": "Monster Stew",
+					"required": ["milk", "wheat", "butter", "extract"],
+					"image": "monsterstew.png"
+				},{
+					"name": "Plain Crepe",
+					"required": ["milk", "wheat", "egg", "sugar", "butter"],
+					"image": "plaincrepe.png"
+				},{
+					"name": "Prime Meat Stew",
+					"required": ["milk", "wheat", "butter", "prime"],
+					"image": "primemeatstew.png"
+				},{
+					"name": "Pumpkin Stew",
+					"required": ["milk", "wheat", "butter", "pumpkin"],
+					"image": "pumpkinstew.png"
+				},{
+					"name": "Veggie Cream Soup",
+					"required": ["milk", "salt", "carrot"],
+					"image": "veggiecreamsoup.png"
+				},{
+					"name": "Veggie Cream Soup",
+					"required": ["milk", "salt", "pumpkin"],
+					"image": "veggiecreamsoup.png"
+				},{
+					"name": "Warm Milk",
+					"required": ["milk"],
+					"image": "warmmilk.png"
+				},{
+					"name": "Wildberry Crepe",
+					"required": ["milk", "wheat", "egg", "sugar", "wildberry"],
+					"image": "wildberrycrepe.png"
+				}],
+		"butter": [{
+					"name": "Apple Pie",
+					"required": ["butter", "wheat", "sugar", "apple"],
+					"image": "applepie.png"
+				},{
+					"name": "Carrot Cake",
+					"required": ["butter", "wheat", "sugar", "carrot"],
+					"image": "carrotcake.png"
+				},{
+					"name": "Carrot Stew",
+					"required": ["butter", "wheat", "milk", "carrot"],
+					"image": "carrotstew.png"
+				},{
+					"name": "Crab Risotto",
+					"required": ["butter", "rice", "salt", "crab"],
+					"image": "crabrisotto.png"
+				},{
+					"name": "Clam Chowder",
+					"required": ["butter", "wheat", "milk", "snail"],
+					"image": "clamchowder.png"
+				},{
+					"name": "Curry Pilaf",
+					"required": ["butter", "rice", "egg", "spice"],
+					"image": "currypilaf.png"
+				},{
+					"name": "Egg Tart",
+					"required": ["butter", "wheat", "sugar", "egg"],
+					"image": "eggtart.png"
+				},{
+					"name": "Fish Pie",
+					"required": ["butter", "wheat", "salt", "seafood"],
+					"image": "fishpie.png"
+				},{
+					"name": "Fruit Pie",
+					"required": ["butter", "wheat", "sugar", "fruit"],
+					"excluded": ["apple"],
+					"image": "fruitpie.png"
+				},{
+					"name": "Gourmet Meat Stew",
+					"required": ["butter", "wheat", "milk", "gourmet"],
+					"image": "gourmetmeatstew.png"
+				},{
+					"name": "Gourmet Poultry Pilaf",
+					"required": ["butter", "rice", "egg", "gourmet"],
+					"excluded": ["venison"],
+					"image": "gourmetpoultrypilaf.png"
+				},{
+					"name": "Salmon Meuniere",
+					"required": ["butter", "wheat", "salmon"],
+					"image": "salmonmeuniere.png"
+				},{
+					"name": "Hot Buttered Apple",
+					"required": ["butter", "wheat", "salmon"],
+					"image": "salmonmeuniere.png"
+				},{
+					"name": "Meat Pie",
+					"required": ["butter", "wheat", "salt", "meat"],
+					"image": "meatpie.png"
+				},{
+					"name": "Meat Stew",
+					"required": ["butter", "wheat", "milk", "regular"],
+					"image": "meatstew.png"
+				},{
+					"name": "Monster Cake",
+					"required": ["butter", "wheat", "sugar", "extract"],
+					"image": "monstercake.png"
+				},{
+					"name": "Monster Soup",
+					"required": ["butter", "wheat", "milk", "extract"],
+					"image": "monstersoup.png"
+				},{
+					"name": "Mushroom Omelet",
+					"required": ["butter", "egg", "salt", "mushroom"],
+					"image": "mushroomomelet.png"
+				},{
+					"name": "Mushroom Risotto",
+					"required": ["butter", "rice", "salt", "mushroom"],
+					"image": "mushroomrisotto.png"
+				},{
+					"name": "Nutcake",
+					"required": ["butter", "wheat", "sugar", "nut"],
+					"image": "nutcake.png"
+				},{
+					"name": "Plain Crepe",
+					"required": ["butter", "wheat", "sugar", "milk", "egg"],
+					"image": "plaincrepe.png"
+				},{
+					"name": "Porgy Meuniere",
+					"required": ["butter", "wheat", "porgy"],
+					"image": "porgymeuniere.png"
+				},{
+					"name": "Poultry Pilaf",
+					"required": ["butter", "rice", "egg", "regular"],
+					"excluded": ["venison"],
+					"image": "poultrypilaf.png"
+				},{
+					"name": "Prime Meat Stew",
+					"required": ["butter", "wheat", "milk", "prime"],
+					"image": "primemeatstew.png"
+				},{
+					"name": "Prime Poultry Pilaf",
+					"required": ["butter", "rice", "egg", "prime"],
+					"excluded": ["venison"],
+					"image": "primepoultrypilaf.png"
+				},{
+					"name": "Pumpkin Pie",
+					"required": ["butter", "wheat", "sugar", "pumpkin"],
+					"image": "pumpkinpie.png"
+				},{
+					"name": "Pumpkin Stew",
+					"required": ["butter", "wheat", "milk", "pumpkin"],
+					"image": "pumpkinstew.png"
+				},{
+					"name": "Salmon Risotto",
+					"required": ["butter", "rice", "salt", "salmon"],
+					"image": "salmonrisotto.png"
+				},{
+					"name": "Seafood Meuniere",
+					"required": ["butter", "wheat", "seafood"],
+					"excluded": ["porgy", "salmon"],
+					"image": "seafoodmeuniere.png"
+				},{
+					"name": "Seafood Paella",
+					"required": ["butter", "rice", "salt", "porgy", "snail"],
+					"image": "seafoodpaella.png"
+				},{
+					"name": "Vegetable Omelet",
+					"required": ["butter", "egg", "salt", "vegetable"],
+					"image": "vegetableomelet.png"
+				},{
+					"name": "Vegetable Omelet",
+					"required": ["butter", "egg", "salt", "herb"],
+					"image": "vegetableomelet.png"
+				},{
+					"name": "Vegetable risotto",
+					"required": ["butter", "rice", "salt", "carrot"],
+					"image": "vegetablerisotto.png"
+				},{
+					"name": "Vegetable risotto",
+					"required": ["butter", "rice", "salt", "pumpkin"],
+					"image": "vegetablerisotto.png"
+				}],
+		"sugar": [{
+					"name": "Apple Pie",
+					"required": ["sugar", "wheat", "butter", "apple"],
+					"image": "applepie.png"
+				},{
+					"name": "Carrot Cake",
+					"required": ["sugar", "wheat", "butter", "carrot"],
+					"image": "carrotcake.png"
+				},{
+					"name": "Egg Pudding",
+					"required": ["sugar", "milk", "egg"],
+					"image": "eggpudding.png"
+				},{
+					"name": "Egg Tart",
+					"required": ["sugar", "wheat", "butter", "egg"],
+					"image": "eggtart.png"
+				},{
+					"name": "Fried Bananas",
+					"required": ["sugar", "wheat", "banana"],
+					"image": "friedbananas.png"
+				},{
+					"name": "Fruit Pie",
+					"required": ["sugar", "wheat", "butter", "fruit"],
+					"excluded": ["apple"],
+					"image": "fruitpie.png"
+				},{
+					"name": "Fruitcake",
+					"required": ["sugar", "wheat", "apple", "wildberry"],
+					"image": "fruitcake.png"
+				},{
+					"name": "Honey Crepe",
+					"required": ["sugar", "wheat", "milk", "egg", "honey"],
+					"image": "honeycrepe.png"
+				},{
+					"name": "Monster Cake",
+					"required": ["sugar", "wheat", "butter", "extract"],
+					"image": "monstercake.png"
+				},{
+					"name": "Nutcake",
+					"required": ["sugar", "wheat", "butter", "nut"],
+					"image": "nutcake.png"
+				},{
+					"name": "Plain Crepe",
+					"required": ["sugar", "wheat", "milk", "egg", "butter"],
+					"image": "plaincrepe.png"
+				},{
+					"name": "Pumpkin Pie",
+					"required": ["sugar", "wheat", "butter", "pumpkin"],
+					"image": "pumpkinpie.png"
+				},{
+					"name": "Wildberry Crepe",
+					"required": ["sugar", "wheat", "milk", "egg", "wildberry"],
+					"image": "wildberrycrepe.png"
+				}]
+	},
+	"critter": {
+		"any": [{
+					"name": "Elixir",
+					"required": ["critter", "monster"],
+					"image": "unknown.png"
+				}],
+		"fairy": [{
+					"name": "Fairy Tonic",
+					"required": ["fairy"],
+					"image": "fairytonic.png"
+				}]
+	}
 }
-]
