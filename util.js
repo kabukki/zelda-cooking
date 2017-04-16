@@ -207,28 +207,59 @@ function getRelatedRecipes(list, ing) {
 	var recipes = [];
 
 	for (var type in list) { // Loop every type => any, apple, ...
-		// If our ing belongs to this subtype (or is ANY), add it
-		if (list.hasOwnProperty(type) && (type == 'any' || ing.type.indexOf(type) != -1)) {
-			// If this subtype is a terminal subtype
-			if (list[type] instanceof Array) {
-				// Add every single recipe in this subtype to our list
-				for (var i = 0; i < list[type].length; i++) {
-					// If this recipe excludes our ingredient, ignore it (ex. recipes without pumpkin)
-					if (appearsIn(list[type][i].excluded, ing.type))
-						continue ;
-					recipes.push(list[type][i]);
-				}
+		// If this subtype is a terminal subtype
+		if (list[type] instanceof Array) {
+			// Add every single recipe in this subtype to our list
+			for (var i = 0; i < list[type].length; i++) {
+				// If this recipe excludes our ingredient, ignore it (ex. recipes without pumpkin)
+				if (!appearsIn(list[type][i].required, ing.type) || appearsIn(list[type][i].excluded, ing.type))
+					continue ;
+				recipes.push(list[type][i]);
 			}
-			// Else this is another parent class (Object)
-			else {
-				var subrecipes = getRelatedRecipes(list[type], ing);
+		}
+		// Else this is another parent class (Object)
+		else {
+			var subrecipes = getRelatedRecipes(list[type], ing);
 
-				for (var j = 0; j < subrecipes.length; j++)
-					recipes.push(subrecipes[j]);
-			}
+			for (var j = 0; j < subrecipes.length; j++)
+				recipes.push(subrecipes[j]);
 		}
 	}
 	return recipes;
+}
+
+/*
+ * Returns the recipe object whose name matches the one given in parameter
+ */
+function getRecipe(list, name) {
+	for (var type in list) { // Loop every type => any, apple, ...
+		// If this subtype is a terminal subtype
+		if (list[type] instanceof Array) {
+			for (var i = 0; i < list[type].length; i++) {
+				if (list[type][i].name == name)
+					return list[type][i];
+			}
+		}
+		// Else this is another parent class (Object)
+		else {
+			var found = getRecipe(list[type], name);
+
+			if (found)
+				return found;
+		}
+	}
+	return null;	
+}
+
+/*
+ * Returns the ingredient object whose name matches the one given in parameter
+ */
+function getIngredient(list, name) {
+	for (var i = 0; i < list.length; i++) {
+		if (list[i].name == name)
+			return list[i];
+	}
+	return null;	
 }
 
 /*

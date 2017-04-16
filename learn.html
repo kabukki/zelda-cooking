@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+	<head>
+		<title>BOTW Cooking Simulator</title>
+		<link rel='icon' href='img/food/apple.png'/>
+		<link rel='stylesheet' href='style/main.css'/>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+	<body>
+		<div id='wrapper'>
+			<header>
+				Zelda Breath of The Wild: Cooking Simulator	
+			</header>
+
+			<nav>
+				<ul class='navbar'>
+					<li class='navbar-item'><a href='index.html'>Cook</a></li>
+					<li class='navbar-item'><a href='learn.html'>Learn</a></li>
+					<li class='navbar-item'><a href='recipe.html'>Recipes</a></li>
+				</ul>
+			</nav>
+
+			<div>
+				<h2>Cooking</h2>
+				<p>
+					In Zelda BOTW, you can prepare a variety of meals that will give you hearts and/or special bonuses. To do that,
+					you need to gather ingredients that go together to make a delicious meal. There are a lot of ingredients, and those
+					are divided into four main categories:
+					<ul>
+						<li>Regular food: these have no effect but give you hearts.</li>
+						<li>Status food: in addition to giving you hearts, they also add a bonus effect.</li>
+						<li>Critters and insects: only used in elixirs, otherwise they will ruin your recipe.</li>
+						<li>Monster parts: only used in elixirs or special recipes, otherwise they will ruin your recipe.</li>
+					</ul>
+					These ingredient types allow you to cook multiple meals:
+					<ul>
+						<li>Basic: these have no effect but give you hearts.</li>
+						<li>Status food: in addition to giving you hearts, they also add a bonus effect.</li>
+						<li>Elixirs: they don't restore health but give a great buff.</li>
+					</ul>
+					Basically, you want to combine edible ingredients together to cook good meals, and critters with monster parts to create elixirs.
+				</p>
+				<h2>Effects</h2>
+				<p>
+					As mentioned above, certain ingredients have a special effect. They are recognizable by a prefix before their name:
+				</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Prefix</th>
+							<th>Effect</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><img src='img/fx/chilly.png'/>Chilly</td>
+							<td>Heat Resistance</td>
+						</tr>
+						<tr>
+							<td>Electro</td>
+							<td>Electricity Resistance</td>
+						</tr>
+						<tr>
+							<td>Enduring</td>
+							<td>Extra Stamina</td>
+						</tr>
+						<tr>
+							<td>Energizing</td>
+							<td>Replenish Stamina</td>
+						</tr>
+						<tr>
+							<td>Fireproof</td>
+							<td>Prevents you from catching fire</td>
+						</tr>
+						<tr>
+							<td>Hasty</td>
+							<td>Increase movement speed</td>
+						</tr>
+						<tr>
+							<td>Hearty</td>
+							<td>Extra Hearts</td>
+						</tr>
+						<tr>
+							<td>Mighty</td>
+							<td>Increase attack power</td>
+						</tr>
+						<tr>
+							<td>Sneaky</td>
+							<td>Increase stealth</td>
+						</tr>
+						<tr>
+							<td>Spicy</td>
+							<td>Cold resistance</td>
+						</tr>
+						<tr>
+							<td>Tough</td>
+							<td>Increase defense</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					Adding any status food to the cooking pot will result in the meal granting that effect. Be careful though, because <strong>effects don't stack</strong>.
+					If you put together two ingredients with different effects, they will cancel each other out.
+				</p>
+				<p>
+					Depending on the quality of the ingredient, a buff will have a level up to 3, increasing its effects.
+				</p>
+				<h2>Food type</h2>
+				<p>
+					Every single ingredient is considered part of a type. It can also be part of a sub-type, or even a sub-sub-type.
+					Here are the types of the ingredients:
+					<ul>
+						<li>Fruit</li>
+						<ul>
+							<li>Apple</li>
+							<li>Melon</li>
+							<li>Pepper</li>
+							<li>Voltfruit</li>
+							<li>Wildberry</li>
+						</ul>
+						<li>Seafood</li>
+						<ul>
+							<li>Crab</li>
+							<li>Fish</li>
+							<ul>
+								<li>Porgy</li>
+								<li>Salmon</li>
+							</ul>
+							<li>Snail</li>
+						</ul>
+						<li>Meat</li>
+						<ul>
+							<li>Regular</li>
+							<ul>
+								<li>Venison</li>
+								<li>Poultry</li>
+							</ul>
+							<li>Prime</li>
+							<ul>
+								<li>Venison</li>
+								<li>Poultry</li>
+							</ul>
+							<li>Gourmet</li>
+							<ul>
+								<li>Venison</li>
+								<li>Poultry</li>
+							</ul>
+						</ul>
+						<li>Vegetable</li>
+						<ul>
+							<li>Carrot</li>
+							<li>Radish</li>
+							<li>Pumpkin</li>
+						</ul>
+						<li>Herb</li>
+						<li>Mushroom</li>
+						<li>Miscellaneous</li>
+						<ul>
+							<li>Butter</li>
+							<li>Egg</li>
+							<li>Honey</li>
+							<li>Milk</li>
+							<li>Nut</li>
+							<li>Rice</li>
+							<li>Salt</li>
+							<li>Spice</li>
+							<li>Sugar</li>
+							<li>Wheat</li>
+							<li>Wood</li>
+						</ul>
+						<li>Critter</li>
+						<ul>
+							<li>Fairy</li>
+						</ul>
+						<li>Monster</li>
+						<ul>
+							<li>Extract</li>
+						</ul>
+					</ul>
+					More information can be found on the <a href='#'>type page</a>.
+				</p>
+				<h2>Combining logic</h2>
+				<p>
+					Depending on its type, an ingredient will allow you to cook a given recipe. In fact, every recipe in the game has its type requirements.
+					That is to say, a meal needs ingredients of a certain type to be cooked. For example:
+					<ul>
+						<li><strong>Steamed Meat</strong> requires 1 herb and 1 meat.</li>
+						<li><strong>Fruit and Mushroom Mix</strong> requires 1 fruit and 1 mushroom.</li>
+					</ul>
+					Though some recipes require a specific subtype, such as:
+					<ul>
+						<li><strong>Meat-Stuffed Pumpkin</strong> requires 1 pumpkin and 1 meat. Any vegetable other than a pumpkin will give a Steamed Meat instead.</li>
+						<li><strong>Salmon Meuniere</strong> requires 1 salmon, 1 wheat and 1 butter. Any seafood other than salmon will give a Seafood Meuniere instead (or a Porgy Meuniere if we replace the salmon by the porgy).</li>
+						<li><strong>Poultry Curry</strong> requires 1 regular poultry, 1 spice and 1 rice. Any other regular meat (venison) / meat (prime/gourmet) will give something else.</li>
+					</ul>
+				</p>
+					<h3>Hearts</h3>
+					<p>
+						Todo
+					</p>
+					<h3>Effect</h3>
+					<p>
+						Todo
+					</p>
+						<h4>Duration</h4>
+						<p>
+							Todo
+						</p>
+						<h4>Level</h4>
+						<p>
+							Todo
+						</p>
+			</div>
+		</div>
+
+		<script src='util.js'></script>
+	</body>
+</html>

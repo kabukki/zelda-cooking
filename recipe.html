@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<head>
+		<title>BOTW Cooking Simulator</title>
+		<link rel='icon' href='img/food/apple.png'/>
+		<link rel='stylesheet' href='style/main.css'/>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	</head>
+	<body>
+		<div id='wrapper'>
+			<header>
+				Zelda Breath of The Wild: Cooking Simulator	
+			</header>
+
+			<nav>
+				<ul class='navbar'>
+					<li class='navbar-item'><a href='index.html'>Cook</a></li>
+					<li class='navbar-item'><a href='learn.html'>Learn</a></li>
+					<li class='navbar-item'><a href='recipe.html'>Recipes</a></li>
+				</ul>
+			</nav>
+
+			<div class='dish-lg'>
+				<div class='dishHeader'>
+					<span class='dishImage'></span>
+					<span class='dishTitle'></span>
+				</div>
+				<div class='dishDesc'></div>
+				<div id='dishRequired'></div>
+			</div>
+		</div>
+
+		<script src='util.js'></script>
+		<script>
+			var items = [],
+				dishes = [];
+
+			/* DOM Vars */
+			var dish = document.getElementsByClassName('dish-lg')[0]
+				, dishImage = document.getElementsByClassName('dishImage')[0]
+				, dishTitle = document.getElementsByClassName('dishTitle')[0]
+				, dishDesc = document.getElementsByClassName('dishDesc')[0]
+				, dishRequired = document.getElementById('dishRequired');
+
+			/* Get the food.json file using the Fetch API */
+			if (self.fetch) {
+				fetchThen('food.json', function(data) {
+					var id = getParam("id");
+
+					items = data;
+					if (id) {
+						if (id < 0 || id >= items.length)
+							dish.innerHTML = "Out of bounds ID : " + id;
+						else {
+							fetchThen('recipes.json', function(data) {
+								dishes = data;
+								UIdisplayRecipeInfo(getRecipe(dishes, 'Steamed Meat'));
+							});
+						}
+					} else {
+						dish.innerHTML = "Missing ID ! Request this page with the GET method and 'id' argument.";
+					}
+				});
+			} else {
+				console.log("Your browser is outdated and does not support the Fetch API.");
+			}
+
+			function UIdisplayRecipeInfo(recipe) {
+				if (!recipe) return ;
+				dishImage.innerHTML = '<img src="img/food/' + recipe.image + '"/>';
+				dishTitle.innerHTML = recipe.name;
+				dishDesc.innerHTML = recipe.description || 'No description.';
+				setRequired(recipe);
+			}
+
+			function setRequired(recipe) {
+				dishRequired.innerHTML = '<h4>Required ingredients:</h4>' +
+											'<p>> ' + recipe.required.map(function(item) { return htmlType(item); }).join(', ') + '</p>' +
+										 '<h4>Conflicting ingredients:</h4>' +
+										 	'<p>> ' + (recipe.excluded && recipe.excluded.map(function(item) { return htmlType(item); }).join(', ') || 'No excluded ingredient.') + '</p>'
+				;
+			}
+		</script>
+	</body>
+</html>

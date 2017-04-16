@@ -5,11 +5,11 @@
  *	- Bug: viande + effect special (duration) cree des problemes. (fonction cook)
  *	- Bug: les niveaux ne sont pas calcules correctement.
  *  - Bug: Clicking on 'more info' on an ingredient in the queue pops it before redirecting
- *	- Todo: trouver les images manquantes y compris les coeurs jaunes
+ *	- Todo: trouver les images des coeurs jaunes
  *	- Todo: trouver les proprietes de nouveaux ingredients.
  *	- Todo: mettre au propre UIdisplayIngredients.
- *	- Todo: Finir de remplir les recettes misc pour que la fonction puisse evaluer en stand-alone un repas.
  *  - Todo: page referencant tous les ingredients d'un type donne (encyclopedia.html?type=fruit)
+ *  - Todo: Revoir la logique pour acceder aux infos d'un ing/recette (id pas fiable) (formulaire ? )
  */
 
 var debug = true;
