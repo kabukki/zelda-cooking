@@ -76,6 +76,7 @@
 						else {
 							fetchThen('recipes.json', function(data) {
 								dishes = data;
+								debug && console.log("Dishes loaded");
 								UIdisplayIngredientInfo(items[id]);
 							});
 						}
@@ -87,38 +88,22 @@
 				console.log("Your browser is outdated and does not support the Fetch API.");
 			}
 
-			/* 
-			 * Returns the description for a given effect
-			 */
-			function getEffectDescription(effect) {
-				switch (effect) {
-					case "energizing": 	return "Refill (%)";
-					case "enduring": 	return "Bonus (wheel)";
-					case "hearty": 		return "Extra hearts";
-					default: 			return "Duration (s)"
-				}
-			}
-
-			/* 
-			 * Returns the transoform function to display a given effect
-			 */
-			function getEffectTransform(effect) {
-				switch (effect) {
-					case "hearty": 		return htmlExtraHearts;
-					default: 			return null;
-				}
-			}
-
 			function UIdisplayIngredientInfo(ing) {
+				var effectTransform;
+
 				if (!ing) return ;
+				effectTransform = getEffectTransform(ing.effect);
+
 				dishImage.innerHTML = '<img src="img/food/' + ing.image + '"/>';
 				dishTitle.innerHTML = ing.name;
 				setType(ing);
 				dishEffect.innerHTML = 'Effect: ' + htmlEffect(ing) + ' ' + ing.effect;
 				dishDesc.innerHTML = ing.description || 'No description.';
 				setRow(dishHearts, "Hearts Healed", ing.hearts, htmlHearts);
-				setRow(dishDuration, getEffectDescription(ing.effect), ing.duration, null);
-				setRow(dishLevel, "Effect Level", ing.level, null);
+				setRow(dishDuration, getEffectDescription(ing.effect), ing.duration, effectTransform); 
+				// Only display effect level if it's a regular one (timed)
+				if (hasRegularEffect(ing))
+					setRow(dishLevel, "Effect Level", ing.level, null);
 				setRelated(ing);
 			}
 

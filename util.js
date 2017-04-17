@@ -1,19 +1,6 @@
 'use strict';
 
-/* GET parameters */
-function getParam(key) {
-    var result = null,
-        tmp = [];
-    window.location.search
-      .substr(1) // remove '?'
-        .split("&")
-        .forEach(function (item) {
-          tmp = item.split("=");
-          if (tmp[0] === key)
-            result = decodeURIComponent(tmp[1]);
-      });
-    return result;
-}
+var debug = true;
 
 /*
  * Compare ingredients by name
@@ -45,34 +32,18 @@ function strcmp(a, b) {
 }
 
 /*
- * Uniq an array of objects depending on prop property
- */
-function uniqProp(arr, prop) {
-	var seen = {};
-
-	return arr.filter(function(item) {
-		return seen[item[prop]] ? false : (seen[item[prop]] = true);
-	});
-}
-
-/*
- * Creates a DOM element with the given attributes
- */
-function myCreateElement(tag, attr) {
-	var e = document.createElement(tag);
-
-	for (var key in attr) {
-		if (!attr.hasOwnProperty(key)) continue;
-		e[key] = attr[key];
-	}
-	return e;
-}
-
-/*
  * Returns true if the dish has an active effect
  */
 function hasEffect(dish) {
 	return (dish.effect != "none" && dish.effect != "cancelled");
+}
+
+/*
+ * Returns true if the dish has a regular active effect (timed)
+ */
+function hasRegularEffect(dish) {
+	return (hasEffect(dish) &&
+			dish.effect != "hearty" && dish.effect != "energizing" && dish.effect != "enduring");
 }
 
 /*
@@ -86,6 +57,10 @@ function appearsIn(target, source) {
 	}
 	return false;
 }
+
+/*********************************/
+/* Ingredient properties to HTML */
+/*********************************/
 
 /*
  * Transforms an ingredient into an html string to display its image & description
@@ -111,8 +86,8 @@ function htmlHearts(n) {
 	var s = "";
 
 	if (n == 0)
-		return '0';
-	if (n == -1) // Special case: -1 means full recovery
+		return '<img src="img/heart0.png"/>';
+	if (n >= 30)
 		return '<img src="img/heart100.png"/>' + ' Full Recovery';
 	while (n >= 1) {
 		if (n > 10) {
@@ -132,6 +107,29 @@ function htmlHearts(n) {
 }
 
 /*
+ * Transforms an amount of extra hearts into an html string to display them
+ */
+function htmlExtraHearts(n) {
+	if (n == 0)
+		return '0';
+	return '<img src="img/yheart100.png"/>' + ' + ' + n;
+}
+
+/*
+ * Transforms an amount of stamina into an html string to display it
+ */
+function htmlStamina(n) {
+	return '<img src="img/fx/energizing.png"/>' + ' ' + n + ' %';
+}
+
+/*
+ * Transforms an amount of extra stamina into an html string to display it
+ */
+function htmlExtraStamina(n) {
+	return '<img src="img/fx/enduring.png"/>' + ' ' + n + ' %';
+}
+
+/*
  * Returns the html image for a given food
  */
 function htmlEffect(food) {
@@ -146,21 +144,103 @@ function htmlType(type) {
 }
 
 /*
+ * Returns an image for a given type of dish
+ */
+function getImage(dish) {
+	var name = '<img src="img/food/',
+		dname = dish.name.toLowerCase(), ename;
+
+	// Unless it is an elixir, ignore the effect to get a generic image
+	if (dname.indexOf("elixir") == -1) {
+		ename = dname.substring(0, dname.indexOf(' '));
+		if (ename == dish.effect)
+			dname = dname.slice(ename.length);
+	}
+	name += dname.replace(/\s/g, ''); // Remove whitespaces
+	return name + '.png"/>';
+}
+
+/* 
+ * Returns the description for a given effect
+ */
+function getEffectDescription(effect) {
+	switch (effect) {
+		case "energizing": 	return "Refill (%)";
+		case "enduring": 	return "Bonus (wheel)";
+		case "hearty": 		return "Extra hearts";
+		default: 			return "Duration"
+	}
+}
+
+/* 
+ * Returns the html transform function to display a given effect
+ */
+function getEffectTransform(effect) {
+	switch (effect) {
+		case "energizing": 	return htmlStamina;
+		case "enduring": 	return htmlExtraStamina;
+		case "hearty": 		return htmlExtraHearts;
+		default: 			return legibleTime;
+	}
+}
+
+/**********************************/
+/* Food combining logic & recipes */
+/**********************************/
+
+/*
+ * Combine a list of ingredients into pseudo-ingredients
+ */
+function reduceIngredients(ing) {
+	var ping = [];
+
+	ing.forEach(function(e) {
+		if (nbTimesInArray(e, ping) == 0) {
+			ping.push(repeatIngredient(e, nbTimesInArray(e, ing)));
+		}
+	});
+	return ping;
+}
+
+/*
  * Combine a list of ingredients
  */
 function combine(ing) {
-	var food = {
-		name: "",
-		effect: null,
-		type: []
-	};
+	var ping = reduceIngredients(ing);
+	var food = {};
 
-	ing.forEach(function(x) {
-		x.type.forEach(function(type) {
-			if (food.type.indexOf(type) == -1)
-				food.type.push(type);
-		})
-	});
+	/* Affecting hearts to dish */
+	food.hearts = ping.reduce(function(a, b) {
+		return a + b.hearts;
+	}, 0);
+	/* Affecting effect to dish */
+	// TODO: replace "none"/"cancelled" by NULL values ?
+	food.effect = [...new Set(ping
+							.filter(function(x) { return x.effect != "none"; })
+							.map(function(x) { return x.effect; })
+				)];
+	if (food.effect.length > 1)
+		food.effect = "cancelled";
+	else if (food.effect.length == 0)
+		food.effect = "none";
+	else
+		food.effect = food.effect[0];
+	/* Affecting type to dish */
+	food.type = [...new Set(ping
+							.map(function(x) { return x.type; })
+							.reduce(function(a, b) { return a.concat(b); })
+				)];
+	/* Affecting duration to dish */
+	// TODO: Check if duration boost to special effects is used or not
+	food.duration = hasEffect(food) ? ping.reduce(function(a, b) {
+		return (b.effect == food.effect ||
+				(hasRegularEffect(food) && b.effect == "none") ? a + b.duration : a);
+	}, 0) : 0;
+	/* Affecting level to dish */
+	// TODO: find real logic behind dish levels
+	food.level = ping.reduce(function(a, b) {
+		return Math.max(a, b.level);
+	}, 0);
 	return food;
 }
 
@@ -183,12 +263,12 @@ function getBestMatch(recipes) {
 /*
  * Returns every recipe you can make with the given ingredients
  */
-function getAvailableRecipes(ing) {
+function getAvailableRecipes(list, ing) {
 	var available = [], recipes, ci;
 
 	ci = combine(ing);
 	// Get every recipe that use our ingredients
-	recipes = getRelatedRecipes(dishes, ci);
+	recipes = getRelatedRecipes(list, ci);
 	recipes.forEach(function(recipe) {
 		// If the ingredients fulfill the requirements of recipe, save it
 		if (recipe.required.filter(function(req) {
@@ -196,7 +276,7 @@ function getAvailableRecipes(ing) {
 		}).length == recipe.required.length)
 			available.push(recipe);
 	});
-	return uniqProp(available, "name");
+	return available;
 }
 
 /*
@@ -211,7 +291,6 @@ function getRelatedRecipes(list, ing) {
 		if (list[type] instanceof Array) {
 			// Add every single recipe in this subtype to our list
 			for (var i = 0; i < list[type].length; i++) {
-				// If this recipe excludes our ingredient, ignore it (ex. recipes without pumpkin)
 				if (!appearsIn(list[type][i].required, ing.type) || appearsIn(list[type][i].excluded, ing.type))
 					continue ;
 				recipes.push(list[type][i]);
@@ -262,6 +341,10 @@ function getIngredient(list, name) {
 	return null;	
 }
 
+/***********/
+/* Helpers */
+/***********/
+
 /*
  * Fetch a file, then execute a callback with JSON data
  */
@@ -272,4 +355,43 @@ function fetchThen(file, callback) {
 	})
 	.then(function(response) { return response.json();})
 	.then(callback);	
+}
+
+/*
+ * Creates a DOM element with the given attributes
+ */
+function myCreateElement(tag, attr) {
+	var e = document.createElement(tag);
+
+	for (var key in attr) {
+		if (!attr.hasOwnProperty(key)) continue;
+		e[key] = attr[key];
+	}
+	return e;
+}
+
+/* GET parameters */
+function getParam(key) {
+    var result = null,
+        tmp = [];
+    window.location.search
+      .substr(1) // remove '?'
+        .split("&")
+        .forEach(function (item) {
+          tmp = item.split("=");
+          if (tmp[0] === key)
+            result = decodeURIComponent(tmp[1]);
+      });
+    return result;
+}
+
+function legibleTime(seconds) {
+	var m = Math.floor(seconds / 60),
+		s = seconds % 60;
+
+	return (padLeft(m, 2) + ':' + padLeft(s, 2));
+}
+
+function padLeft(number, n, sep) {
+	return Array(n - String(number).length + 1).join(sep || '0') + number;
 }

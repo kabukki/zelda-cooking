@@ -5,14 +5,12 @@
  *	- Bug: viande + effect special (duration) cree des problemes. (fonction cook)
  *	- Bug: les niveaux ne sont pas calcules correctement.
  *  - Bug: Clicking on 'more info' on an ingredient in the queue pops it before redirecting
- *	- Todo: trouver les images des coeurs jaunes
- *	- Todo: trouver les proprietes de nouveaux ingredients.
+ *	- Todo: trouver les proprietes & descriptions de nouveaux ingredients.
+ *	- Todo: trouver les images correspondant aux effets.
  *	- Todo: mettre au propre UIdisplayIngredients.
  *  - Todo: page referencant tous les ingredients d'un type donne (encyclopedia.html?type=fruit)
  *  - Todo: Revoir la logique pour acceder aux infos d'un ing/recette (id pas fiable) (formulaire ? )
  */
-
-var debug = true;
 
 var items = [], dishes = [];
 var queue = [];
@@ -31,6 +29,7 @@ var dishImage = document.getElementsByClassName('dishImage')[0]
 	, dishEffect = document.getElementById('dishEffect')
 	, dishDuration = document.getElementById('dishDuration')
 	, dishLevel = document.getElementById('dishLevel')
+	, dishDesc = document.getElementsByClassName('dishDesc')[0]
 	, ingredients = document.getElementById('ingredients').getElementsByClassName('ing')
 	, ingredientList = document.getElementById('ingredientList')
 	, clearBtn = document.getElementById('clearBtn')
@@ -80,12 +79,6 @@ function UIdisplayIngredients(items) {
 
 	while (ingredientList.firstChild) {
 		ingredientList.removeChild(ingredientList.firstChild);
-	}
-	if (items == null) {
-		ingredientList.appendChild(myCreateElement("div", {
-			innerHTML: 'An error occurred while retrieving items. Please come back later.'
-		}));
-		return ;
 	}
 	items.sort(cmpf);
 	for (var i = 0; i < items.length; i++) {
@@ -160,47 +153,17 @@ sortSelect.onchange = function() {
  */
 function cook(ing) {
 	var dish = {};
+	var match;
 
 	if (ing.length == 0)
 		return null;
-	dish.type = new Set();
-	dish.hearts = 0;
-	dish.effect = "none";
-	dish.duration = 0;
-	dish.level = 0;
-	// create an intermediate array containing pseudo-ingredients (ex: carp lv.2 + 3*apple)
-	var ping = [];
-
-	ing.forEach(function(e) {
-		if (nbTimesInArray(e, ping) == 0) {
-			ping.push(repeatIngredient(e, nbTimesInArray(e, ing)));
-		}
-	});
-	ping.forEach(function(e) {
-		e.type.forEach(function(type) {
-			dish.type.add(type);
-		});
-		// Hearty ingredients give full hearts.
-		if (e.hearts == -1)
-			dish.hearts = -1;
-		else if (dish.hearts != -1)
-			dish.hearts += e.hearts;
-		// Effect conflicts
-		if (dish.effect == "none") // No effect applied for now
-			dish.effect = e.effect;
-		else if (e.effect != "none" && e.effect != dish.effect) // Trying to apply a new effect to existing one: conflict detected.
-			dish.effect = "cancelled";
-		// Avoid mixing effect duration and hearty hearts.
-		if (dish.effect != "Hearty" && e.effect != "Hearty")
-			dish.duration += e.duration;
-		else if (dish.effect == "Hearty" && e.effect == "Hearty")
-			dish.duration += e.duration;
-		dish.level = Math.max(dish.level, e.level);
-	});
-	dish.name = getBestMatch(getAvailableRecipes(ing)).name;
-	if (hasEffect(dish))
-		dish.name = dish.effect + ' ' + dish.name;
-	dish.image = getImage(dish);
+	dish = combine(ing);
+	match = getBestMatch(getAvailableRecipes(dishes, ing));
+	dish.name = match ?
+					(hasEffect(dish) ? dish.effect + ' ' + match.name : match.name) :
+					'Dubious Food';
+	dish.description = match ? match.description : 'Dubious desc';
+	dish.image = match ? match.image : 'dubiousfood.png';
 	return dish;
 }
 
@@ -214,7 +177,6 @@ function repeatIngredient(ing, n) {
 
 	if (ing === null || n === undefined || n <= 0 || n > 5)
 		return null;
-	debug && console.log('Repeating ' + ing.name + ' ' + n + ' times');
 	ning.name = ing.name;
 	ning.type = ing.type;
 	ning.hearts = ing.hearts[n - 1];
@@ -244,72 +206,25 @@ function nbTimesInArray(ing, arr) {
  */
 function display(dish) {
 	if (dish != null) {
-		dishImage.innerHTML = dish.image;
+		dishImage.innerHTML = '<img src="img/food/' + dish.image + '"/>';
 		dishTitle.innerHTML = dish.name;
 		dishHearts.innerHTML = htmlHearts(dish.hearts);
-		dishEffect.innerHTML = 'Effect: ' + htmlEffect(dish) + dish.effect;
-		if (dish.effect == "Enduring") {
-			dishDuration.innerHTML = 'Refill: ' + dish.duration + ' bars';
-		} else if (dish.effect == "Energizing") {
-			dishDuration.innerHTML = 'Bonus: ' + dish.duration + '%';
-		} else if (dish.effect == "Hearty") {
-			dishDuration.innerHTML = 'Extra Hearts ' + htmlHearts(dish.duration, true);
-		} else if (dish.effect != "cancelled") {
-			dishDuration.innerHTML = 'Duration: ' +
-				Math.floor(dish.duration / 60) + ' minutes ' + 
-				(dish.duration % 60) + ' seconds.';
-		} else {
-			dishDuration.innerHTML = '';
-		}
-		dishLevel.innerHTML = dish.level && 'Level ' + dish.level || '';
+		dishEffect.innerHTML = (hasRegularEffect(dish) ? htmlEffect(dish).repeat(dish.level) : '') + ' ';
+		dishDuration.innerHTML = dish.duration ? getEffectTransform(dish.effect)(dish.duration) : '';
+		dishDesc.innerHTML = dish.description || 'No description.';
 	} else {
 		dishImage.innerHTML = "";
 		dishTitle.innerHTML = "";
 		dishHearts.innerHTML = "";
 		dishEffect.innerHTML = "";
 		dishDuration.innerHTML = "";
-		dishLevel.innerHTML = "";
+		dishDesc.innerHTML = "";
 	}
-}
-
-/*
- * Returns an image for a given type of dish
- */
-function getImage(dish) {
-	var name = '<img src="img/food/',
-		dname = dish.name.toLowerCase(), ename;
-
-	// Unless it is an elixir, ignore the effect to get a generic image
-	if (dname.indexOf("elixir") == -1) {
-		ename = dname.substring(0, dname.indexOf(' '));
-		if (ename == dish.effect)
-			dname = dname.slice(ename.length);
-	}
-	name += dname.replace(/\s/g, ''); // Remove whitespaces
-	return name + '.png"/>';
 }
 
 /********************/
 /* Helper functions */
 /********************/
-
-/*
- * Display a list of ingredients
- */
-function printIngredients(ing) {
-	for (var i = 0; i < ing.length; i++) {
-		console.log(ing[i]);
-	}
-}
-
-/*
- * Transforms an effect into an html string to display it
- */
-function htmlEffect(dish) {
-	if (dish !== undefined && hasEffect(dish))
-		return '<img src="img/fx/' + dish.effect + '.png"/>'
-	return '';
-}
 
 /*
  * Search an ingredient by its name

@@ -1,69 +1,70 @@
 {
-	"any": {
-		"any": [{
-					"name": "Dubious Food",
-					"required": [],
-					"image": "dubiousfood.png"
-				}]
-	},
 	"fruit": {
 		"any": [{
 				"name": "Simmered Fruit",
 					"required": ["fruit"],
+					"description": "This sweet dish is made by heaping tasty fruits into a pan and simmering until tender.",
+					"description": "",
 					"image": "simmeredfruit.png"
 				},{
 					"name": "Steamed Fruit",
 					"required": ["fruit", "herb"],
+					"description": "A regional dish made by steaming near-ripened fruits in the leaves of fragrant plants.",
 					"image": "steamedfruit.png"
 				},{
 					"name": "Steamed Fruit",
 					"required": ["fruit", "vegetable"],
+					"description": "A regional dish made by steaming near-ripened fruits in the leaves of fragrant plants.",
 					"image": "steamedfruit.png"
 				},{
 					"name": "Fruit and Mushroom Mix",
 					"required": ["fruit", "mushroom"],
+					"description": "This dish contrasts the sweetness of fruit with the savoriness of mushrooms.",
 					"image": "fruitandmushroommix.png"
 				},{
 					"name": "Fruit Pie",
 					"required": ["fruit", "wheat", "sugar", "butter"],
 					"excluded": ["apple"],
+					"description": "A celebration isn't a celebration until this fruit-filled crust hits the table!",
 					"image": "fruitpie.png"
 				},{
 					"name": "Honeyed Fruits",
 					"required": ["fruit", "honey"],
 					"excluded": ["apple"],
+					"description": "A dish that combines the thick sweetness of honey with the acidity of sour fruits.",
 					"image": "honeyedfruits.png"
 				}],
 		"apple": [{
 					"name": "Apple Pie",
 					"required": ["apple", "wheat", "sugar", "butter"],
+					"description": "The crispy, flaky pie crust and sweet apples are a match made in heaven.",
 					"image": "applepie.png"
 				},{
 					"name": "Fruitcake",
 					"required": ["apple", "wheat", "sugar", "wildberry"],
+					"description": "Making ample use of fruits found all over Hyrule, this cake is a must for celebrations.",
 					"image": "fruitcake.png"
 				},{
 					"name": "Hot Buttered Apple",
 					"required": ["apple", "butter"],
+					"description": "The apple's sweetness has been enhanced by smothering it with butter and baking it.",
 					"image": "hotbutteredapple.png"
 				},{
 					"name": "Honeyed Apple",
 					"required": ["apple", "honey"],
+					"description": "A juicy sweet-and-sour dish combining newly ripened apples with honey.",
 					"image": "honeyedapple.png"
 				}],
-		"wildberry": [{
-					"name": "Fruitcake",
-					"required": ["wildberry", "wheat", "sugar", "apple"],
-					"image": "fruitcake.png"
-				}],
 		"pepper": [{
-					"name": "Sauteed Peppers",
+					"name": "Sautéed Peppers",
 					"required": ["pepper"],
+					"description": "The spiciness of these sautéed peppers has been broken by the heat for a sweeter taste.",
 					"image": "sauteedpeppers.png"
 				}],
 		"banana": [{
 					"name": "Fried Bananas",
 					"required": ["banana", "wheat", "sugar"],
+					"description": "Children love fried mighty bananas. The trick is frying them over very high heat.",
 					"image": "friedbananas.png"
 				}]
 	},
@@ -71,79 +72,97 @@
 		"any": [{
 					"name": "Creamy Meat Soup",
 					"required": ["meat", "milk", "salt", "vegetable"],
+					"description": "This nutritious soup contains serious portions of lightly-braised meat and many vegetables.",
 					"image": "creamymeatsoup.png"
 				},{
 					"name": "Creamy Meat Soup",
 					"required": ["meat", "milk", "salt", "herb"],
+					"description": "This nutritious soup contains serious portions of lightly-braised meat and many vegetables.",
 					"image": "creamymeatsoup.png"
 				},{
 					"name": "Steamed Meat",
 					"required": ["meat", "vegetable"],
 					"excluded": ["pumpkin"],
+					"description": "This meat dish has been wrapped in fragrant leaves and steamed to preserve its moisture.",
 					"image": "steamedmeat.png"
 				},{
 					"name": "Steamed Meat",
 					"required": ["meat", "herb"],
+					"description": "This meat dish has been wrapped in fragrant leaves and steamed to preserve its moisture.",
 					"image": "steamedmeat.png"
 				},{
 					"name": "Meat Pie",
 					"required": ["meat", "wheat",  "butter", "salt"],
+					"description": "You'll need an extra napkin to deal with this juicy pie of perfectly baked minced meat.",
 					"image": "meatpie.png"
 				},{
 					"name": "Meat and Mushroom Skewer",
 					"required": ["meat", "mushroom"],
+					"description": "A filling dish made by grilling various mountain ingredients with either Steak or Bird Meat.",
 					"image": "meatandmushroomskewer.png"
 				},{
 					"name": "Glazed Meat",
 					"required": ["meat", "honey"],
+					"description": "The sweetness of the honey permeates the meat, giving it a complex taste profile.",
 					"image": "glazedmeat.png"
 				},{
 					"name": "Pepper Steak",
 					"required": ["meat", "pepper"],
+					"description": "A dish made by cooking meat in crushed peppers, suppressing the gamy taste while accentuating its flavor.",
 					"image": "peppersteak.png"
 				},{
 					"name": "Meaty Rice Balls",
 					"required": ["meat", "rice"],
+					"description": "The sweet and spicy meat stuffed into these rice balls will keep you full for some time.",
 					"image": "meatyriceballs.png"
 				},{
 					"name": "Meat Skewer",
 					"required": ["meat"],
+					"description": "A juicy, filling snack made by grilling small chunks of meat on a skewer.",
 					"image": "meatskewer.png"
 				}],
 		"regular": {
 			"any": [{
 						"name": "Meat Stew",
 						"required": ["regular", "wheat", "butter", "milk"],
+						"description": "The hearty meat in this mainstay dish leaves bellies satisfied all throughout Hyrule.",
 						"image": "meatstew.png"
 					},{
 						"name": "Meat and Seafood Fry",
 						"required": ["regular", "seafood"],
+						"description": "A filling dish made by cooking fresh seafood and meat together.",
 						"image": "meatandseafoodfry.png"
 					},{
 						"name": "Salt-Grilled Meat",
 						"required": ["regular", "salt"],
+						"description": "Short on ingredients? Just rub some meat in salt and cook it for a simple, tasty dish.",
 						"image": "salt-grilledmeat.png"
 					},{
 						"name": "Meat and Rice Bowl",
 						"required": ["regular", "rice", "salt"],
+						"description": "This dish of rice and lightly seared meat is a mainstay all throughout Hyrule.",
 						"image": "meatandricebowl.png"
 					},{
 						"name": "Spiced Meat Skewer",
 						"required": ["regular", "spice"],
+						"description": "A special Goron spice covers up the scent of the meat, allowing its flavor to shine.",
 						"image": "spicedmeatskewer.png"
 					}],
 			"venison": [{
 						"name": "Meat Curry",
 						"required": ["venison", "rice", "spice"],
+						"description": "",
 						"image": "meatcurry.png"
 					}],
 			"poultry": [{
 						"name": "Poultry Pilaf",
 						"required": ["poultry", "rice", "egg", "butter"],
+						"description": "Sautéed Hylian rice steamed in poultry broth. Cook on low heat until the rice is fluffy.",
 						"image": "poultrypilaf.png"
 					},{
-						"name": "Poultry curry",
+						"name": "Poultry Curry",
 						"required": ["poultry", "rice", "spice"],
+						"description": "The savory meat pairs well with the aroma of spice in this common curry.",
 						"image": "poultrycurry.png"
 					}]
 		},
@@ -151,36 +170,44 @@
 			"any": [{
 						"name": "Prime Meat Stew",
 						"required": ["prime", "wheat", "butter", "milk"],
+						"description": "Letting the large portions of choice cuts of meat simmer brought out their savoriness.",
 						"image": "primemeatstew.png"
 					},{
 						"name": "Prime Meat and Seafood Fry",
 						"required": ["prime", "seafood"],
+						"description": "This comfort dish is made with choice cuts of meat and seafood.",
 						"image": "primemeatandseafoodfry.png"
 					},{
 						"name": "Salt-Grilled Prime Meat",
 						"required": ["prime", "salt"],
+						"description": "A simple yet exquisite dish made by grilling high-quality meat on top of rock salt.",
 						"image": "salt-grilledprimemeat.png"
 					},{
 						"name": "Prime Meat and Rice Bowl",
 						"required": ["prime", "rice", "salt"],
+						"description": "This bowl is loaded with high-quality meat. Your hunt for a serious meal ends here.",
 						"image": "primemeatandricebowl.png"
 					},{
 						"name": "Prime Spiced Meat Skewer",
 						"required": ["prime", "spice"],
+						"description": "The simple preparation of this steak dish belies its complex taste profile.",
 						"image": "primespicedmeatskewer.png"
 					}],
 			"venison": [{
 						"name": "Prime Meat Curry",
 						"required": ["venison", "rice", "spice"],
+						"description": "The high-quality meat in this curry has given it a deeper taste than most other curries.",
 						"image": "primemeatcurry.png"
 					}],
 			"poultry": [{
 						"name": "Prime Poultry Pilaf",
 						"required": ["poultry", "rice", "egg", "butter"],
+						"description": "The rice permeates the savory taste of the poultry in this Gerudo-region favorite.",
 						"image": "primepoultrypilaf.png"
 					},{
-						"name": "Prime Poultry curry",
+						"name": "Prime Poultry Curry",
 						"required": ["poultry", "rice", "spice"],
+						"description": "The secret to this curry's flavor is taking it off the heat while you add the spices.",
 						"image": "primepoultrycurry.png"
 					}]
 		},
@@ -188,36 +215,44 @@
 			"any": [{
 						"name": "Gourmet Meat Stew",
 						"required": ["gourmet", "wheat", "butter", "milk"],
+						"description": "The meat has simmered for so long it melts in your mouth. A true bucket-list meal!",
 						"image": "gourmetmeatstew.png"
 					},{
 						"name": "Gourmet Meat and Seafood Fry",
 						"required": ["gourmet", "seafood"],
+						"description": "A marriage of the choicest cuts of meat and seafood. As delicious as it is filling!",
 						"image": "gourmetmeatandseafoodfry.png"
 					},{
 						"name": "Salt-Grilled Gourmet Meat",
 						"required": ["gourmet", "salt"],
+						"description": "This lavish grilled dish makes liberal use of high-quality cuts of meat.",
 						"image": "salt-grilledgourmetmeat.png"
 					},{
 						"name": "Gourmet Meat and Rice Bowl",
 						"required": ["gourmet", "rice", "salt"],
+						"description": "Only the most carefully selected cuts of high-quality meats go into this dish.",
 						"image": "gourmetmeatandricebowl.png"
 					},{
 						"name": "Gourmet Spiced Meat Skewer",
 						"required": ["gourmet", "spice"],
+						"description": "The rich aroma and juicy texture of this high-quality meat puts it in a league of its own.",
 						"image": "gourmetspicedmeatskewer.png"
 					}],
 			"venison": [{
 						"name": "Gourmet Meat Curry",
 						"required": ["venison", "rice", "spice"],
+						"description": "The high-quality meat used in this prized dish satisfies meat and curry lovers alike.",
 						"image": "gourmetmeatcurry.png"
 					}],
 			"poultry": [{
 						"name": "Gourmet Poultry Pilaf",
 						"required": ["poultry", "rice", "egg", "butter"],
+						"description": "Made with the highest-quality poultry, every bite of this pilaf floods your mouth with flavor.",
 						"image": "gourmetpoultrypilaf.png"
 					},{
 						"name": "Gourmet Poultry curry",
 						"required": ["poultry", "rice", "spice"],
+						"description": "Once served in Hyrule Castle, the poultry used in this dish is of immensely high quality.",
 						"image": "gourmetpoultrycurry.png"
 					}]
 		}
@@ -226,100 +261,133 @@
 		"any": [{
 					"name": "Creamy Seafood Soup",
 					"required": ["seafood", "milk", "salt", "vegetable"],
+					"description": "Thuck-cut chunks of seafood and stock provides a satisfying savoriness.",
 					"image": "creamyseafoodsoup.png"
 				},{
 					"name": "Creamy Seafood Soup",
 					"required": ["seafood", "milk", "salt", "herb"],
+					"description": "Thuck-cut chunks of seafood and stock provides a satisfying savoriness.",
 					"image": "creamyseafoodsoup.png"
 				},{
 					"name": "Fish Pie",
 					"required": ["seafood", "wheat", "salt", "butter"],
+					"description": "A mainstay in any fisherman's home, the crisp crust pairs well with the fishy flavor.",
 					"image": "fishpie.png"
 				},{
 					"name": "Glazed Seafood",
 					"required": ["seafood", "honey"],
+					"description": "A seafood dish that you can actually wolf down whole!",
 					"image": "glazedseafood.png"
 				},{
 					"name": "Pepper Seafood",
 					"required": ["seafood", "pepper"],
+					"description": "The pepper seeds grilled with this seafood draw out its taste and pleasant aroma.",
 					"image": "pepperseafood.png"
 				},{
-					"name": "Seafood Meuniere",
+					"name": "Steamed Fish",
+					"required": ["seafood", "vegetable"],
+					"description": "A refined dish made by wrapping a fresh fish in fragrant wild greens and cooking it.",
+					"image": "steamedfish.png"
+				},{
+					"name": "Steamed Fish",
+					"required": ["seafood", "herb"],
+					"description": "A refined dish made by wrapping a fresh fish in fragrant wild greens and cooking it.",
+					"image": "steamedfish.png"
+				},{
+					"name": "Seafood Meunière",
 					"required": ["seafood", "butter", "wheat"],
 					"excluded": ["porgy", "salmon"],
+					"description": "Rich butter flanks fresh seafood. The secret ingredient is lots and lots of love.",
 					"image": "seafoodmeuniere.png"
 				},{
 					"name": "Seafood Rice Balls",
 					"required": ["seafood", "rice"],
+					"description": "Stuffed with aromatic seafood, the flavor can vary by ingredients but never disappoints.",
 					"image": "seafoodriceballs.png"
 				},{
 					"name": "Seafood Skewer",
 					"required": ["seafood"],
+					"description": "The natural water in this medley of seafaring creatures makes for a delicious broth.",
 					"image": "seafoodskewer.png"
 				}],
 		"porgy": [{
 					"name": "Seafood Paella",
 					"required": ["porgy", "rice", "snail", "butter", "salt"],
+					"description": "No fisherman's birthday bash would be complete without this top-shelf seafood dish.",
 					"image": "seafoodpaella.png"
 				},{
-					"name": "Porgy Meuniere",
+					"name": "Porgy Meunière",
 					"required": ["porgy", "wheat", "butter"],
+					"description": "Popular among residents of coastal regions, this juicy porgy is a delish dish.",
 					"image": "porgymeuniere.png"
 				},{
 					"name": "Seafood Curry",
 					"required": ["porgy", "rice", "spice"],
+					"description": "This dish brims with treasures from the sea. Its spice packs a kick, so it's not for kids.",
 					"image": "seafoodcurry.png"
 				},{
 					"name": "Seafood Fried Rice",
 					"required": ["porgy", "rice", "salt"],
+					"description": "Various seafood has been sautéed with rice. The stronger the flame, the tastier the dish!",
 					"image": "seafoodfriedrice.png"
 				}],
 		"salmon": [{
 					"name": "Salmon Risotto",
 					"required": ["salmon", "rice", "butter", "salt"],
+					"description": "The rice used in this rich risotto permeates the light flavor of the salmon.",
 					"image": "salmonrisotto.png"
 				},{
-					"name": "Salmon Meuniere",
+					"name": "Salmon Meunière",
 					"required": ["salmon", "wheat", "butter"],
+					"description": "The crispy skin of this fried hearty salmon puts its texture in a class all its own.",
 					"image": "salmonmeuniere.png"
 				}],
 		"snail": [{
 					"name": "Clam Chowder",
 					"required": ["snail", "milk", "wheat", "butter"],
+					"description": "The nutritional value of hearty blueshell snail combines with butter and milk in a rich soup.",
 					"image": "clamchowder.png"
 				},{
 					"name": "Seafood Curry",
 					"required": ["snail", "rice", "spice"],
+					"description": "This dish brims with treasures from the sea. Its spice packs a kick, so it's not for kids.",
 					"image": "seafoodcurry.png"
 				},{
 					"name": "Seafood Fried Rice",
 					"required": ["snail", "rice", "salt"],
+					"description": "Various seafood has been sautéed with rice. The stronger the flame, the tastier the dish!",
 					"image": "seafoodfriedrice.png"
 				}],
 		"fish": [{
 					"name": "Fish and Mushroom Skewer",
 					"required": ["fish", "mushroom"],
+					"description": "A simple dish made by cooking skewered, fresh fish alongside fragrant mushrooms.",
 					"image": "fishandmushroomskewer.png"
 				},{
 					"name": "Salt-Grilled Fish",
 					"required": ["fish", "salt"],
+					"description": "A simple dish made by rolling a whole fish in natural rock salt before grilling it.",
 					"image": "salt-grilledfish.png"
 				}],
 		"crab": [{
 					"name": "Crab Risotto",
 					"required": ["crab", "rice", "butter", "salt"],
+					"description": "An everyday stable of seaside villages, the secret to its delicious flavor lies in crab fat.",
 					"image": "crabrisotto.png"
 				},{
 					"name": "Crab Omelet with Rice",
 					"required": ["crab", "rice", "egg", "salt"],
+					"description": "The fluffy crab legs pair perfectly with the rice for a truly scrumptious dish.",
 					"image": "crabomeletwithrice.png"
 				},{
 					"name": "Crab Stir-Fry",
 					"required": ["crab", "spice"],
+					"description": "The Goron spice used in preparing this crab pairs perfectly with the flavor of the meat.",
 					"image": "crabstir-fry.png"
 				},{
 					"name": "Salt-Grilled Crab",
 					"required": ["crab", "salt"],
+					"description": "Nine out of ten fishermen agree: crab is best enjoyed grilled and with just a bit of salt.",
 					"image": "salt-grilledcrab.png"
 				}]
 	},
@@ -327,82 +395,101 @@
 		"any": [{
 					"name": "Vegetable Omelet",
 					"required": ["vegetable", "egg", "butter", "salt"],
+					"description": "This home-style dish mixes fluffy eggs with chopped vegetables for nutritional balance.",
 					"image": "vegetableomelet.png"
 				},{
 					"name": "Cream of Vegetable Soup",
 					"required": ["vegetable", "milk", "salt"],
 					"excluded": ["carrot", "pumpkin"],
+					"description": "Made by simmering vegetables in milk, this healthy dish is as simple as the ingredients.",
 					"image": "creamofvegetablesoup.png"
 				},{
 					"name": "Glazed Veggies",
 					"required": ["vegetable", "honey"],
+					"description": "Don't like the taste of vegetables? Simply sauté them in honey for a salty-sweet flavor!",
 					"image": "glazedveggies.png"
 				},{
 					"name": "Salt-Grilled Greens",
 					"required": ["vegetable", "salt"],
+					"description": "A health-boosting dish made with leafy greens and a touch of salt.",
 					"image": "salt-grilledgreens.png"
 				},{
 					"name": "Veggie Rice Balls",
 					"required": ["vegetable", "rice"],
+					"description": "This home-style dish of Kakariko Village is stuffed with the bounty of the mountains.",
 					"image": "veggiericeballs.png"
 				},{
-					"name": "Herb Saute",
+					"name": "Herb Sauté",
 					"required": ["vegetable", "spice"],
+					"description": "A fragrant mixture of herbs and spices. It's easily recognized by its unique aroma.",
 					"image": "herbsaute.png"
 				},{
 					"name": "Fried Wild Greens",
 					"required": ["vegetable"],
+					"description" :"A basic vegetable dish made by sautéing fresh wild plants.",
 					"image": "friedwildgreens.png"
 				}],
 		"pumpkin": [{
 					"name": "Pumpkin Pie",
 					"required": ["pumpkin", "wheat", "butter", "sugar"],
+					"description": "The intense sweetness of fortified pumpkins makes this dessert popular among children.",
 					"image": "pumpkinpie.png"
 				},{
 					"name": "Pumpkin Stew",
 					"required": ["pumpkin", "wheat", "butter", "milk"],
+					"description": "Simply simmer a fortified pumpkin to make this dish. A favorite in Kakariko Village.",
 					"image": "pumpkinstew.png"
 				},{
 					"name": "Vegetable Risotto",
 					"required": ["pumpkin", "rice", "butter", "salt"],
+					"description": "The sweetness of the ingredients gives this risotto a mild flavor.",
 					"image": "vegetablerisotto.png"
 				},{
 					"name": "Veggie Cream Soup",
 					"required": ["pumpkin", "milk", "salt"],
+					"description": "This creamy soup showcases the sweetness of vegetables in a veritable taste explosion.",
 					"image": "veggiecreamsoup.png"
 				},{
 					"name": "Vegetable Curry",
 					"required": ["pumpkin", "rice", "spice"],
+					"description": "This healthy curry is popular for its mild flavor and moderate spiciness.",
 					"image": "vegetablecurry.png"
 				},{
 					"name": "Meat-Stuffed Pumpkin",
 					"required": ["pumpkin", "meat"],
+					"description": "This hollow, meat-filled fortified pumpkin is a local specialty or Kakariko Village.",
 					"image": "meat-stuffedpumpkin.png"
 				}],
 		"carrot": [{
 					"name": "Carrot Cake",
 					"required": ["carrot", "wheat", "butter", "sugar"],
+					"description": "Even those who don't like carrots tend to enjoy the mild sweetness of this cake.",
 					"image": "carrotcake.png"
 				},{
 					"name": "Carrot Stew",
 					"required": ["carrot", "wheat", "butter", "milk"],
+					"description": "This simple stew sat simmering for a long time to bring out the sweetness of the carrots.",
 					"image": "carrotstew.png"
 				},{
 					"name": "Vegetable Risotto",
 					"required": ["carrot", "rice", "butter", "salt"],
+					"description": "The sweetness of the ingredients gives this risotto a mild flavor.",
 					"image": "vegetablerisotto.png"
 				},{
 					"name": "Veggie Cream Soup",
 					"required": ["carrot", "milk", "salt"],
+					"description": "This creamy soup showcases the sweetness of vegetables in a veritable taste explosion.",
 					"image": "veggiecreamsoup.png"
 				},{
 					"name": "Vegetable Curry",
 					"required": ["carrot", "rice", "spice"],
+					"description": "This healthy curry is popular for its mild flavor and moderate spiciness.",
 					"image": "vegetablecurry.png"
 				}],
 		"radish": [{
 					"name": "Creamy Heart soup",
 					"required": ["radish", "melon", "voltfruit", "milk"],
+					"description": "Enjoying this sweet soup with another person will bring you both closer together.",
 					"image": "creamyheartsoup.png"
 				}]
 	},
@@ -410,30 +497,37 @@
 		"any": [{
 					"name": "Vegetable Omelet",
 					"required": ["herb", "egg", "butter", "salt"],
+					"description": "This home-style dish mixes fluffy eggs with chopped vegetables for nutritional balance.",
 					"image": "vegetableomelet.png"
 				},{
 					"name": "Cream of Vegetable Soup",
 					"required": ["herb", "milk", "salt"],
+					"description": "Made by simmering vegetables in milk, this healthy dish is as simple as the ingredients.",
 					"image": "creamofvegetablesoup.png"
 				},{
 					"name": "Glazed Veggies",
 					"required": ["herb", "honey"],
+					"description": "Don't like the taste of vegetables? Simply sauté them in honey for a salty-sweet flavor!",
 					"image": "glazedveggies.png"
 				},{
 					"name": "Salt-Grilled Greens",
 					"required": ["herb", "salt"],
+					"description": "A health-boosting dish made with leafy greens and a touch of salt.",
 					"image": "salt-grilledgreens.png"
 				},{
 					"name": "Veggie Rice Balls",
 					"required": ["herb", "rice"],
+					"description": "This home-style dish of Kakariko Village is stuffed with the bounty of the mountains.",
 					"image": "veggiericeballs.png"
 				},{
-					"name": "Herb Saute",
+					"name": "Herb Sauté",
 					"required": ["herb", "spice"],
+					"description": "A fragrant mixture of herbs and spices. It's easily recognized by its unique aroma.",
 					"image": "herbsaute.png"
 				},{
 					"name": "Fried Wild Greens",
 					"required": ["herb"],
+					"description" :"A basic vegetable dish made by sautéing fresh wild plants.",
 					"image": "friedwildgreens.png"
 				}]
 	},
@@ -441,46 +535,57 @@
 		"any": [{
 					"name": "Mushroom Omelet",
 					"required": ["mushroom", "egg", "butter", "salt"],
+					"description": "The fluffy texture of this omelet is one of the great joys of this dish, as well as life.",
 					"image": "mushroomomelet.png"
 				},{
 					"name": "Mushroom Risotto",
 					"required": ["mushroom", "rice", "butter", "salt"],
+					"description": "The creamy mushroom and vegetable soup is so chunky it eats like a meal!",
 					"image": "mushroomrisotto.png"
 				},{
 					"name": "Cream of Mushroom Soup",
 					"required": ["mushroom", "vegetable", "milk", "salt"],
+					"description": "The creamy mushroom and vegetable soup is so chunky it eats like a meal!",
 					"image": "creamofmushroomsoup.png"
 				},{
 					"name": "Cream of Mushroom Soup",
 					"required": ["mushroom", "herb", "milk", "salt"],
+					"description": "",
 					"image": "creamofmushroomsoup.png"
 				},{
 					"name": "Steamed Mushrooms",
 					"required": ["mushroom", "vegetable"],
+					"description": "A healthy vegetable dish achieved by steaming mushrooms in plant leaves.",
 					"image": "steamedmushrooms.png"
 				},{
 					"name": "Steamed Mushrooms",
 					"required": ["mushroom", "herb"],
+					"description": "A healthy vegetable dish achieved by steaming mushrooms in plant leaves.",
 					"image": "steamedmushrooms.png"
 				},{
 					"name": "Mushroom Rice Balls",
 					"required": ["mushroom", "rice"],
+					"description": "The aroma of the mushrooms tickles your nose as you peel back the leafy wrapping.",
 					"image": "mushroomriceballs.png"
 				},{
-					"name": "Fragrant Mushroom Saute",
+					"name": "Fragrant Mushroom Sauté",
 					"required": ["mushroom", "spice"],
+					"description": "The fragrant aroma of this sautéed spice and mushroom dish makes your mouth water.",
 					"image": "fragrantmushroomsaute.png"
 				},{
 					"name": "Salt-Grilled Mushrooms",
 					"required": ["mushroom", "salt"],
+					"description": "A basic mushroom dish made by lightly salting mushrooms and grilling them.",
 					"image": "salt-grilledmushrooms.png"
 				},{
 					"name": "Glazed Mushrooms",
 					"required": ["mushroom", "honey"],
+					"description": "The honey in this mushroom dish gives it a sweet, complex taste and a savory finish.",
 					"image": "glazedmushrooms.png"
 				},{
 					"name": "Mushroom skewer",
 					"required": ["mushroom"],
+					"description": "This simple mushroom-packed skewer has its colorful presentation to thank for its appeal.",
 					"image": "mushroomskewer.png"
 				}]
 	},
@@ -488,68 +593,83 @@
 		"egg": [{
 					"name": "Plain Crepe",
 					"required": ["egg", "sugar", "milk", "wheat", "butter"],
+					"description": "The simplicity of this dish lets the flavor of its ingredients shine.",
 					"image": "plaincrepe.png"
 				},{
 					"name": "Honey Crepe",
 					"required": ["egg", "sugar", "milk", "wheat", "honey"],
+					"description": "Honey has been drizzled over thin crepes to bring out their natural sweetness and flavor.",
 					"image": "honeycrepe.png"
 				},{
 					"name": "Wildberry Crepe",
 					"required": ["egg", "sugar", "milk", "wheat", "wildberry"],
+					"description": "Sweet, tart wildberries are folded into thin, springy dough to make this dessert.",
 					"image": "wildberrycrepe.png"
-				},{
-					"name": "Egg Tart",
-					"required": ["egg", "butter", "sugar", "wheat"],
-					"image": "eggtart.png"
 				},{
 					"name": "Egg Pudding",
 					"required": ["egg", "milk", "sugar"],
+					"description": "Made by cooking eggs and milk in a special mold, its soft texture melts in your mouth.",
 					"image": "eggpudding.png"
+				},{
+					"name": "Egg Tart",
+					"required": ["egg", "butter", "sugar", "wheat"],
+					"description": "You'll know this simple dessert is done baking when it smells just delightful.",
+					"image": "eggtart.png"
 				},{
 					"name": "Omelet",
 					"required": ["egg"],
+					"description": "This simple dish is common all over Hyrule. Simply fry egg until it's nice and plump.",
 					"image": "omelet.png"
 				}],
 		"rice": [{
 					"name": "Fried Egg and Rice",
 					"required": ["rice", "egg"],
+					"description": "The soft egg yolk pairs well with the fresh rice in this simple dish.",
 					"image": "friedeggandrice.png"
 				},{
 					"name": "Curry Pilaf",
 					"required": ["rice", "butter", "egg", "spice"],
+					"description": "The goron spice used in this pilaf has given it a rich, spicy aroma.",
 					"image": "currypilaf.png"
 				},{
 					"name": "Curry Rice",
 					"required": ["rice", "spice"],
+					"description": "A favorite all over Hyrule, this simple dish has a flavor you just won't get tired of.",
 					"image": "curryrice.png"
 				}],
 		"wheat": [{
 					"name": "Wheat Bread",
 					"required": ["wheat", "salt"],
+					"description": "Made with wheat from the Tabantha region, this soft, springy bread smells just heavenly.",
 					"image": "wheatbread.png"
 				}],
 		"nut": [{
-					"name": "Sauteed Nuts",
+					"name": "Sautéed Nuts",
 					"required": ["nut"],
+					"description": "These sautéed tree seeds are the perfect snack for the busy adventurer on the go!",
 					"image": "sauteednuts.png"
 				},{
 					"name": "Nutcake",
 					"required": ["nut", "wheat", "sugar", "butter"],
+					"description": "Forest nuts give this cake a pleasant texture and a simple, understated sweetness.",
 					"image": "nutcake.png"
 				}],
 		"honey": [{
 					"name": "Honey Candy",
 					"required": ["honey"],
+					"description": "A natural sweet, brimming with nutrition and made by stewing fresh honey.",
 					"image": "honeycandy.png"
 				}],
 		"wood": [{
 					"name": "Rock-hard Food",
 					"required": ["wood"],
+					"description": "A dish gone awry after adding the wrong ingredient. Chewing your way through this won't be fun, but it will fill you up when you're between a rock and a hard place.",
 					"image": "rock-hardfood.png"
 				}],
 		"milk": [{
 					"name": "Warm Milk",
 					"required": ["milk"],
+					"description": "Make this by heating up some milk. Drink it before bed to ensure a good night's sleep.",
 					"image": "warmmilk.png"
 				}]
 	},
@@ -557,11 +677,13 @@
 		"any": [{
 					"name": "Elixir",
 					"required": ["critter", "monster"],
+					"description": "",
 					"image": "unknown.png"
 				}],
 		"fairy": [{
 					"name": "Fairy Tonic",
 					"required": ["fairy"],
+					"description": "This powerful recovery elixir harnesses the power of fairies. It has a sweet fragrance.",
 					"image": "fairytonic.png"
 				}]
 	},
@@ -569,22 +691,27 @@
 		"extract": [{
 					"name": "Monster Cake",
 					"required": ["extract", "wheat", "butter", "sugar"],
+					"description": "It's said that once you have a taste of this cake, you'll never forget its sweetness.",
 					"image": "monstercake.png"
 				},{
 					"name": "Monster Curry",
 					"required": ["extract", "rice", "spice"],
+					"description": "This unusual take on curry uses monster extract and doesn't rely on spices.",
 					"image": "monstercurry.png"
 				},{
 					"name": "Monster Rice Balls",
 					"required": ["extract", "rice", "salt"],
+					"description": "Rice balls flavored with monster extract. Their unique aroma is not for everyone.",
 					"image": "monsterriceballs.png"
 				},{
 					"name": "Monster Soup",
 					"required": ["extract", "wheat", "milk", "butter"],
+					"description": "Using monster extract as a base, this soup's distinct gaminess is either loved or hated.",
 					"image": "monstersoup.png"
 				},{
 					"name": "Monster Stew",
 					"required": ["extract", "meat", "seafood"],
+					"description": "Meat and seafood simmered in monster extract. A savory dish despite its ingredients.",
 					"image": "monsterstew.png"
 				}]
 	}
