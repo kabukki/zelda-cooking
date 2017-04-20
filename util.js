@@ -1,27 +1,29 @@
+/*
+ * Lucien Le Roux - 09/04/17
+ */
+ 
 'use strict';
 
 var debug = true;
 
-/*
- * Compare ingredients by name
- */
-function compareByName(a, b) {
-	return strcmp(a.name, b.name);
-}
-
-/*
- * Compare ingredients by effect
- */
-function compareByEffect(a, b) {
-	return strcmp(a.effect, b.effect);
-}
-
-/*
- * Compare ingredients by type (primitive type)
- */
-function compareByType(a, b) {
-	return strcmp(a.type[0], b.type[0]);
-}
+/* Compare functions to separate ingredients in the UI */
+var cmpFunctions = {
+		"name": {
+					"compareFull": function(a, b) { return strcmp(a.name, b.name); },
+					"compareSimple": function(a, b) { return strcmp(a.name[0], b.name[0]); },
+					"get": function (x) { return x.name[0]; }
+				},
+		"type": {
+					"compareFull": function(a, b) { return strcmp(a.type[0], b.type[0]) || strcmp(a.name, b.name); },
+					"compareSimple": function(a, b) { return strcmp(a.type[0], b.type[0]); },
+					"get": function (x) { return x.type[0]; }
+				},
+		"effect": {
+					"compareFull": function(a, b) { return strcmp(a.effect, b.effect) || strcmp(a.name, b.name); },
+					"compareSimple": function(a, b) { return strcmp(a.effect, b.effect); },
+					"get": function (x) { return x.effect; }
+				}
+	};
 
 /*
  * strcmp
@@ -35,7 +37,7 @@ function strcmp(a, b) {
  * Returns true if the dish has an active effect
  */
 function hasEffect(dish) {
-	return (dish.effect != "none" && dish.effect != "cancelled");
+	return (dish.effect != null);
 }
 
 /*
@@ -74,7 +76,7 @@ function htmlIngredient(ing) {
 				'<div class="sqTooltipContent">' + 
 					'Type: ' + ing.type.join(' > ') + '<br>' +
 					'Effect: ' + ing.effect + '<br>' +
-					'<a href="info.html?id=' + ing.id + '">more info</a>' +
+					'<a href="ingredient.html?id=' + ing.id + '">more info</a>' +
 				'</div>' +
 			'</div>';
 }
@@ -189,6 +191,26 @@ function getEffectTransform(effect) {
 /**********************************/
 
 /*
+ * Create a pseudo-ingredient from n ingredients of the same type.
+ * We MUST use this function to be able to manipulate an ingredient
+ *  later on when mixing them (because it has a fixed heart/dur/level).
+ */
+function repeatIngredient(ing, n) {
+	var ning = {};
+
+	if (ing === null || n === undefined || n <= 0 || n > 5)
+		return null;
+	ning.name = ing.name;
+	ning.type = ing.type;
+	ning.hearts = ing.hearts[n - 1];
+	ning.effect = ing.effect;
+	ning.duration = ing.duration[n - 1];
+	ning.level = ing.level[n - 1];
+	ning.image = ing.image;
+	return ning;
+}
+
+/*
  * Combine a list of ingredients into pseudo-ingredients
  */
 function reduceIngredients(ing) {
@@ -214,17 +236,11 @@ function combine(ing) {
 		return a + b.hearts;
 	}, 0);
 	/* Affecting effect to dish */
-	// TODO: replace "none"/"cancelled" by NULL values ?
 	food.effect = [...new Set(ping
-							.filter(function(x) { return x.effect != "none"; })
+							.filter(function(x) { return x.effect; })
 							.map(function(x) { return x.effect; })
 				)];
-	if (food.effect.length > 1)
-		food.effect = "cancelled";
-	else if (food.effect.length == 0)
-		food.effect = "none";
-	else
-		food.effect = food.effect[0];
+	food.effect = (food.effect.length == 1 ? food.effect[0] : null);
 	/* Affecting type to dish */
 	food.type = [...new Set(ping
 							.map(function(x) { return x.type; })
@@ -234,10 +250,17 @@ function combine(ing) {
 	// TODO: Check if duration boost to special effects is used or not
 	food.duration = hasEffect(food) ? ping.reduce(function(a, b) {
 		return (b.effect == food.effect ||
-				(hasRegularEffect(food) && b.effect == "none") ? a + b.duration : a);
+				(hasRegularEffect(food) && b.effect == null)) ? a + b.duration : a;
 	}, 0) : 0;
 	/* Affecting level to dish */
 	// TODO: find real logic behind dish levels
+	// - additionne tous les level ? (max. 3)
+	// - prendre le nb d'exemplaires de l'ing. qui apparait le + de fois (=most)
+	//    et parmi tous les ingredients, prendre le niveau le plus eleve a [most]
+	//    par ex. 3 armoranth + 2 armored porgy -> [1, 1, 1, 2, 2] + [1, 2, 3, 3, 3] ===> armoranth.level[3] = 1 < porgy.level[3] = 3
+	//    donc le niveau sera 3
+	// - most = nb d'ing. du type de l'effect - 1, et on prend celui de l'aliment le + (ou -?) puissant
+	//    par ex. 3 armoranth + 2 armored porgy -> most = 5 - 1 = 4 ===> [1, 1, 1, 2, 2] + [1, 2, 3, 3, 3] ===> porgy.level[4] = 3
 	food.level = ping.reduce(function(a, b) {
 		return Math.max(a, b.level);
 	}, 0);
@@ -249,10 +272,13 @@ function combine(ing) {
  * - number of required ingredients
  * ? other criteria to be found in game.
  * ? type prioritaire, misc > vegetable par exemple ?
+ * pepper + seafood  + meat > meat & seafood fry != pepper steak / pepper seafood
+ * -> privilegier les combos meat/seafood a fruit
  */
 function getBestMatch(recipes) {
  	var best = 0;
 
+ 	debug && console.log("Determining the best recipe among:", recipes);
  	for (var i = 0; i < recipes.length; i++) {
  		if (recipes[best].required.length < recipes[i].required.length)
  			best = i;
@@ -389,7 +415,7 @@ function legibleTime(seconds) {
 	var m = Math.floor(seconds / 60),
 		s = seconds % 60;
 
-	return (padLeft(m, 2) + ':' + padLeft(s, 2));
+	return '<i class="fa fa-hourglass"></i> ' + (padLeft(m, 2) + ':' + padLeft(s, 2));
 }
 
 function padLeft(number, n, sep) {

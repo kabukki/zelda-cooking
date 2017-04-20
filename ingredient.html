@@ -16,7 +16,8 @@
 				<ul class='navbar'>
 					<li class='navbar-item'><a href='index.html'>Cook</a></li>
 					<li class='navbar-item'><a href='learn.html'>Learn</a></li>
-					<li class='navbar-item'><a href='recipe.html'>Recipes</a></li>
+					<li class='navbar-item'><a>Recipes</a></li>
+					<li class='navbar-item'><a href='about.html'>About</a></li>
 				</ul>
 			</nav>
 
@@ -97,7 +98,7 @@
 				dishImage.innerHTML = '<img src="img/food/' + ing.image + '"/>';
 				dishTitle.innerHTML = ing.name;
 				setType(ing);
-				dishEffect.innerHTML = 'Effect: ' + htmlEffect(ing) + ' ' + ing.effect;
+				dishEffect.innerHTML = 'Effect: ' + htmlEffect(ing) + ' ' + (ing.effect || "none");
 				dishDesc.innerHTML = ing.description || 'No description.';
 				setRow(dishHearts, "Hearts Healed", ing.hearts, htmlHearts);
 				setRow(dishDuration, getEffectDescription(ing.effect), ing.duration, effectTransform); 
@@ -146,7 +147,7 @@
 					dishRelated.appendChild(myCreateElement("h3", {
 						innerHTML: 'Appears in ' + recipes.length + ' recipes:'
 					}));
-					recipes.sort(compareByName);
+					recipes.sort(cmpFunctions.name.compareFull);
 					for (var i = 0; i < recipes.length; i++) { // Loop every recipe in subtype => apple: Apple pie, ... ; any: simmered fruit, mushroom mix, ...
 						dishRelated.appendChild(myCreateElement("div", {
 							className: 'dish-sm',

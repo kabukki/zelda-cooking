@@ -1,6 +1,12 @@
 /*
  * Lucien Le Roux - 13/04/17
  */
+
+@font-face {
+	font-family: 'Hylia Serif';
+	src: url('fonts/HyliaSerifBeta-Regular.otf') format('opentype');
+}
+
 body {
 	font-family: 'Open Sans', 'Arial', sans-serif;
 	background-image:url('../img/bg-black.png');
@@ -21,6 +27,7 @@ header {
 	font-size: 5vmin;
 	color: #f9f3ef;
 	text-align: center;
+	font-family: 'Hylia Serif', 'Open Sans', 'Arial', sans-serif;
 	border-bottom: 1px solid #000;
 }
 .navbar {
@@ -180,7 +187,9 @@ header {
 }
 
 /* Dish (general) */
-
+#dishEffect img {
+	vertical-align: middle;
+}
 
 /* Control Panel */
 #ctl {

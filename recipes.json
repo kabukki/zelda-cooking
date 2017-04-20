@@ -4,7 +4,6 @@
 				"name": "Simmered Fruit",
 					"required": ["fruit"],
 					"description": "This sweet dish is made by heaping tasty fruits into a pan and simmering until tender.",
-					"description": "",
 					"image": "simmeredfruit.png"
 				},{
 					"name": "Steamed Fruit",
