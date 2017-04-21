@@ -205,10 +205,13 @@ header {
 }
 
 /* Tables */
+.table-wrapper {
+	overflow-x: scroll;
+}
 table {
 	margin: auto;
 	text-align: center;
-	border-collapse: collapse;\
+	border-collapse: collapse;
 }
 table tr {
 	background-color: rgba(255, 255, 255, 0.5);
@@ -223,4 +226,30 @@ table th {
 th, td {
 	padding: 5px;
 	border-bottom: 1px #aeaeae solid;
+}
+
+/* Custom popup */
+.popup-overlay {
+	position: fixed;
+	/* Take up the whole screen */
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease-out;
+	overflow-y: scroll;
+}
+.popup {
+	margin: 75px auto;
+	padding: 20px;
+	box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+	background-color: #fff;
+	background-image: url('../img/lightpaperfibers.png');
+	width: 70%;
+}
+.noscroll {
+	overflow-y: hidden;
 }

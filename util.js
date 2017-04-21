@@ -76,7 +76,7 @@ function htmlIngredient(ing) {
 				'<div class="sqTooltipContent">' + 
 					'Type: ' + ing.type.join(' > ') + '<br>' +
 					'Effect: ' + ing.effect + '<br>' +
-					'<a href="ingredient.html?id=' + ing.id + '">more info</a>' +
+					'<a href="#">more info</a>' +
 				'</div>' +
 			'</div>';
 }

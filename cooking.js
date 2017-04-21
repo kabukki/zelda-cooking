@@ -6,11 +6,9 @@
 
 /*
  *	TODO
- *	- Bug: les niveaux ne sont pas calcules correctement.
  *	- Todo: trouver les proprietes de nouveaux ingredients.
  *	- Todo: trouver les images correspondant aux effets.
  *  - Todo: page referencant tous les ingredients d'un type donne (encyclopedia.html?type=fruit)
- *  - Todo: Revoir la logique pour acceder aux infos d'un ing/recette (id pas fiable) (formulaire ? )
  */
 
 var items = [], dishes = [];
@@ -27,7 +25,20 @@ var dishImage = document.getElementsByClassName('dishImage')[0]
 	, ingredients = document.getElementById('ingredients').getElementsByClassName('ing')
 	, ingredientList = document.getElementById('ingredientList')
 	, clearBtn = document.getElementById('clearBtn')
-	, sortSelect = document.getElementById('sortSelect');
+	, sortSelect = document.getElementById('sortSelect')
+	// Popup
+	, popupOverlay = document.getElementsByClassName('popup-overlay')[0]
+	, pdishImage = document.querySelector('#popup .dishImage')
+	, pdishTitle = document.querySelector('#popup .dishTitle')
+	, pdishDesc = document.querySelector('#popup .dishDesc')
+	, pdishType = document.querySelector('#popup #dishType')
+	, pdishEffect = document.querySelector('#popup #dishEffect')
+	// Popup table
+	, pdishHearts = document.querySelector('#popup #dishHearts')
+	, pdishDuration = document.querySelector('#popup #dishDuration')
+	, pdishLevel = document.querySelector('#popup #dishLevel')
+	, pdishCertified = document.querySelector('#popup #dishCertified')
+	, pdishRelated = document.querySelector('#popup #dishRelated');
 
 /* Get the food.json file using the Fetch API */
 if (self.fetch) {
@@ -52,6 +63,108 @@ if (self.fetch) {
 /******************/
 /* User Interface */
 /******************/
+
+/*
+ * POPUP
+ */
+
+function setType(ing) {
+	while (pdishType.firstChild)
+		pdishType.removeChild(pdishType.firstChild);
+	pdishType.appendChild(myCreateElement("h3", {
+		innerHTML: 'Type Tree:'
+	}));
+	for (var i = 0; i < ing.type.length; i++) {
+		pdishType.appendChild(myCreateElement("div", {
+			innerHTML: Array(i + 1).join('-') + '> ' + htmlType(ing.type[i]) + (i == 0 ? ' (parent type)' : '')
+		}));
+	}
+}
+
+/*
+ * Fills a given row (DOM) from 'table' the data in the array 'data'
+ * If 'transformFunction' is given, applies it to every member of 'data' before displaying it.
+ * Removes any data that was previously on this row
+ */
+function setRow(row, title, data, transformFunction) {
+	while (row.firstChild)
+		row.removeChild(row.firstChild);
+	row.appendChild(myCreateElement("td", {innerHTML: title}));
+	for (var i = 0; i < data.length; i++) {
+		row.appendChild(myCreateElement("td", {
+			innerHTML: transformFunction ? transformFunction(data[i]) : data[i]
+		}));
+	}
+}
+
+function setRelated(ing) {
+	var recipes = getRelatedRecipes(dishes, ing);
+
+	while (dishRelated.firstChild)
+		pdishRelated.removeChild(pdishRelated.firstChild)
+	if (recipes.length == 0) {
+		pdishRelated.appendChild(myCreateElement("h3", {
+			innerHTML: 'No known recipe uses this ingredient.'
+		}));
+	} else {
+		pdishRelated.appendChild(myCreateElement("h3", {
+			innerHTML: 'Appears in ' + recipes.length + ' recipes:'
+		}));
+		recipes.sort(cmpFunctions.name.compareFull);
+		for (var i = 0; i < recipes.length; i++) { // Loop every recipe in subtype => apple: Apple pie, ... ; any: simmered fruit, mushroom mix, ...
+			pdishRelated.appendChild(myCreateElement("div", {
+				className: 'dish-sm',
+				innerHTML: 	'<div class="dishHeader">' +
+								'<span class="dishImage">' +
+									'<img src="img/food/' + recipes[i].image + '"/>' +
+								'</span>' + '<span class="dishTitle">' +
+									recipes[i].name +
+								'</span>' +
+							'</div>' +
+							'<div class="dishDesc">' +
+								'<strong>Recipe</strong>: ' + recipes[i].required.map(function(item) { return htmlType(item); }).join(' + ') +
+									(recipes[i].excluded ? ' (except: ' + recipes[i].excluded.join(', ') + ')' : '') +
+							'</div>'
+			}));
+		}
+	}
+}
+
+function UIdisplayIngredientInfo(ing) {
+	var effectTransform;
+
+	if (!ing) return ;
+	effectTransform = getEffectTransform(ing.effect);
+
+	pdishImage.innerHTML = '<img src="img/food/' + ing.image + '"/>';
+	pdishTitle.innerHTML = ing.name;
+	setType(ing);
+	pdishEffect.innerHTML = 'Effect: ' + htmlEffect(ing) + ' ' + ing.effect;
+	pdishDesc.innerHTML = ing.description || 'No description.';
+	setRow(pdishHearts, "Hearts Healed", ing.hearts, htmlHearts);
+	setRow(pdishDuration, getEffectDescription(ing.effect), ing.duration, effectTransform); 
+	// Only display effect level if it's a regular one (timed)
+	if (hasRegularEffect(ing))
+		setRow(pdishLevel, "Effect Level", ing.level, null);
+	pdishCertified.innerHTML = ing.certified ?
+		'<i class="fa fa-star"></i> This ingredient has been thoroughly tested.' :
+		'<i class="fa fa-exclamation-circle"></i> This ingredient has not been fully tested yet.';
+	setRelated(ing);
+}
+
+function UIopenPopup(ing) {
+	document.body.classList.toggle('noscroll');
+	popupOverlay.scrollTop = 0;
+	popupOverlay.style.visibility = 'visible';
+	popupOverlay.style.opacity = 1;
+	UIdisplayIngredientInfo(ing);
+}
+
+function UIclosePopup() {
+	document.body.classList.toggle('noscroll');
+	popupOverlay.style.visibility = 'hidden';
+	popupOverlay.style.opacity = 0;
+}
 
 /*
  * Add a separator in the ingredients list
@@ -83,9 +196,8 @@ function UIdisplayIngredients(items, cmpf) {
 
 			if (i == 0 || cmpf.compareSimple(items[i - 1], items[i]) != 0)
 				UIaddSeparator(cmpf.get(items[i]));
-			d.getElementsByTagName("img")[0].onclick = function() {
-				addToQueue(items[ci]);
-			};
+			d.getElementsByTagName("img")[0].onclick = function() { addToQueue(items[ci]); };
+			d.getElementsByTagName("a")[0].onclick = function() { UIopenPopup(items[ci]); return false; };
 			ingredientList.appendChild(d);
 		})();
 	}
@@ -115,6 +227,10 @@ clearBtn.onclick = function() {
 }
 sortSelect.onchange = function() {
 	UIdisplayIngredients(items, cmpFunctions[sortSelect.value]);
+}
+popupOverlay.onclick = function(e) {
+	if (e.target.className == 'popup-overlay')
+		UIclosePopup();
 }
 
 /*********************/
@@ -176,21 +292,13 @@ function display(dish) {
 	}
 }
 
-/********************/
-/* Helper functions */
-/********************/
+/*********/
+/* Queue */
+/*********/
 
 /*
- * Search an ingredient by its name
+ * Adds the ingredient to the queue, then refresh it
  */
-function getIngredient(name) {
-	for (var i = 0; i < items.length; i++) {
-		if (name == items[i].name)
-			return items[i];
-	}
-	return null;
-}
-
 function addToQueue(ing) {
 	if (queue.length == 5) {
 		debug && console.log('Queue is already full!');
@@ -199,10 +307,14 @@ function addToQueue(ing) {
 		refreshQueue();
 	}
 }
-function removeFromQueue(i) {
-	if (i < 0 || i >= queue.length)
+
+/*
+ * Removes the nth ingredient from the queue, then refresh it
+ */
+function removeFromQueue(n) {
+	if (n < 0 || n >= queue.length)
 		return ;
-	queue.splice(i, 1);
+	queue.splice(n, 1);
 	refreshQueue();
 }
 

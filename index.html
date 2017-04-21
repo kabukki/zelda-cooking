@@ -62,7 +62,42 @@
 				</select>
 			</div>
 
-			<div id='ingredientList'>
+			<div id='ingredientList'></div>
+			
+			<!-- Information Popup -->
+			<div class='popup-overlay' aria-hidden='true'>
+				<div id='popup' class='popup'>
+					<div class='dish-lg'>
+						<div class='dishHeader'>
+							<span class='dishImage'></span>
+							<span class='dishTitle'></span>
+						</div>
+						<div class='dishDesc'></div>
+						<div id='dishType'></div>
+						<div id='dishEffect'></div>
+						<div class='table-wrapper'>
+							<table id='dishStats'>
+								<thead>
+									<tr>
+										<th>Times repeated</th>
+										<th>1</th>
+										<th>2</th>
+										<th>3</th>
+										<th>4</th>
+										<th>5</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr id='dishHearts'></tr>
+									<tr id='dishDuration'></tr>
+									<tr id='dishLevel'></tr>
+								</tbody>
+							</table>
+						</div>
+						<div id='dishCertified'></div>
+						<div id='dishRelated'></div>
+					</div>
+				</div>
 			</div>
 		</div>
 
