@@ -37,7 +37,7 @@ function strcmp(a, b) {
  * Returns true if the dish has an active effect
  */
 function hasEffect(dish) {
-	return (dish.effect != null);
+	return (dish.effect != "none");
 }
 
 /*
@@ -237,10 +237,10 @@ function combine(ing) {
 	}, 0);
 	/* Affecting effect to dish */
 	food.effect = [...new Set(ping
-							.filter(function(x) { return x.effect; })
+							.filter(function(x) { return x.effect != "none"; })
 							.map(function(x) { return x.effect; })
 				)];
-	food.effect = (food.effect.length == 1 ? food.effect[0] : null);
+	food.effect = (food.effect.length == 1 ? food.effect[0] : "none");
 	/* Affecting type to dish */
 	food.type = [...new Set(ping
 							.map(function(x) { return x.type; })
@@ -250,7 +250,7 @@ function combine(ing) {
 	// TODO: Check if duration boost to special effects is used or not
 	food.duration = hasEffect(food) ? ping.reduce(function(a, b) {
 		return (b.effect == food.effect ||
-				(hasRegularEffect(food) && b.effect == null)) ? a + b.duration : a;
+				(hasRegularEffect(food) && b.effect == "none")) ? a + b.duration : a;
 	}, 0) : 0;
 	/* Affecting level to dish */
 	// TODO: find real logic behind dish levels
@@ -261,9 +261,12 @@ function combine(ing) {
 	//    donc le niveau sera 3
 	// - most = nb d'ing. du type de l'effect - 1, et on prend celui de l'aliment le + (ou -?) puissant
 	//    par ex. 3 armoranth + 2 armored porgy -> most = 5 - 1 = 4 ===> [1, 1, 1, 2, 2] + [1, 2, 3, 3, 3] ===> porgy.level[4] = 3
-	food.level = ping.reduce(function(a, b) {
-		return Math.max(a, b.level);
-	}, 0);
+	var n =  ing.reduce(function(a, b) {
+		return a + (b.effect == food.effect);
+	}, 0) - 1;
+	food.level = ing.reduce(function(a, b) {
+		return Math.max(a, b.level[n]);
+	}, ing[0].level[n]);
 	return food;
 }
 
@@ -321,10 +324,28 @@ function getRelatedRecipes(list, ing) {
 					continue ;
 				recipes.push(list[type][i]);
 			}
-		}
-		// Else this is another parent class (Object)
-		else {
+		} else { // Else this is another parent class (Object)
 			var subrecipes = getRelatedRecipes(list[type], ing);
+
+			for (var j = 0; j < subrecipes.length; j++)
+				recipes.push(subrecipes[j]);
+		}
+	}
+	return recipes;
+}
+
+/*
+ * Get all dishes, from the 'list' ingredient list.
+ */
+function getAllRecipes(list) {
+	var recipes = [];
+
+	for (var type in list) { 
+		if (list[type] instanceof Array) {
+			for (var i = 0; i < list[type].length; i++)
+				recipes.push(list[type][i]);
+		} else {
+			var subrecipes = getAllRecipes(list[type]);
 
 			for (var j = 0; j < subrecipes.length; j++)
 				recipes.push(subrecipes[j]);
@@ -337,20 +358,16 @@ function getRelatedRecipes(list, ing) {
  * Returns the recipe object whose name matches the one given in parameter
  */
 function getRecipe(list, name) {
-	for (var type in list) { // Loop every type => any, apple, ...
-		// If this subtype is a terminal subtype
+	for (var type in list) {
 		if (list[type] instanceof Array) {
 			for (var i = 0; i < list[type].length; i++) {
 				if (list[type][i].name == name)
 					return list[type][i];
 			}
-		}
-		// Else this is another parent class (Object)
-		else {
+		} else {
 			var found = getRecipe(list[type], name);
 
-			if (found)
-				return found;
+			if (found) return found;
 		}
 	}
 	return null;	

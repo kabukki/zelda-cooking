@@ -2,27 +2,26 @@
 	"name": "Apple",
 	"type": ["fruit", "apple"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": null,
+	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
 	"description": "A common fruit found on trees all around Hyrule. Eat it fresh, or cook it to increase its effect.",
-	"image": "apple.png"
-},
-{
+	"image": "apple.png",
+	"certified": true
+},{
 	"name": "Palm Fruit",
 	"type": ["fruit"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": null,
+	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
 	"description": "Fruit from palm trees that grow near the ocean. It doesn't offer any special effects but will increase your heart recovery when used as an ingredient.",
 	"image": "palmfruit.png"
-},
-{
+},{
 	"name": "Wildberry",
 	"type": ["fruit", "wildberry"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": null,
+	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
 	"description": "A fruit that grows in cold, snowy regions known for its tangy, sweet flavor. It doesn't offer any special effects, but it's a popular cooking ingredient.",
@@ -35,100 +34,34 @@
 	"name": "Hylian Shroom",
 	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": null,
+	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
 	"description": "A common mushroom found near trees around Hyrule. Eat it to restore half a heart.",
 	"image": "hylianshroom.png"
-},
-
-{
-	"name": "Hyrule Herb",
-	"type": ["herb"],
-	"hearts": [1, 2, 3, 4, 5],
-	"effect": null,
-	"duration": [30, 60, 90, 120, 150],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This healthy herb grows abundantly in the plains of Hyrule. Cook it before eating to increase the number of hearts it restores.",
-	"image": "hyruleherb.png"
-},
-
-{
-	"name": "Raw Meat",
-	"type": ["meat", "regular", "venison"],
-	"hearts": [2, 4, 6, 8, 10],
-	"effect": null,
-	"duration": [30, 60, 90, 120, 150],
-	"level": [0, 0, 0, 0, 0],
-	"description": "Meat obtained from animals in plains and forests. You can eat it raw, but cooking it will make it more delicious and nutritious.",
-	"image": "rawmeat.png"
-},
-{
-	"name": "Raw Prime Meat",
-	"type": ["meat", "prime", "venison"],
-	"hearts": [3, 6, 9, 12, 15],
-	"effect": null,
-	"duration": [30, 60, 90, 120, 150],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A fresh, high-quality piece of animal meat. This stuff isn't easy to come by, so savor it. Cook it to recover more hearts.",
-	"image": "rawprimemeat.png"
-},
-{
-	"name": "Raw Gourmet Meat",
-	"type": ["meat", "gourmet", "venison"],
-	"hearts": [6, 12, 18, 24, 30],
-	"effect": null,
-	"duration": [30, 60, 90, 120, 150],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This prized cut of meat is usually from a large animal. Any connoisseur would rank this tender, juicy cut of meat 'gourmet'. Expect an exquisite meal when cooking with this.",
-	"image": "rawgourmetmeat.png"
-},
-{
-	"name": "Raw Bird Drumstick",
-	"type": ["meat", "regular", "poultry"],
-	"hearts": [1, 2, 3, 4, 5],
-	"effect": null,
-	"duration": [30, 60, 90, 120, 150],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This meat is tougher and chewier than a standard steak. Tastes better cooked.",
-	"image": "rawbirddrumstick.png"
-},
-{
-	"name": "Raw Bird Thigh",
-	"type": ["meat", "prime", "poultry"],
-	"hearts": [1.5, 3, 4.5, 6, 7.5],
-	"effect": null,
-	"duration": [30, 60, 90, 120, 150],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A high-quality piece of meat that's hard to come by. You can eat it raw, but cooking it first will recover more hearts.",
-	"image": "rawbirdthigh.png"
-},
-{
-	"name": "Raw Whole Bird",
-	"type": ["meat", "gourmet", "poultry"],
-	"hearts": [3, 6, 9, 12, 15],
-	"effect": null,
-	"duration": [30, 60, 90, 120, 150],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This prized meat can be obtained from certain birds. It gets full points for flavor, nutrition, and volume. It pairs perfectly with other ingredients or can be enjoyed alone.",
-	"image": "rawwholebird.png"
-},
-
-{
+},{
 	"name": "Hyrule Bass",
 	"type": ["seafood", "fish"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": null,
+	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
 	"description": "An ordinary fish that can be found all over Hyrule. Can be eaten raw, but cooking it amplifies its healing benefits.",
 	"image": "hyrulebass.png"
-},
-{
+},{
+	"name": "Hyrule Herb",
+	"type": ["herb"],
+	"hearts": [1, 2, 3, 4, 5],
+	"effect": "none",
+	"duration": [30, 60, 90, 120, 150],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This healthy herb grows abundantly in the plains of Hyrule. Cook it before eating to increase the number of hearts it restores.",
+	"image": "hyruleherb.png"
+},{
 	"name": "Sanke Carp",
 	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
-	"effect": null,
+	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
 	"description": "This wild armored carp has been bred into a prizewinning fish. Its beautifully colored markings do not occur in nature. It offers no special effects when cooked.",
@@ -138,110 +71,163 @@
 
 
 {
+	"name": "Raw Meat",
+	"type": ["meat", "regular", "venison"],
+	"hearts": [2, 4, 6, 8, 10],
+	"effect": "none",
+	"duration": [30, 60, 90, 120, 150],
+	"level": [0, 0, 0, 0, 0],
+	"description": "Meat obtained from animals in plains and forests. You can eat it raw, but cooking it will make it more delicious and nutritious.",
+	"image": "rawmeat.png",
+	"certified": true
+},{
+	"name": "Raw Prime Meat",
+	"type": ["meat", "prime", "venison"],
+	"hearts": [3, 6, 9, 12, 15],
+	"effect": "none",
+	"duration": [30, 60, 90, 120, 150],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A fresh, high-quality piece of animal meat. This stuff isn't easy to come by, so savor it. Cook it to recover more hearts.",
+	"image": "rawprimemeat.png",
+	"certified": true
+},{
+	"name": "Raw Gourmet Meat",
+	"type": ["meat", "gourmet", "venison"],
+	"hearts": [6, 12, 18, 24, 30],
+	"effect": "none",
+	"duration": [30, 60, 90, 120, 150],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This prized cut of meat is usually from a large animal. Any connoisseur would rank this tender, juicy cut of meat 'gourmet'. Expect an exquisite meal when cooking with this.",
+	"image": "rawgourmetmeat.png",
+	"certified": true
+},
+
+{
+	"name": "Raw Bird Drumstick",
+	"type": ["meat", "regular", "poultry"],
+	"hearts": [1, 2, 3, 4, 5],
+	"effect": "none",
+	"duration": [30, 60, 90, 120, 150],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This meat is tougher and chewier than a standard steak. Tastes better cooked.",
+	"image": "rawbirddrumstick.png"
+},{
+	"name": "Raw Bird Thigh",
+	"type": ["meat", "prime", "poultry"],
+	"hearts": [1.5, 3, 4.5, 6, 7.5],
+	"effect": "none",
+	"duration": [30, 60, 90, 120, 150],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A high-quality piece of meat that's hard to come by. You can eat it raw, but cooking it first will recover more hearts.",
+	"image": "rawbirdthigh.png"
+},{
+	"name": "Raw Whole Bird",
+	"type": ["meat", "gourmet", "poultry"],
+	"hearts": [3, 6, 9, 12, 15],
+	"effect": "none",
+	"duration": [30, 60, 90, 120, 150],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This prized meat can be obtained from certain birds. It gets full points for flavor, nutrition, and volume. It pairs perfectly with other ingredients or can be enjoyed alone.",
+	"image": "rawwholebird.png"
+},
+
+
+
+{
 	"name": "Acorn",
 	"type": ["misc", "nut"],
 	"hearts": [1, 1.5, 2, 2.5, 3],
-	"effect": null,
+	"effect": "none",
 	"duration": [50, 80, 110, 140, 170],
 	"level": [0, 0, 0, 0, 0],
 	"description": "Often found on the ground near trees. Squirrels adore this nut, so you may have competition while foraging. Add one to a meal for a nutty seasoning.",
 	"image": "acorn.png"
-},
-{
+},{
 	"name": "Bird Egg",
 	"type": ["misc", "egg"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": null,
+	"effect": "none",
 	"duration": [90, 180, 270, 360, 450],
 	"level": [0, 0, 0, 0, 0],
 	"description": "A fresh bird egg necessary for making dishes such as omelets and crepes. You can snag them from birds' nests if you're sneaky. Nutritious and delicious, perfect.",
 	"image": "birdegg.png"
-},
-{
+},{
 	"name": "Cane Sugar",
 	"type": ["misc", "sugar"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
+	"effect": "none",
 	"duration": [80, 110, 140, 170, 200],
 	"level": [0, 0, 0, 0, 0],
 	"description": "When boiled with other ingredients, the cane breaks down into a sweet juice necessary for making cakes and other sweets. It's commonly found in ingredients stores.",
 	"image": "canesugar.png"
-},
-{
+},{
 	"name": "Chickaloo Tree Nut",
  	"type": ["misc", "nut"],
 	"hearts": [0.75, 1, 1.25, 1.5, 1.75],
-	"effect": null,
+	"effect": "none",
 	"duration": [40, 70, 100, 130, 160],
 	"level": [0, 0, 0, 0, 0],
 	"description": "Small birds love this nut. You can eat it raw for a minor effect, but it can also be added as a spice to other recipes.",
 	"image": "chickalootreenut.png"
-},
-{
+},{
 	"name": "Fresh Milk",
 	"type": ["misc", "milk"],
 	"hearts": [0.5, 1, 1.5, 2, 2.5],
-	"effect": null,
+	"effect": "none",
 	"duration": [80, 110, 140, 170, 200],
 	"level": [0, 0, 0, 0, 0],
 	"description": "This fresh milk comes from Hateno cows and white goats kept in the village. It's delicious on its own but can also be used as an ingredient in soups and stews.",
 	"image": "freshmilk.png"
-},
-{
+},{
 	"name": "Goat Butter",
 	"type": ["misc", "butter"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
+	"effect": "none",
 	"duration": [80, 110, 140, 170, 200],
 	"level": [0, 0, 0, 0, 0],
 	"description": "Butter made from the milk of a domesticated white goat. In addition to being used in dishes like stews and meunière. It's often used when making cakes and other sweets.",
 	"image": "goatbutter.png"
-},
-{
+},{
 	"name": "Goron Spice",
 	"type": ["misc", "spice"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
+	"effect": "none",
 	"duration": [90, 180, 270, 360, 450],
 	"level": [0, 0, 0, 0, 0],
 	"description": "Made from several types of spices, this secret Goron seasoning has been handed down for generations. An initial wave of spiciness paves the way for the sweetness.",
 	"image": "goronspice.png"
-},
-{
+},{
 	"name": "Hylian Rice",
 	"type": ["misc", "rice"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": null,
+	"effect": "none",
 	"duration": [60, 90, 120, 150, 180],
 	"level": [0, 0, 0, 0, 0],
 	"description": "This grain is a favorite among residents of Kakariko Village. It's grown in regions with a lot of water and is quite versatile. Used as an ingredient in things like risotto and rice balls.",
 	"image": "hylianrice.png"
-},
-{
+},{
 	"name": "Rock Salt",
 	"type": ["misc", "salt"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
+	"effect": "none",
 	"duration": [60, 120, 180, 240, 300],
 	"level": [0, 0, 0, 0, 0],
 	"description": "Crystallized salt from the ancient sea commonly used to season meals. Cannot be eaten in this form.",
 	"image": "rocksalt.png"
-},
-{
+},{
 	"name": "Tabantha Wheat",
 	"type": ["misc", "wheat"],
 	"hearts": [1, 2, 3, 4, 5],
-	"effect": null,
+	"effect": "none",
 	"duration": [60, 120, 180, 240, 300],
 	"level": [0, 0, 0, 0, 0],
 	"description": "This grain is cultivated extensively on the Tabantha Plains. It's ground finely with a millstone to be used in cooking. Use it to make things such as stews and breads.",
 	"image": "tabanthawheat.png"
-},
-{
+},{
 	"name": "Wood",
 	"type": ["misc", "wood"],
 	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
+	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
 	"description": "A portable bundle of wood. You can use this to make a campfire if you have something to light it.",
@@ -259,8 +245,7 @@
 	"level": [1, 1, 2, 3, 3],
 	"description": "This fruit grows mainly in tropical forests of the Faron region. When it's used as an ingredient, the resulting dish will temporarily increase your attack power.",
 	"image": "mightybananas.png"
-},
-{
+},{
 	"name": "Mighty Carp",
 	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -269,8 +254,7 @@
 	"level": [1, 2, 2, 3, 3],
 	"description": "This freshwater fish lives alongside its less mighty carp ilk. A compound in its liver promotes muscle growth. Dishes cooked with it will temporarily increase your attack power.",
 	"image": "mightycarp.png"
-},
-{
+},{
 	"name": "Mighty Porgy",
 	"type": ["seafood", "fish", "porgy"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -279,8 +263,7 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "This ocean-dwelling fish comes with one rude attitude. The compounds in its flesh elevate your competitive spirit when it's cooked into a dish, thus increasing your attack power.",
 	"image": "mightyporgy.png"
-},
-{
+},{
 	"name": "Mighty Thistle",
 	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -289,8 +272,7 @@
 	"level": [1, 1, 1, 1, 2],
 	"description": "This medicinal plant is known for its sharp thorns and for the fruit it bears. The fruit contains a compound that increases attack power when cooked into a dish.",
 	"image": "mightythistle.png"
-},
-{
+},{
 	"name": "Razorclaw Crab",
 	"type": ["seafood", "crab"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -299,8 +281,7 @@
 	"level": [1, 2, 2, 3, 3],
 	"description": "This crab is well known for its exceptionally sharp pincers. When cooked, the strength compound in its claws will increase your attack power.",
 	"image": "razorclawcrab.png"
-},
-{
+},{
 	"name": "Razorshroom",
 	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
@@ -322,8 +303,7 @@
 	"level": [1, 1, 1, 1, 2],
 	"description": "This tough medicinal plant cannot be broken, but it can be cooked. Its durable yet flexible fibers raise your defense when cooked into a dish.",
 	"image": "armoranth.png"
-},
-{
+},{
 	"name": "Armored Carp",
 	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -332,8 +312,7 @@
 	"level": [1, 2, 2, 3, 3],
 	"description": "Calcium deposits in the scales of this ancient fish make them as hard as armor. Cooking it into a dish will fortify your bones, temporarily increasing your defense.",
 	"image": "armoredcarp.png"
-},
-{
+},{
 	"name": "Armored Porgy",
 	"type": ["seafood", "fish", "porgy"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -342,8 +321,7 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "This porgy's body is covered in armor-hard scales. The compounds in its scales, when cooked into a dish, fortify your bones and temporarily boost your defense.",
 	"image": "armoredporgy.png"
-},
-{
+},{
 	"name": "Fortified Pumpkin",
 	"type": ["vegetable", "pumpkin"],
 	"hearts": [1, 2, 3, 4, 5],
@@ -352,8 +330,7 @@
 	"level": [1, 1, 2, 3, 3],
 	"description": "An extremely tough pumpkin raised in village fields. When cooked, that toughness manifests itself by considerably upping defense.",
 	"image": "fortifiedpumpkin.png"
-},
-{
+},{
 	"name": "Ironshell Crab",
 	"type": ["seafood", "crab"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -362,8 +339,7 @@
 	"level": [1, 2, 2, 3, 3],
 	"description": "This crab's shell is particularly hard. When cooked into a dish, its fat and meat bolster the body to increase your defense.",
 	"image": "ironshellcrab.png"
-},
-{
+},{
 	"name": "Ironshroom",
 	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
@@ -385,8 +361,7 @@
 	"level": [0, 0, 0, 0, 0],
 	"description": "Highly valued as a medicinal plant, this carrot contains large amounts of nourishing energy. When cooked into a dish, it boosts your stamina beyond its maximum limit.",
 	"image": "enduracarrot.png"
-},
-{
+},{
 	"name": "Endura Shroom",
 	"type": ["mushroom"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -408,8 +383,7 @@
 	"level": [0, 0, 0, 0, 0],
 	"description": "This crab appears in large numbers when it rains. On bite of its delectable meat, and you'll forget all your exhaustion. Replenishes your stamina when cooked into a dish.",
 	"image": "brighteyedcrab.png"
-},
-{
+},{
 	"name": "Courser Bee Honey",
 	"type": ["misc", "honey"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -418,8 +392,7 @@
 	"level": [0, 0, 0, 0, 0],
 	"description": "Honey straight from the hive is chock-full of nutrients. Cooking this into a meal unlocks the potential of these nutrients and provides a stamina-recovery effect.",
 	"image": "courserbeehoney.png"
-},
-{
+},{
 	"name": "Stamella Shroom",
 	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
@@ -428,8 +401,7 @@
 	"level": [0, 0, 0, 0, 0],
 	"description": "A green mushroom that grows near trees in the forest. It's chock-full of natural energy. Cook it to release its stamina-restoration properties.",
 	"image": "stamellashroom.png"
-},
-{
+},{
 	"name": "Staminoka Bass",
 	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -451,8 +423,7 @@
 	"level": [1, 1, 1, 1, 2],
 	"description": "A plant that grows in quieter areas of Hyrule. At night, it gives off a soft glow. Cook with it to increase your stealth.",
 	"image": "bluenightshade.png"
-},
-{
+},{
 	"name": "Silent Princess",
 	"type": ["herb"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -461,8 +432,7 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "This lovely flower was said to have been a favorite of the princess of Hyrule. Once feared to have gone extinct, it's recently been spotted growing in the wild.",
 	"image": "silentprincess.png"
-},
-{
+},{
 	"name": "Silent Shroom",
 	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
@@ -471,8 +441,7 @@
 	"level": [1, 1, 2, 2, 3],
 	"description": "A strange mushroom that glows quietly in the forest at night. Cooking it into a dish unlocks the nutrients in its cap, resulting in a meal that will allow you to move stealthily.",
 	"image": "silentshroom.png"
-},
-{
+},{
 	"name": "Sneaky River Snail",
 	"type": ["seafood", "snail"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -481,8 +450,7 @@
 	"level": [1, 1, 1, 1, 2],
 	"description": "This large, glow-in-the-dark snail lives in fresh water. When cooked into a dish, it heightens your senses so you can move about silently.",
 	"image": "sneakyriversnail.png"
-},
-{
+},{
 	"name": "Stealthfin Trout",
 	"type": ["seafood", "fish"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -504,8 +472,7 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "The plant that bears these seeds grows near deep water. The roots draw nutrients from the water, which boosts your movement speed when the seeds are cooked into a dish.",
 	"image": "fleetlotusseeds.png"
-},
-{
+},{
 	"name": "Rushroom",
 	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
@@ -514,8 +481,7 @@
 	"level": [1, 1, 1, 2, 2],
 	"description": "A mushroom that can grow almost anywhere but prefers ceilings and sheer cliffs. Cook it before eating to temporarily increase your movement speed.",
 	"image": "rushroom.png"
-},
-{
+},{
 	"name": "Swift Carrot",
 	"type": ["vegetable", "carrot"],
 	"hearts": [2, 4, 6, 8, 10],
@@ -524,8 +490,7 @@
 	"level": [1, 1, 1, 2, 2],
 	"description": "This carrot is cultivated extensively in Kakariko Village. It strengthens the legs and hips when cooked into a dish, which helps increase your movement speed.",
 	"image": "swiftcarrot.png"
-},
-{
+},{
 	"name": "Swift Violet",
 	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -546,9 +511,9 @@
 	"duration": [5, 10, 15, 20, 25],
 	"level": [0, 0, 0, 0, 0],
 	"description": "This hearty radish has grown much larger than the average radish. It's rich in analeptic compounds that, when cooked into a dish, temporarily increase your maximum hearts.",
-	"image": "bigheartyradish.png"
-},
-{
+	"image": "bigheartyradish.png",
+	"certified": true
+},{
 	"name": "Big Hearty Truffle",
 	"type": ["mushroom"],
 	"hearts": [30, 30, 30, 30, 30],
@@ -557,48 +522,7 @@
 	"level": [0, 0, 0, 0, 0],
 	"description": "Years of going unpicked have allowed this hearty truffle to grow quite large. It's chock-full of nutrients. When cooked into a dish, it temporarily increases your maximum hearts.",
 	"image": "bigheartytruffle.png"
-},
-{
-	"name": "Hearty Durian",
-	"type": ["fruit"],
-	"hearts": [30, 30, 30, 30, 30],
-	"effect": "hearty",
-	"duration": [4, 8, 12, 16, 20],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This fruit's odor earned it the nickname \"king of fruits\". It offers immense restorative power; dishes cooked with it will temporarily increase your maximum hearts.",
-	"image": "heartydurian.png"
-},
-{
-	"name": "Hearty Salmon",
-	"type": ["seafood", "fish", "salmon"],
-	"hearts": [30, 30, 30, 30, 30],
-	"effect": "hearty",
-	"duration": [4, 8, 12, 16, 20],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This fish makes its home in cold water, giving it extra layers of fat. It temporarily increases your maximum hearts when used in cooking.",
-	"image": "heartysalmon.png"
-},
-{
-	"name": "Hearty Radish",
-	"type": ["vegetable", "radish"],
-	"hearts": [30, 30, 30, 30, 30],
-	"effect": "hearty",
-	"duration": [3, 6, 9, 12, 15],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A rare radish that grows best in sunny plains. Cook it before eating to temporarily increase your maximum hearts.",
-	"image": "heartyradish.png"
-},
-{
-	"name": "Hearty Blueshell Snail",
-	"type": ["seafood", "snail"],
-	"hearts": [30, 30, 30, 30, 30],
-	"effect": "hearty",
-	"duration": [3, 6, 9, 12, 15],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This snail lives on sandy beaches in large numbers. Its flesh contains a high amount of stimulants, so when cooked into a dish, it temporarily increases your maximum hearts.",
-	"image": "heartyblueshellsnail.png"
-},
-{
+},{
 	"name": "Hearty Bass",
 	"type": ["seafood", "fish"],
 	"hearts": [30, 30, 30, 30, 30],
@@ -607,8 +531,43 @@
 	"level": [0, 0, 0, 0, 0],
 	"description": "This large fish lives near the shoreline. Its sizable body can restore a lot of nutrient. When cooked into a dish, it will temporarily increase your maximum hearts.",
 	"image": "heartybass.png"
-},
-{
+},{
+	"name": "Hearty Blueshell Snail",
+	"type": ["seafood", "snail"],
+	"hearts": [30, 30, 30, 30, 30],
+	"effect": "hearty",
+	"duration": [3, 6, 9, 12, 15],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This snail lives on sandy beaches in large numbers. Its flesh contains a high amount of stimulants, so when cooked into a dish, it temporarily increases your maximum hearts.",
+	"image": "heartyblueshellsnail.png"
+},{
+	"name": "Hearty Durian",
+	"type": ["fruit"],
+	"hearts": [30, 30, 30, 30, 30],
+	"effect": "hearty",
+	"duration": [4, 8, 12, 16, 20],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This fruit's odor earned it the nickname \"king of fruits\". It offers immense restorative power; dishes cooked with it will temporarily increase your maximum hearts.",
+	"image": "heartydurian.png"
+},{
+	"name": "Hearty Radish",
+	"type": ["vegetable", "radish"],
+	"hearts": [30, 30, 30, 30, 30],
+	"effect": "hearty",
+	"duration": [3, 6, 9, 12, 15],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A rare radish that grows best in sunny plains. Cook it before eating to temporarily increase your maximum hearts.",
+	"image": "heartyradish.png"
+},{
+	"name": "Hearty Salmon",
+	"type": ["seafood", "fish", "salmon"],
+	"hearts": [30, 30, 30, 30, 30],
+	"effect": "hearty",
+	"duration": [4, 8, 12, 16, 20],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This fish makes its home in cold water, giving it extra layers of fat. It temporarily increases your maximum hearts when used in cooking.",
+	"image": "heartysalmon.png"
+},{
 	"name": "Hearty Truffle",
 	"type": ["mushroom"],
 	"hearts": [30, 30, 30, 30, 30],
@@ -622,6 +581,33 @@
 
 
 {
+	"name": "Chillfin Trout",
+	"type": ["seafood", "fish"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "chilly",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This blue trout prefers cold bodies of water. Its skin contains enzymes that keep its body cool, and when cooked into a dish, it will temporarily boost your heat resistance.",
+	"image": "chillfintrout.png"
+},{
+	"name": "Chillshroom",
+	"type": ["mushroom"],
+	"hearts": [1, 2, 3, 4, 5],
+	"effect": "chilly",
+	"duration": [150, 300, 450, 600, 750],
+	"level": [1, 1, 1, 2, 2],
+	"description": "Often found at the base of pine trees in cold climates, these mushrooms are cool to the touch and can be used to cook dishes that allow you to stay cool even in arid regions.",
+	"image": "chillshroom.png"
+},{
+	"name": "Cool Safflina",
+	"type": ["herb"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "chilly",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This medicinal plant grows in high elevations, such as mountains in the Hebra or Gerudo regions. When cooked into a dish, it will temporarily increase your heat resistance.",
+	"image": "coolsafflina.png"
+},{
 	"name": "Hydromelon",
 	"type": ["fruit", "melon"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -631,59 +617,9 @@
 	"description": "This resilient fruit can flourish even in the heat of the desert. The hydrating liquid inside provides a cooling effect that, when cooked, increases your heat resistance.",
 	"image": "hydromelon.png"
 },
-{
-	"name": "Chillshroom",
-	"type": ["mushroom"],
-	"hearts": [1, 2, 3, 4, 5],
-	"effect": "chilly",
-	"duration": [150, 300, 450, 600, 750],
-	"level": [1, 1, 1, 2, 2],
-	"description": "Often found at the base of pine trees in cold climates, these mushrooms are cool to the touch and can be used to cook dishes that allow you to stay cool even in arid regions.",
-	"image": "chillshroom.png"
-},
-{
-	"name": "Chillfin Trout",
-	"type": ["seafood", "fish"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "chilly",
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This blue trout prefers cold bodies of water. Its skin contains enzymes that keep its body cool, and when cooked into a dish, it will temporarily boost your heat resistance.",
-	"image": "chillfintrout.png"
-},
-{
-	"name": "Cool Safflina",
-	"type": ["herb"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "chilly",
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This medicinal plant grows in high elevations, such as mountains in the Hebra or Gerudo regions. When cooked into a dish, it will temporarily increase your heat resistance.",
-	"image": "coolsafflina.png"
-},
 
 
 
-{
-	"name": "Spicy Pepper",
-	"type": ["fruit", "pepper"],
-	"hearts": [1, 2, 3, 4, 5],
-	"effect": "spicy",
-	"duration": [150, 300, 450, 600, 750],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This pepper is exploding with spice. Cook with it to create dishes that will raise your body temperature and help you withstand the cold.",
-	"image": "spicypepper.png"
-},
-{
-	"name": "Sunshroom",
-	"type": ["mushroom"],
-	"hearts": [1, 2, 3, 4, 5],
-	"effect": "spicy",
-	"duration": [150, 300, 450, 600, 750],
-	"level": [1, 1, 1, 2, 2],
-	"description": "A bright red mushroom that grows in hot climates. Imbued with the power of heat, they can be used to cook dishes that will allow you to endure the bitter cold.",
-	"image": "sunshroom.png"
-},
 {
 	"name": "Sizzlefin Trout",
 	"type": ["seafood", "fish"],
@@ -693,8 +629,25 @@
 	"level": [0, 0, 0, 0, 0],
 	"description": "This red trout prefers warm bodies of water. It has a special organ specifically for storing heat. When cooked into a dish, it temporarily boosts your resistance to the cold.",
 	"image": "sizzlefintrout.png"
-},
-{
+},{
+	"name": "Spicy Pepper",
+	"type": ["fruit", "pepper"],
+	"hearts": [1, 2, 3, 4, 5],
+	"effect": "spicy",
+	"duration": [150, 300, 450, 600, 750],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This pepper is exploding with spice. Cook with it to create dishes that will raise your body temperature and help you withstand the cold.",
+	"image": "spicypepper.png"
+},{
+	"name": "Sunshroom",
+	"type": ["mushroom"],
+	"hearts": [1, 2, 3, 4, 5],
+	"effect": "spicy",
+	"duration": [150, 300, 450, 600, 750],
+	"level": [1, 1, 1, 2, 2],
+	"description": "A bright red mushroom that grows in hot climates. Imbued with the power of heat, they can be used to cook dishes that will allow you to endure the bitter cold.",
+	"image": "sunshroom.png"
+},{
 	"name": "Warm Safflina",
 	"type": ["herb"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -705,36 +658,8 @@
 	"image": "warmsafflina.png"
 },
 
-{
-	"name": "Voltfruit",
-	"type": ["fruit", "voltfruit"],
-	"hearts": [2, 4, 6, 8, 10],
-	"effect": "electro",
-	"duration": [150, 300, 450, 600, 750],
-	"level": [0, 0, 0, 0, 0],
-	"description": "Cacti found in the Gerudo Desert bear this sweet fruit. It's naturally insulated, so when cooked into a dish, it provides resistance against electricity.",
-	"image": "voltfruit.png"
-},
-{
-	"name": "Zapshroom",
-	"type": ["mushroom"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "electro",
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This mushroom grows wild in the Gerudo region. The cap is naturally insulated, so when used in cooking, it will offer protection against electricity.",
-	"image": "zapshroom.png"
-},
-{
-	"name": "Voltfin Trout",
-	"type": ["seafood", "fish"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "electro",
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This trout makes its home in the freshwater lakes. Its scales have an insulating compound that, when cooked into a dish, offers resistance to electricity.",
-	"image": "voltfintrout.png"
-},
+
+
 {
 	"name": "Electric Safflina",
 	"type": ["herb"],
@@ -744,6 +669,33 @@
 	"level": [0, 0, 0, 0, 0],
 	"description": "This medicinal plant grows abundantly in the Gerudo Desert. Its peculiar fibers conduct electricity, which will increase your electricity resistance when cooked into a dish.",
 	"image": "electricsafflina.png"
+},{
+	"name": "Voltfin Trout",
+	"type": ["seafood", "fish"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "electro",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This trout makes its home in the freshwater lakes. Its scales have an insulating compound that, when cooked into a dish, offers resistance to electricity.",
+	"image": "voltfintrout.png"
+},{
+	"name": "Voltfruit",
+	"type": ["fruit", "voltfruit"],
+	"hearts": [2, 4, 6, 8, 10],
+	"effect": "electro",
+	"duration": [150, 300, 450, 600, 750],
+	"level": [0, 0, 0, 0, 0],
+	"description": "Cacti found in the Gerudo Desert bear this sweet fruit. It's naturally insulated, so when cooked into a dish, it provides resistance against electricity.",
+	"image": "voltfruit.png"
+},{
+	"name": "Zapshroom",
+	"type": ["mushroom"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "electro",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This mushroom grows wild in the Gerudo region. The cap is naturally insulated, so when used in cooking, it will offer protection against electricity.",
+	"image": "zapshroom.png"
 },
 
 
@@ -757,8 +709,7 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "This dragonfly prefers the cool shade of trees to the warmth of the sun. Its wings disperse heat from its body, which can be cooked into a heat-resistant elixir.",
 	"image": "colddarner.png"
-},
-{
+},{
 	"name": "Electric Darner",
 	"type": ["critter"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -767,8 +718,7 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "This rare dragonfly only appears in the rain. Its wings direct electricity away from its body. Cook it with monster parts for an electricity-resistant elixir.",
 	"image": "electricdarner.png"
-},
-{
+},{
 	"name": "Warm Darner",
 	"type": ["critter"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -788,8 +738,7 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "A quick frog that can be found hopping around near water. Cook it with monster parts to draw out its speed-boost effect.",
 	"image": "hot-footedfrog.png"
-},
-{
+},{
 	"name": "Tireless Frog",
 	"type": ["critter", "frog"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -809,8 +758,7 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "This rare lizard lives deep in the forests. It feeds on high-nutrient foods, giving it great vitality. When used to make elixirs, they temporarily increase your maximum hearts.",
 	"image": "heartylizard.png"
-},
-{
+},{
 	"name": "Fireproof Lizard",
 	"type": ["critter"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -819,8 +767,7 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "This rare lizard can only be found in the Eldin region. Its scales have heat-resistant properties, so when cooked with monster parts, it produces a heat-resistant elixir.",
 	"image": "fireprooflizard.png"
-},
-{
+},{
 	"name": "Hightail Lizard",
 	"type": ["critter"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -829,6 +776,401 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "A lizard found throughout Hyrule. It's a bit slow to react at times, but if given a chance to escape, it will dart off quickly. Cook it with monster parts for a speed-boosting elixir.",
 	"image": "hightaillizard.png"
+},
+
+{
+	"name": "Bladed Rhino Beetle",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "mighty",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This beetle's razor-sharp horns demand that you handle it with care. Boil the horns alongside monster parts to concoct an elixir that will raise your attack power.",
+	"image": "bladedrhinobeetle.png"
+},{
+	"name": "Energetic Rhino Beetle",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "energizing",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This valuable beetle can live up to ten years. When cooked with monster parts, its impressive vitality translates into an elixir that will greatly restore your stamina.",
+	"image": "energeticrhinobeetle.png"
+},{
+	"name": "Rugged Rhino Beetle",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "tough",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This beetle's hard body resembles armor. When the shell is cooked with monster parts, the resulting elixir boosts your defense.",
+	"image": "ruggedrhinobeetle.png"
+},
+
+{
+	"name": "Smotherwing Butterfly",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "fireproof",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"description": "This rare butterfly lives in volcanic regions. It’s body contains a heat-resistant liquid, which can be turned into a topical elixir that offers resistance to flames.",
+	"image": "smotherwingbutterfly.png"
+},{
+	"name": "Summerwing Butterfly",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "spicy",
+	"duration": [150, 300, 450, 600, 750],
+	"level": [1, 2, 3, 3, 3],
+	"description": "A butterfly found in the woods and plains of warm regions. Its wings absorb the warmth of the sun. Cook it with monster parts to create an elixir that makes you feel warm and fuzzy.",
+	"image": "summerwingbutterfly.png"
+},{
+	"name": "Thunderwing Butterfly",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "electro",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"description": "This rare butterfly only shows itself when it rains. The organs in its body produce an insulating compound. When made into an elixir, it offers electrical resistance.",
+	"image": "thunderwingbutterfly.png"
+},{
+	"name": "Winterwing Butterfly",
+	"type": ["critter"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "chilly",
+	"duration": [150, 300, 450, 600, 750],
+	"level": [1, 2, 3, 3, 3],
+	"description": "The powdery scales of this butterfly's wings cool the air around it. Watching it flutter around snowflakes is a thing of beauty. Cook it with monster parts for a heat-resistant elixir.",
+	"image": "winterwingbutterfly.png"
+},
+
+{
+	"name": "Bokoblin Fang",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A tooth obtained from a Bokoblin. It's worn down and not very sharp, but it's still pretty hard. Cook it alongside a critter to make an elixir.",
+	"image": "bokoblinfang.png"
+},{
+	"name": "Bokoblin Guts",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A rare material obtained by defeating a Bokoblin. It convulses on its own every now and then, which is really creepy, but perhaps it has a use.",
+	"image": "bokoblinguts.png"
+},{
+	"name": "Bokoblin Horn",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"description": "The severed horn of a Bokoblin, a creature often encountered on the plains of Hyrule. It isn't edible, but it can be tossed into a stew with some critters to make an elixir.",
+	"image": "bokoblinhorn.png"
+},
+
+{
+	"name": "Chuchu Jelly",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A gelatinous substance that came from a Chuchu. It's unusable in this state, but applying a bit of elemental stimulation will change its form.",
+	"image": "chuchujelly.png"
+},{
+	"name": "Red Chuchu Jelly",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A jiggly substance that normally comes from a Fire Chuchu. It constantly gives off heat. If struck, it will explode in a ball of flame.",
+	"image": "redchuchujelly.png"
+},{
+	"name": "White Chuchu Jelly",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A jiggly substance that came from an Ice Chuchu. It's cool to the touch, and squeezing it seems to relieve stress. If struck, it will explode in a cold mist.",
+	"image": "whitechuchujelly.png"
+},{
+	"name": "Yellow Chuchu Jelly",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A jiggly substance that came from an Electric Chuchu. Electricity pulses through its gelatinous mass. If struck, it will explode in a burst of electric current.",
+	"image": "yellowchuchujelly.png"
+},
+
+{
+	"name": "Fairy",
+	"type": ["critter", "fairy"],
+	"hearts": [9, 18, 27, 36, 45],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [1, 2, 3, 3, 3],
+	"description": "This fairy will fly from your pouch and heal all your wounds the moment you lose your last heart. It's easily mistaken for a firefly at first, but it glows in the daylight as well as night.",
+	"image": "fairy.png"
+},
+
+{
+	"name": "Keese Eyeball",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A rare material dropped by a defeated Keese. It's fun to look at, but it doesn't seem to have much use at first glance. But it must be good for something...",
+	"image": "keeseeyeball.png"
+},{
+	"name": "Keese Wing",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"description": "The wing of a Keese. It's covered with very short, sharp fur. It's not much use by itself, but you can mix it with critters to make something useful.",
+	"image": "keesewing.png"
+},{
+	"name": "Electric Keese Wing",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A rare Electric Keese wind. The part of the Electric Keese that produces electricity is not in its wings, so it won't shock you. Toss it in with some critters to make elixirs.",
+	"image": "electrickeesewing.png"
+},{
+	"name": "Fire Keese Wing",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A rare Fire Keese wing. There isn't enough Fire Keese attached to it to burn you, but it does have a slight warmth to it. It can be used as an ingredient for elixirs.",
+	"image": "firekeesewing.png"
+},{
+	"name": "Ice Keese Wing",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A rare Ice Keese wing. Its frozen surface gleams attractively, but its usefulness isn't readily apparent.",
+	"image": "icekeesewing.png"
+},
+
+{
+	"name": "Hinox Guts",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A giant, smelly Hinox organ of unknown function. Upon closer inspection, it appears to be quivering, It can be used to make an elixir, but some say it has other uses, as well.",
+	"image": "hinoxguts.png"
+},{
+	"name": "Hinox Toenail",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A nail obtained from a Hinox. It's as thick as a plate of armor and can be stewed with critters to make elixirs.",
+	"image": "hinoxtoenail.png"
+},{
+	"name": "Hinox Tooth",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A tooth obtained from a Hinox. It's so large, it's hard to believe it's a real tooth. It can be used to make elixirs.",
+	"image": "hinoxtooth.png"
+},
+
+{
+	"name": "Lizalfos Horn",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This winding horn once grew atop the head of a Lizalfos. It's too hard to use for cooking, but stores are willing to buy it from you. It can also be used to make elixirs.",
+	"image": "lizalfoshorn.png"
+},{
+	"name": "Lizalfos Talon",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This talon once grew from the elbow of a Lizalfos. You can stew it with critters to make elixirs, but it may have some other uses, as well.",
+	"image": "lizalfostalon.png"
+},{
+	"name": "Lizalfos Tail",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "The severed tail of a Lizalfos. It continues to wriggle even after being separated from its body. That kind of vitality makes it highly valued as an ingredient in elixirs.",
+	"image": "lizalfostail.png"
+},{
+	"name": "Icy Lizalfos Tail",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "The severed tail of an Ice-Breath Lizalfos. Its hard scales and flesh make it unsuitable for cooking, but it's perfect for making elixirs.",
+	"image": "icylizalfostail.png"
+},{
+	"name": "Red Lizalfos Tail",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "The severed tail of a Fire-Breath Lizalfos. Its flavor makes the flesh inedible, but toss it into a stew with some critters, and you'll have yourself a nice elixir.",
+	"image": "redlizalfostail.png"
+},{
+	"name": "Yellow Lizalfos Tail",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "The severed tail of an Electric Lizalfos. Its powerful stench makes it unappetizing and unfit for cooking, but it's highly valued as an ingredient for elixirs.",
+	"image": "yellowlizalfostail.png"
+},
+
+{
+	"name": "Lynel Guts",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This highly sought-after ingredient can only be obtained from a Lynel. It pulses with the vitality of a Lynel, a strength that makes it invaluable as an ingredient for elixirs.",
+	"image": "lynelguts.png"
+},{
+	"name": "Lynel Hoof",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This rare ingredient can be obtained only from a Lynel's foot. It's larger and heavier than a horse's hoof. It's useful for making elixirs but may have uses beyond that.",
+	"image": "lynelhoof.png"
+},{
+	"name": "Lynel Horn",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "The Lynel this horn once grew upon surely misses it. It's exceptionally hard—so hard that most blades cannot scratch it. Throw it into a stew with critters to make elixirs.",
+	"image": "lynelhorn.png"
+},
+
+{
+	"name": "Moblin Horn",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [70, 140, 210, 280, 330],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This splendid horn once grew atop the head of a Moblin. It can't be used in normal food recipes, but it does have some use as an ingredient in making elixirs.",
+	"image": "moblinhorn.png"
+},{
+	"name": "Moblin Fang",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [110, 160, 210, 260, 310],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A sharp fang obtained from a Moblin. It's too hard to be reshaped into a tool, but it can be tossed into a stew with some critters to create elixirs.",
+	"image": "moblinfang.png"
+},{
+	"name": "Moblin Guts",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [190, 380, 570, 760, 950],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This prized ingredient can be obtained from Moblins. Its odor is too pungent for normal food preparation, but stew it with some critters to make elixirs.",
+	"image": "moblinguts.png"
+},
+
+{
+	"name": "Molduga Fin",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A sturdy fin obtained from a Molduga. It can be used to make elixirs, but there may be someone willing to trade for it.",
+	"image": "moldugafin.png"
+},{
+	"name": "Molduga Guts",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A giant organ obtained from a Molduga. This invaluable ingredient is hard to come by, and its use is shrouded in mystery.",
+	"image": "moldugaguts.png"
+},
+
+{
+	"name": "Monster Extract",
+	"type": ["monster", "extract"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "A result of Kilton's research into monsters, this suspicious spice can be used to punch up dishes while cooking. Apparently it can be used to make a number of monstrous meals.",
+	"image": "monsterextract.png"
+},
+
+{
+	"name": "Octo Balloon",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This inflatable Octorok organ has a lot of lift, so attach it to items you want to see float. Hold it in your hands, and then place it on an object to attach it.",
+	"image": "octoballoon.png"
+},{
+	"name": "Octorok Eyeball",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This can only be obtained from an Octorok-type enemy. You can sell it to a store, or you can make elixirs with it, but it may have other uses, as well.",
+	"image": "octorokeyeball.png"
+},{
+	"name": "Octorok Tentacle",
+	"type": ["monster"],
+	"hearts": [0, 0, 0, 0, 0],
+	"effect": "none",
+	"duration": [0, 0, 0, 0, 0],
+	"level": [0, 0, 0, 0, 0],
+	"description": "This can only be obtained from an Octorok-type enemy. It's too acidic for cooking, but it's highly valued as an ingredient for elixirs.",
+	"image": "octoroktentacle.png"
 },
 
 {
@@ -843,68 +1185,6 @@
 },
 
 {
-	"name": "Rugged Rhino Beetle",
-	"type": ["critter"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "tough",
-	"duration": [0, 0, 0, 0, 0],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This beetle's hard body resembles armor. When the shell is cooked with monster parts, the resulting elixir boosts your defense.",
-	"image": "ruggedrhinobeetle.png"
-},
-{
-	"name": "Energetic Rhino Beetle",
-	"type": ["critter"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "energizing",
-	"duration": [0, 0, 0, 0, 0],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This valuable beetle can live up to ten years. When cooked with monster parts, its impressive vitality translates into an elixir that will greatly restore your stamina.",
-	"image": "energeticrhinobeetle.png"
-},
-
-{
-	"name": "Smotherwing Butterfly",
-	"type": ["critter"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "fireproof",
-	"duration": [0, 0, 0, 0, 0],
-	"level": [1, 2, 3, 3, 3],
-	"description": "This rare butterfly lives in volcanic regions. It’s body contains a heat-resistant liquid, which can be turned into a topical elixir that offers resistance to flames.",
-	"image": "smotherwingbutterfly.png"
-},
-{
-	"name": "Summerwing Butterfly",
-	"type": ["critter"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "spicy",
-	"duration": [150, 300, 450, 600, 750],
-	"level": [1, 2, 3, 3, 3],
-	"description": "A butterfly found in the woods and plains of warm regions. Its wings absorb the warmth of the sun. Cook it with monster parts to create an elixir that makes you feel warm and fuzzy.",
-	"image": "summerwingbutterfly.png"
-},
-{
-	"name": "Thunderwing Butterfly",
-	"type": ["critter"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "electro",
-	"duration": [0, 0, 0, 0, 0],
-	"level": [1, 2, 3, 3, 3],
-	"description": "This rare butterfly only shows itself when it rains. The organs in its body produce an insulating compound. When made into an elixir, it offers electrical resistance.",
-	"image": "thunderwingbutterfly.png"
-},
-{
-	"name": "Winterwing Butterfly",
-	"type": ["critter"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": "chilly",
-	"duration": [150, 300, 450, 600, 750],
-	"level": [1, 2, 3, 3, 3],
-	"description": "The powdery scales of this butterfly's wings cool the air around it. Watching it flutter around snowflakes is a thing of beauty. Cook it with monster parts for a heat-resistant elixir.",
-	"image": "winterwingbutterfly.png"
-},
-
-{
 	"name": "Sunset Firefly",
 	"type": ["critter"],
 	"hearts": [0, 0, 0, 0, 0],
@@ -913,195 +1193,5 @@
 	"level": [1, 2, 3, 3, 3],
 	"description": "These fireflies glow gently in the dark. When cooked with monster parts, the compound that causes it to glow results in an elixir that will allow you to move more quietly.",
 	"image": "sunsetfirefly.png"
-},
-
-{
-	"name": "Fairy",
-	"type": ["critter", "fairy"],
-	"hearts": [9, 18, 27, 36, 45],
-	"effect": null,
-	"duration": [0, 0, 0, 0, 0],
-	"level": [1, 2, 3, 3, 3],
-	"description": "This fairy will fly from your pouch and heal all your wounds the moment you lose your last heart. It's easily mistaken for a firefly at first, but it glows in the daylight as well as night.",
-	"image": "fairy.png"
-},
-
-
-
-{
-	"name": "Chuchu Jelly",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [70, 140, 210, 280, 330],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A gelatinous substance that came from a Chuchu. It's unusable in this state, but applying a bit of elemental stimulation will change its form.",
-	"image": "chuchujelly.png"
-},
-{
-	"name": "Red Chuchu Jelly",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [110, 160, 210, 260, 310],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A jiggly substance that normally comes from a Fire Chuchu. It constantly gives off heat. If struck, it will explode in a ball of flame.",
-	"image": "redchuchujelly.png"
-},
-{
-	"name": "White Chuchu Jelly",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [110, 160, 210, 260, 310],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A jiggly substance that came from an Ice Chuchu. It's cool to the touch, and squeezing it seems to relieve stress. If struck, it will explode in a cold mist.",
-	"image": "whitechuchujelly.png"
-},
-{
-	"name": "Yellow Chuchu Jelly",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [110, 160, 210, 260, 310],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A jiggly substance that came from an Electric Chuchu. Electricity pulses through its gelatinous mass. If struck, it will explode in a burst of electric current.",
-	"image": "yellowchuchujelly.png"
-},
-
-{
-	"name": "Bokoblin Horn",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [70, 140, 210, 280, 330],
-	"level": [0, 0, 0, 0, 0],
-	"description": "The severed horn of a Bokoblin, a creature often encountered on the plains of Hyrule. It isn't edible, but it can be tossed into a stew with some critters to make an elixir.",
-	"image": "bokoblinhorn.png"
-},
-{
-	"name": "Bokoblin Fang",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [110, 160, 210, 260, 310],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A tooth obtained from a Bokoblin. It's worn down and not very sharp, but it's still pretty hard. Cook it alongside a critter to make an elixir.",
-	"image": "bokoblinfang.png"
-},
-{
-	"name": "Bokoblin Guts",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A rare material obtained by defeating a Bokoblin. It convulses on its own every now and then, which is really creepy, but perhaps it has a use.",
-	"image": "bokoblinguts.png"
-},
-
-{
-	"name": "Keese Wing",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [70, 140, 210, 280, 330],
-	"level": [0, 0, 0, 0, 0],
-	"description": "The wing of a Keese. It's covered with very short, sharp fur. It's not much use by itself, but you can mix it with critters to make something useful.",
-	"image": "keesewing.png"
-},
-{
-	"name": "Electric Keese Wing",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [110, 160, 210, 260, 310],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A rare Electric Keese wind. The part of the Electric Keese that produces electricity is not in its wings, so it won't shock you. Toss it in with some critters to make elixirs.",
-	"image": "electrickeesewing.png"
-},
-{
-	"name": "Keese Eyeball",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A rare material dropped by a defeated Keese. It's fun to look at, but it doesn't seem to have much use at first glance. But it must be good for something...",
-	"image": "keeseeyeball.png"
-},
-
-{
-	"name": "Moblin Horn",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [70, 140, 210, 280, 330],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This splendid horn once grew atop the head of a Moblin. It can't be used in normal food recipes, but it does have some use as an ingredient in making elixirs.",
-	"image": "moblinhorn.png"
-},
-{
-	"name": "Moblin Fang",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [110, 160, 210, 260, 310],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A sharp fang obtained from a Moblin. It's too hard to be reshaped into a tool, but it can be tossed into a stew with some critters to create elixirs.",
-	"image": "moblinfang.png"
-},
-{
-	"name": "Moblin Guts",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This prized ingredient can be obtained from Moblins. Its odor is too pungent for normal food preparation, but stew it with some critters to make elixirs.",
-	"image": "moblinguts.png"
-},
-
-{
-	"name": "Lizalfos Horn",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [70, 140, 210, 280, 330],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This winding horn once grew atop the head of a Lizalfos. It's too hard to use for cooking, but stores are willing to buy it from you. It can also be used to make elixirs.",
-	"image": "lizalfoshorn.png"
-},
-{
-	"name": "Lizalfos Talon",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [110, 160, 210, 260, 310],
-	"level": [0, 0, 0, 0, 0],
-	"description": "This talon once grew from the elbow of a Lizalfos. You can stew it with critters to make elixirs, but it may have some other uses, as well.",
-	"image": "lizalfostalon.png"
-},
-{
-	"name": "Lizalfos Tail",
-	"type": ["monster"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [190, 380, 570, 760, 950],
-	"level": [0, 0, 0, 0, 0],
-	"description": "The severed tail of a Lizalfos. It continues to wriggle even after being separated from its body. That kind of vitality makes it highly valued as an ingredient in elixirs.",
-	"image": "lizalfostail.png"
-},
-
-{
-	"name": "Monster Extract",
-	"type": ["monster", "extract"],
-	"hearts": [0, 0, 0, 0, 0],
-	"effect": null,
-	"duration": [0, 0, 0, 0, 0],
-	"level": [0, 0, 0, 0, 0],
-	"description": "A result of Kilton's research into monsters, this suspicious spice can be used to punch up dishes while cooking. Apparently it can be used to make a number of monstrous meals.",
-	"image": "monsterextract.png"
 }
-
 ]

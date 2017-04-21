@@ -33,10 +33,10 @@ var dishImage = document.getElementsByClassName('dishImage')[0]
 if (self.fetch) {
 	fetchThen('food.json', function(data) {
 		items = data;
-		debug && console.log("Items loaded");
+		debug && console.log(items.length + ' items loaded');
 		fetchThen('recipes.json', function(data) {
 			dishes = data;
-			debug && console.log("Dishes loaded");
+			debug && console.log(getAllRecipes(dishes).length + ' dishes loaded');
 			for (var i = 0; i < items.length; i++) {
 				items[i].id = i;
 			}

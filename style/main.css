@@ -190,6 +190,9 @@ header {
 #dishEffect img {
 	vertical-align: middle;
 }
+#dishCertified i {
+	color: #e5c100;
+}
 
 /* Control Panel */
 #ctl {
