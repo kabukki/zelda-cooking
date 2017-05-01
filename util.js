@@ -316,19 +316,22 @@ function getRelatedRecipes(list, ing) {
 	var recipes = [];
 
 	for (var type in list) { // Loop every type => any, apple, ...
-		// If this subtype is a terminal subtype
-		if (list[type] instanceof Array) {
-			// Add every single recipe in this subtype to our list
-			for (var i = 0; i < list[type].length; i++) {
-				if (!appearsIn(list[type][i].required, ing.type) || appearsIn(list[type][i].excluded, ing.type))
-					continue ;
-				recipes.push(list[type][i]);
-			}
-		} else { // Else this is another parent class (Object)
-			var subrecipes = getRelatedRecipes(list[type], ing);
+		// If this type accepts us
+		if (type == "any" || ing.type.indexOf(type) != -1) {
+			// If this subtype is a terminal subtype
+			if (list[type] instanceof Array) {
+				// Add every single recipe in this subtype to our list
+				for (var i = 0; i < list[type].length; i++) {
+					if (!appearsIn(list[type][i].required, ing.type) || appearsIn(list[type][i].excluded, ing.type))
+						continue ;
+					recipes.push(list[type][i]);
+				}
+			} else { // Else this is another parent class (Object)
+				var subrecipes = getRelatedRecipes(list[type], ing);
 
-			for (var j = 0; j < subrecipes.length; j++)
-				recipes.push(subrecipes[j]);
+				for (var j = 0; j < subrecipes.length; j++)
+					recipes.push(subrecipes[j]);
+			}
 		}
 	}
 	return recipes;
@@ -411,6 +414,18 @@ function myCreateElement(tag, attr) {
 		e[key] = attr[key];
 	}
 	return e;
+}
+
+/*
+ * Creates a DOM element with the given attributes
+ */
+function myCreateIngredient(ing) {
+	var d = myCreateElement('div', {
+		className: 'sq ing',
+		innerHTML: htmlIngredient(ing)
+	});
+	d.getElementsByTagName("a")[0].onclick = function() { UIopenPopup(ing); return false; };
+	return d;
 }
 
 /* GET parameters */

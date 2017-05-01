@@ -6,6 +6,7 @@
 
 /*
  *	TODO
+ *  - Bug: ingredients hearty annules ont toujours leur effet.
  *	- Todo: trouver les proprietes de nouveaux ingredients.
  *	- Todo: trouver les images correspondant aux effets.
  *  - Todo: page referencant tous les ingredients d'un type donne (encyclopedia.html?type=fruit)
@@ -51,7 +52,6 @@ if (self.fetch) {
 			for (var i = 0; i < items.length; i++) {
 				items[i].id = i;
 			}
-			UIQueue();
 			UIdisplayIngredients(items, cmpFunctions["name"]);
 			display(cook(queue));
 		});
@@ -189,31 +189,12 @@ function UIdisplayIngredients(items, cmpf) {
 	for (var i = 0; i < items.length; i++) {
 		(function() {
 			var ci = i;
-			var d = myCreateElement('div', {
-				className: 'sq ing',
-				innerHTML: htmlIngredient(items[i])
-			});
+			var d = myCreateIngredient(items[i]);
+			d.getElementsByTagName("img")[0].onclick = function() { addToQueue(items[ci]); };
 
 			if (i == 0 || cmpf.compareSimple(items[i - 1], items[i]) != 0)
 				UIaddSeparator(cmpf.get(items[i]));
-			d.getElementsByTagName("img")[0].onclick = function() { addToQueue(items[ci]); };
-			d.getElementsByTagName("a")[0].onclick = function() { UIopenPopup(items[ci]); return false; };
 			ingredientList.appendChild(d);
-		})();
-	}
-}
-
-/*
- * Setting up queue GUI
- */
-function UIQueue() {
-	for (var i = 0; i < ingredients.length; i++) {
-		(function() {
-			var ci = i;
-			ingredients[ci].onclick = function(e) {
-				if (e.target.localName == "img")
-					removeFromQueue(ci);
-			};
 		})();
 	}
 }
@@ -319,12 +300,19 @@ function removeFromQueue(n) {
 }
 
 /*
- * Refresh the images in the queue
+ * Refresh the DOM ingredients in the queue
  */
 function refreshQueue() {
 	for (var i = 0; i < 5; i++) {
-		if (i < queue.length)
-			ingredients[i].innerHTML = htmlIngredient(queue[i]);
+		if (i < queue.length)  {
+			(function() {
+				var ci = i;
+				var d = myCreateIngredient(queue[ci]);
+
+				d.getElementsByTagName("img")[0].onclick = function() { removeFromQueue(ci); };
+				ingredients[ci] = ingredients[ci].parentNode.replaceChild(d, ingredients[ci]);
+			})();
+		}
 		else
 			ingredients[i].innerHTML = '';
 	}

@@ -35,7 +35,7 @@
 	"type": ["mushroom"],
 	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
-	"duration": [0, 0, 0, 0, 0],
+	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
 	"description": "A common mushroom found near trees around Hyrule. Eat it to restore half a heart.",
 	"image": "hylianshroom.png"
@@ -105,7 +105,7 @@
 {
 	"name": "Raw Bird Drumstick",
 	"type": ["meat", "regular", "poultry"],
-	"hearts": [1, 2, 3, 4, 5],
+	"hearts": [2, 4, 6, 8, 10],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
@@ -114,7 +114,7 @@
 },{
 	"name": "Raw Bird Thigh",
 	"type": ["meat", "prime", "poultry"],
-	"hearts": [1.5, 3, 4.5, 6, 7.5],
+	"hearts": [3, 6, 9, 12, 15],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
@@ -123,7 +123,7 @@
 },{
 	"name": "Raw Whole Bird",
 	"type": ["meat", "gourmet", "poultry"],
-	"hearts": [3, 6, 9, 12, 15],
+	"hearts": [6, 12, 18, 24, 30],
 	"effect": "none",
 	"duration": [30, 60, 90, 120, 150],
 	"level": [0, 0, 0, 0, 0],
@@ -145,7 +145,7 @@
 },{
 	"name": "Bird Egg",
 	"type": ["misc", "egg"],
-	"hearts": [1, 2, 3, 4, 5],
+	"hearts": [2, 4, 6, 8, 10],
 	"effect": "none",
 	"duration": [90, 180, 270, 360, 450],
 	"level": [0, 0, 0, 0, 0],
@@ -172,7 +172,7 @@
 },{
 	"name": "Fresh Milk",
 	"type": ["misc", "milk"],
-	"hearts": [0.5, 1, 1.5, 2, 2.5],
+	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [80, 110, 140, 170, 200],
 	"level": [0, 0, 0, 0, 0],
@@ -181,7 +181,7 @@
 },{
 	"name": "Goat Butter",
 	"type": ["misc", "butter"],
-	"hearts": [0, 0, 0, 0, 0],
+	"hearts": [1, 2, 3, 4, 5],
 	"effect": "none",
 	"duration": [80, 110, 140, 170, 200],
 	"level": [0, 0, 0, 0, 0],
@@ -1136,7 +1136,7 @@
 {
 	"name": "Monster Extract",
 	"type": ["monster", "extract"],
-	"hearts": [0, 0, 0, 0, 0],
+	"hearts": [4, 8, 12, 16, 20],
 	"effect": "none",
 	"duration": [0, 0, 0, 0, 0],
 	"level": [0, 0, 0, 0, 0],
